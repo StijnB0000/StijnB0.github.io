@@ -1,12 +1,5 @@
-.patat {
-    color:gold;
-    font-size: 50px;
+.mainHead {
+    background-image: url("Images\HeaderImage.jpg");
+    background-size: cover;
+    background-blend-mode: multiply;
 }
-
-body{
-    background-color: rgb(81, 138, 190); 
-}
-
-.title {
-    color: black;
-} 
