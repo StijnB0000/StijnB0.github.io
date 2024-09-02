@@ -1,5 +1,53 @@
-.mainHead {
-    background-image: url("Images\HeaderImage.jpg");
-    background-size: cover;
-    background-blend-mode: multiply;
+.menuknop {
+  background-color: #000000;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* positie dropdown menu  */
+.uitvouwen {
+  position: relative;
+  display: inline-block;
+}
+
+.uitvouwen {
+  text-align: center;
+  transform: translateX(10%);
+}
+
+/* content dropdown menu */
+.uitgevouwenInhoud {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Linkjes dropdown menu */
+.uitgevouwenInhoud a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* kleuren veranderen muis op link */
+.uitgevouwenInhoud a:hover {
+  background-color: #b8b8b8;
+}
+
+/* Verschijnen menu muis  */
+.uitvouwen:hover .uitgevouwenInhoud {
+  display: block;
+}
+
+/* achtergrond veranderen menu open */
+.uitvouwen:hover .menuknop {
+  background-color: #ffffff;
+  color: #000000;
 }
