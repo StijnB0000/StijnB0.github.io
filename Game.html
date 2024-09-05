@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- poging tot het fixen van dat het niet op alle schermen past  -->
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title> - Minigame Pong - </title>
+    <title>MiniGame Pong</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
-    <p>
-      <nav>
-          <a href="index.html">
-            <li style="border-style: solid">Back</li> <!-- Menu Bar -->
-          </a>
-      </nav>
-    </p> 
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
@@ -64,11 +57,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Web5PongBuild3.0.loader.js";
+      var loaderUrl = buildUrl + "/Web5PongBuildv2.loader.js";
       var config = {
-        dataUrl: buildUrl + "/Web5PongBuild3.0.data",
-        frameworkUrl: buildUrl + "/Web5PongBuild3.0.framework.js",
-        codeUrl: buildUrl + "/Web5PongBuild3.0.wasm",
+        dataUrl: buildUrl + "/Web5PongBuildv2.data",
+        frameworkUrl: buildUrl + "/Web5PongBuildv2.framework.js",
+        codeUrl: buildUrl + "/Web5PongBuildv2.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Pong HTML versie",
