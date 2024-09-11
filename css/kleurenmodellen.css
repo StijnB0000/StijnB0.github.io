@@ -6,8 +6,10 @@ body{
 .clrRedBox{
     background-color: transparent;
     transition: background-color 0,3s;
+    transition: 
 }
 
-.clrRedBox:hover{
+.clrRedBoxTxt:hover + .clrRedBox{
+    transition: background-color 0,3s;
     background-color: red;
 }
