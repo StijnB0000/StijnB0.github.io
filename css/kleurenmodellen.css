@@ -7,8 +7,11 @@ body {
 
 .clrRedBox{
     background-color: aqua;
+    color: chartreuse;
+
 }
 
 .clrRedBox{
     background-color: brown;
+    color: purple;
 }
