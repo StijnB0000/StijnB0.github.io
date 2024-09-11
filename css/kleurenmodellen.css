@@ -5,7 +5,7 @@ body {
     /*afbeelding aanpassen aan beelscherm resolutie/aspect ratio */
 }
 
-.clrRedBox:hover{
+.clrRedBoxTxt:hover + .clrRedBox{
     background-color: aqua;
     color: chartreuse;
 }
