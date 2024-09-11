@@ -11,7 +11,9 @@ body {
 }
 
 .clrRedBoxTxt:hover + .clrRedBox:hover{
+    background-color: transparent;
     background-color: aqua;
+    color: transparent;
     color: chartreuse;
 }
 
