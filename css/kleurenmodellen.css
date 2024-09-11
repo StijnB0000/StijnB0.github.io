@@ -5,12 +5,10 @@ body {
     /*afbeelding aanpassen aan beelscherm resolutie/aspect ratio */
 }
 
-.clrRedBox {
-    background-color: transparent;
-    transition: background-color 1s;
+.clrRedBox{
+    background-color: aqua;
 }
 
-.clrRedBoxTxt:hover+.clrRedBox {
-    transition: background-color 0, 3s;
-    background-color: red;
+.clrRedBox{
+    background-color: brown;
 }
