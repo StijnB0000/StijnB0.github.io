@@ -6,8 +6,8 @@ body {
 }
 
 .clrRedBox {
-    background-color: red;
-    transition: background-color 1s;
+    background-color: rgb(246, 255, 0);
+    transition: background-color 1s linear;
 }
 
 .clrRedBox:hover {
