@@ -6,12 +6,11 @@ body {
 }
 
 .clrRedBox {
-    background-color:transparent;
+    background-color: transparent;
     transition: background-color 500ms ease;
     text-align: center;
     padding: 15px;
-    margin: 5%;
-
+    display: block;
 }
 
 .clrRedBox:hover {
@@ -19,11 +18,11 @@ body {
 }
 
 .clrGreenBox {
-    background-color:transparent;
+    background-color: transparent;
     transition: background-color 500ms ease;
     text-align: center;
     padding: 15px;
-    margin: 5%;
+    display: block;
 }
 
 .clrGreenBox:hover {
@@ -32,15 +31,13 @@ body {
 
 
 .clrBlueBox {
-    background-color:transparent;
+    background-color: transparent;
     transition: background-color 500ms ease;
     text-align: center;
     padding: 15px;
-    margin: 5%;
-
+    display: block;
 }
 
 .clrBlueBox:hover {
     background-color: blue;
 }
-
