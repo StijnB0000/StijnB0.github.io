@@ -6,7 +6,7 @@ body {
 }
 
 .clrRedBox {
-    background-color: rgb(246, 255, 0);
+    background-color: yellow;
     transition: background-color 1s linear;
 }
 
