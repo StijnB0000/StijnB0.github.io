@@ -40,10 +40,10 @@ body {
 }
 
 .hoverlist {
-    letter-spacing: 1px;
+    letter-spacing: 0.3vw ;
     transition: letter-spacing 1s ease-in-out;
 }
 
 .hoverlist:hover {
-    letter-spacing: 15px;
+    letter-spacing: 2vw;
 }
