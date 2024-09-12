@@ -10,7 +10,7 @@ body {
     transition: background-color 900ms ease;
     text-align: center;
     padding: 15px;
-    display: block;
+    display: flex;
 }
 
 .clrRedBox:hover {
@@ -22,7 +22,7 @@ body {
     transition: background-color 900ms ease;
     text-align: center;
     padding: 15px;
-    display: block;
+    display: flex;
 }
 
 .clrGreenBox:hover {
@@ -35,7 +35,7 @@ body {
     transition: background-color 900ms ease;
     text-align: center;
     padding: 15px;
-    display: block;
+    display: flex;
 }
 
 .clrBlueBox:hover {
