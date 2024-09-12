@@ -1,47 +1,47 @@
 body {
-    background-image: url("/Images/BGimage.jpg");
-    /*https://www.vecteezy.com/vector-art/9626037-silhouette-landscape-with-fog-forest-pine-trees-mountains-illustration-of-national-park-view-mist-black-and-white-good-for-wallpaper-background-banner-cover-poster*/
-    background-size: 100vw 100vh;
-    /*afbeelding aanpassen aan beelscherm resolutie/aspect ratio */
+  background-image: url("/Images/BGimage.jpg");
+  /*https://www.vecteezy.com/vector-art/9626037-silhouette-landscape-with-fog-forest-pine-trees-mountains-illustration-of-national-park-view-mist-black-and-white-good-for-wallpaper-background-banner-cover-poster*/
+  background-size: 100vw 100vh;
+  /*afbeelding aanpassen aan beelscherm resolutie/aspect ratio */
 }
 
 .clrRedBox .clrBlueBox .clrGreenBox {
-    background-color: transparent;
-    transition: background-color 900ms ease;
-    text-align: center;
-    padding: 5px;
-    width: 150px;
-    height: 50px;
-    margin: 10px auto;
-    font-size: 24px;
+  background-color: transparent;
+  transition: background-color 900ms ease;
+  text-align: center;
+  padding: 5px;
+  width: 150px;
+  height: 50px;
+  margin: 10px auto;
+  font-size: 24px;
+}
+
+.divlisthorizontal {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 .clrRedBox:hover {
-    background-color: #C3423F;
+  background-color: #c3423f;
+  transition: background-color 900ms ease;
 }
-
-.divlisthorizontal{
-    display: flex;
-    justify-content: center; 
-    gap: 10px; 
-}
-
 
 .clrGreenBox:hover {
-    background-color: #4B7F52;
+  background-color: #4b7f52;
+  transition: background-color 900ms ease;
 }
-
 
 .clrBlueBox:hover {
-    background-color: #3C91E6;
+  background-color: #3c91e6;
+  transition: background-color 900ms ease;
 }
 
-
 .hoverlist {
-    letter-spacing: 0.3vw;
-    transition: letter-spacing 1s cubic-bezier(0.67, -0.41, 0.41, 1.75);
+  letter-spacing: 0.3vw;
+  transition: letter-spacing 1s cubic-bezier(0.67, -0.41, 0.41, 1.75);
 }
 
 .hoverlist:hover {
-    letter-spacing: 2vw;
+  letter-spacing: 2vw;
 }
