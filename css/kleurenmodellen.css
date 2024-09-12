@@ -7,7 +7,7 @@ body {
 
 .clrRedBox {
     background-color:transparent;
-    transition: background-color 1s linear;
+    transition: background-color 500ms ease;
     text-align: center;
     padding: 15px;
 }
