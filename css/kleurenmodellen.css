@@ -7,7 +7,7 @@ body {
 
 .clrRedBox {
     background-color: transparent;
-    transition: background-color 500ms ease;
+    transition: background-color 900ms ease;
     text-align: center;
     padding: 15px;
     display: block;
@@ -19,7 +19,7 @@ body {
 
 .clrGreenBox {
     background-color: transparent;
-    transition: background-color 500ms ease;
+    transition: background-color 900ms ease;
     text-align: center;
     padding: 15px;
     display: block;
@@ -32,7 +32,7 @@ body {
 
 .clrBlueBox {
     background-color: transparent;
-    transition: background-color 500ms ease;
+    transition: background-color 900ms ease;
     text-align: center;
     padding: 15px;
     display: block;
