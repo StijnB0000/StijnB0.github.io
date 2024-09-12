@@ -39,14 +39,14 @@ body {
     background-color: #3C91E6;
 }
 
-.hoverlist{
+.hoverlist {
     text-indent: 5px;
     letter-spacing: 5px;
     transition: text-indent 1s ease-in-out;
     transition: letter-spacing 1s ease-in-out;
 }
 
-.hoverlist:hover{
+.hoverlist:hover {
     letter-spacing: 15px;
     text-indent: 55px;
 }
