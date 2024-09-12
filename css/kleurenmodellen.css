@@ -38,3 +38,12 @@ body {
 .clrBlueBox:hover {
     background-color: #3C91E6;
 }
+
+.hoverlist{
+    text-indent: 5px;
+    transition: text-indent 1s;
+}
+
+.hoverlist:hover{
+    text-indent: 30px;
+}
