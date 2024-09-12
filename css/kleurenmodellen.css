@@ -41,7 +41,7 @@ body {
 
 .hoverlist{
     text-indent: 5px;
-    transition: text-indent 1s;
+    transition: text-indent 1s ease-in-out;
 }
 
 .hoverlist:hover{
