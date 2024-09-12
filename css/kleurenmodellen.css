@@ -13,6 +13,7 @@ body {
     width: 150px;
     height: 50px;
     margin: 10px auto;
+    font-size: 24px;
 }
 
 .clrRedBox:hover {
