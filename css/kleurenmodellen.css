@@ -6,10 +6,12 @@ body {
 }
 
 .clrRedBox {
-    background-color: yellow;
+    background-color:transparent;
     transition: background-color 1s linear;
+    text-align: center;
+    padding: 15px;
 }
 
 .clrRedBox:hover {
-    background-color: black;
+    background-color: red;
 }
