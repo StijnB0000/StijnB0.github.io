@@ -30,7 +30,7 @@ body {
 
 .clrBlueBox {
     background-color: transparent;
-    transition: background-color 900ms cubic-bezier(0.67, -0.41, 0.41, 1.75);
+    transition: background-color 900ms ease;
     text-align: center;
     padding: 15px;
 }
@@ -45,7 +45,7 @@ body {
 
 .hoverlist {
     letter-spacing: 0.3vw;
-    transition: letter-spacing 1s ease-in-out;
+    transition: letter-spacing 1s cubic-bezier(0.67, -0.41, 0.41, 1.75);
 }
 
 .hoverlist:hover {
