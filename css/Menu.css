@@ -5,6 +5,7 @@
   font-size: 16px;
   border: none;
   cursor: pointer;
+  position: fixed;
 }
 
 /* positie dropdown menu  */
