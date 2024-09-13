@@ -5,7 +5,7 @@ body {
   /*afbeelding aanpassen aan beelscherm resolutie/aspect ratio */
 }
 
-.clrRedBox .clrBlueBox .clrGreenBox {
+.clrRedBox .clrBlueBox .clrGreenBox .clrYellowBox {
   background-color: transparent;
   transition: background-color 900ms ease;
   text-align: center;
@@ -27,6 +27,11 @@ body {
   transition: background-color 900ms ease;
 }
 
+.clrYellowBox:hover {
+  background-color: #d9f83b;
+  transition: background-color 900ms ease;
+}
+
 .clrGreenBox:hover {
   background-color: #4b7f52;
   transition: background-color 900ms ease;
@@ -42,6 +47,27 @@ body {
   transition: letter-spacing 1s cubic-bezier(0.67, -0.41, 0.41, 1.75);
 }
 
-.hoverlist:hover {
+.hoverlist:hover{
   letter-spacing: 2vw;
+
+  .clrRedBox {
+    background-color: #c3423f;
+    transition: background-color 900ms ease;
+  }
+  
+  .clrYellowBox {
+    background-color: #d9f83b;
+    transition: background-color 900ms ease;
+  }
+  
+  .clrGreenBox {
+    background-color: #4b7f52;
+    transition: background-color 900ms ease;
+  }
+  
+  .clrBlueBox {
+    background-color: #3c91e6;
+    transition: background-color 900ms ease;
+  }
+
 }
