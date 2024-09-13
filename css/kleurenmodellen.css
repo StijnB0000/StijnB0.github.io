@@ -47,9 +47,10 @@ body {
   transition: letter-spacing 1s cubic-bezier(0.67, -0.41, 0.41, 1.75);
 }
 
-.hoverlist:hover{
-  letter-spacing: 2vw;
-
+.hoverlist:hover +.clrRedBox +.clrGreenBox +.clrBlueBox +.clrYellowBox{
+  .hoverlist{
+    letter-spacing: 2vw;
+  }
   .clrRedBox {
     background-color: #c3423f;
     transition: background-color 900ms ease;
@@ -69,5 +70,4 @@ body {
     background-color: #3c91e6;
     transition: background-color 900ms ease;
   }
-
 }
