@@ -50,23 +50,3 @@ body {
 .hoverlist:hover +.clrRedBox +.clrGreenBox +.clrBlueBox +.clrYellowBox{
   letter-spacing: 2vw;
 }
-
-.clrRedBox:hover {
-  background-color: #c3423f;
-  transition: background-color 900ms ease;
-}
-
-.clrYellowBox:hover {
-  background-color: #d9f83b;
-  transition: background-color 900ms ease;
-}
-
-.clrGreenBox:hover {
-  background-color: #4b7f52;
-  transition: background-color 900ms ease;
-}
-
-.clrBlueBox:hover {
-  background-color: #3c91e6;
-  transition: background-color 900ms ease;
-}
