@@ -36,4 +36,11 @@ body {
   letter-spacing: 2vw;
 }
 
+body { /*achtergrond pagina en zorgen dat je kunt scrollen*/
+  background: 
+      url('/Images/BGimage.jpg') no-repeat center top;
+      background-color: #313131;
+      background-size: 100vw 100vh;
+      height: 200vh;
+}
 

@@ -25,7 +25,7 @@ hoverlistB.addEventListener("mouseover", function(){
 
 hoverlistGe.addEventListener("mouseover", function(){
     console.log("Hoverlist Ge is hovered");
-    document.getElementById("clrYellowBox").style.backgroundColor = "#d9f83b";
+    document.getElementById("clrYellowBox").style.backgroundColor = "#FFFF00";
 });
 
 
