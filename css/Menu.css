@@ -22,6 +22,7 @@
 /* content dropdown menu */
 .uitgevouwenInhoud {
   display: none;
+  top: 50px;
   position: absolute;
   background-color: #ffffff;
   min-width: 160px;
