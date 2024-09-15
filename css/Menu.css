@@ -10,7 +10,7 @@
 
 /* positie dropdown menu  */
 .uitvouwen {
-  position: relative;
+  position: fixed;
   display: inline-block;
 }
 
