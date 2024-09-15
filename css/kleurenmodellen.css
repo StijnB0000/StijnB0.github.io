@@ -16,30 +16,15 @@ body {
   font-size: 24px;
 }
 
+#clrRedBox, #clrGreenBox, #clrBlueBox, #clrYellowBox {
+  transition: background-color 0.5s ease;
+}
+
+
 .divlisthorizontal {
   display: flex;
   justify-content: center;
   gap: 10px;
-}
-
-.clrRedBox:hover {
-  background-color: #c3423f;
-  transition: background-color 900ms ease;
-}
-
-.clrYellowBox:hover {
-  background-color: #d9f83b;
-  transition: background-color 900ms ease;
-}
-
-.clrGreenBox:hover {
-  background-color: #4b7f52;
-  transition: background-color 900ms ease;
-}
-
-.clrBlueBox:hover {
-  background-color: #3c91e6;
-  transition: background-color 900ms ease;
 }
 
 .hoverlist {
