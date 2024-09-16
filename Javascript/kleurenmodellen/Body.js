@@ -79,21 +79,25 @@ hoverlistGe.addEventListener("mouseleave", function(){
 hoverlistR.addEventListener("click", function(){
     IsRoodActief = !IsRoodActief
     document.getElementById("clrRedBox").style.backgroundColor = IsRoodActief ? "#c3423f" : "#00000000";
+    document.getElementById("hoverlistR").style.listStyle = IsRoodActief ? "square" : "none";
 });
 
 hoverlistG.addEventListener("click", function(){
     IsGroenActief = !IsGroenActief
     document.getElementById("clrGreenBox").style.backgroundColor = IsGroenActief ? "#4b7f52" : "#00000000";
+    document.getElementById("hoverlistG").style.listStyle = IsGroenActief ? "square" : "none";
 });
 
 hoverlistB.addEventListener("click", function(){
     IsBlauwActief = !IsBlauwActief
     document.getElementById("clrBlueBox").style.backgroundColor = IsBlauwActief ? "#3c91e6" : "#00000000";
+    document.getElementById("hoverlistB").style.listStyle = IsBlauwActief ? "square" : "none";
 });
 
 hoverlistGe.addEventListener("click", function(){
     IsGeelActief = !IsGeelActief
     document.getElementById("clrYellowBox").style.backgroundColor = IsGeelActief ? "#FFFF00" : "#00000000";
+    document.getElementById("hoverlistGe").style.listStyle = IsGeelActief ? "square" : "none";
 });
 
 
