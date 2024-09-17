@@ -74,7 +74,7 @@ hoverlistGe.addEventListener("mouseleave", function(){
 
 
 
-
+// 
 
 hoverlistR.addEventListener("click", function(){
     IsRoodActief = !IsRoodActief
