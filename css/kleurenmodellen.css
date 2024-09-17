@@ -31,7 +31,6 @@ body {
 .hoverlist {
   letter-spacing: 0.1vw;
   transition: letter-spacing 650ms cubic-bezier(0.67, -0.41, 0.41, 1.75);
-  transition: list-Style 300ms linear;
   cursor: pointer;
 }
 
