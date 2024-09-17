@@ -1,18 +1,21 @@
 console.log("kleurenmodellen.html body.js loaded");
 
+// alles makkelijk toegankelijk maken door het aan een kortere variable te koppelen.
 hoverlistR = document.getElementById("hoverlistR");
 hoverlistG = document.getElementById("hoverlistG");
 hoverlistB = document.getElementById("hoverlistB");
 hoverlistGe = document.getElementById("hoverlistGe");
 
-//lijst met aan/uit toggle
+//lijst met aan/uit toggle, als de website start staan ze allemaal op false
 let IsRoodActief = false;
 let IsGroenActief = false;
 let IsBlauwActief = false;
 let IsGeelActief = false;
 
-//als de muis erop gaat:
-
+/*
+Eerst checken per element of er een muis op gaat, dan checken of hij niet getoggled is met 
+muisklik. Als hij nog niet actief is zal hij de kleur laten zien die erbij hoort.
+*/
 hoverlistR.addEventListener("mouseover", function(){
     console.log("Hoverlist R is hovered");
     if (!IsRoodActief) {
@@ -42,8 +45,10 @@ hoverlistGe.addEventListener("mouseover", function(){
 });
 
 
-// en nu als de muis eraf gaat:
-
+/*
+Eerst checken per element of er een muis af gaat, dan checken of hij niet getoggled is met 
+muisklik. Als hij nog niet actief is zal hij de kleur weer doorzichtig maken.
+*/
 hoverlistR.addEventListener("mouseleave", function(){
     if (!IsRoodActief) {
         document.getElementById("clrRedBox").style.backgroundColor = "#00000000";
@@ -69,13 +74,12 @@ hoverlistGe.addEventListener("mouseleave", function(){
     }
 });
 
-
-
-
-
-
-// 
-
+/*
+Checken of de muis kliks, dan als hij actief is onactief maken, 
+dan kleur veranderen op basis van true or false op of hij actief is. 
+Daarna op basis van true or false de list style aanpassen zodat je ziet welke aan/uit staat.
+Dit 4 keer doen voor elke kleur
+*/
 hoverlistR.addEventListener("click", function(){
     IsRoodActief = !IsRoodActief
     document.getElementById("clrRedBox").style.backgroundColor = IsRoodActief ? "#c3423f" : "#00000000";
