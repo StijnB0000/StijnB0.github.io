@@ -30,3 +30,8 @@ body { /*achtergrond pagina en zorgen dat je kunt scrollen*/
     transition: font-size 0.3s;
     /*Animatie snelheid voor de flow*/
 }
+
+.footer {
+    text-align: center;
+    
+}
