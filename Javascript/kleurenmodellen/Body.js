@@ -75,7 +75,7 @@ hoverlistGe.addEventListener("mouseleave", function(){
 });
 
 /*
-Checken of de muis kliks, dan als hij actief is onactief maken, 
+Checken of de muis klikt, dan wisselt hij van actief/onactief naar het tegenovergestelde., 
 dan kleur veranderen op basis van true or false op of hij actief is. 
 Daarna op basis van true or false de list style aanpassen zodat je ziet welke aan/uit staat.
 Dit 4 keer doen voor elke kleur
