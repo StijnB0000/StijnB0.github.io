@@ -14,9 +14,9 @@ body { /*achtergrond pagina en zorgen dat je kunt scrollen*/
 }
 
 .content {
-    padding: 100px;
-    color: white;
-    text-align: center;
+    padding: 100px; /*ruimte eromheen*/
+    color: white; /**/
+    text-align: center; /* tekst in het midden*/
 }
 
 .linkje:hover {
