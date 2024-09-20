@@ -11,9 +11,6 @@
 .uitvouwen {
   position: fixed;
   display: inline-block;
-}
-
-.uitvouwen {
   text-align: center;
   transform: translateX(10%);
 }
