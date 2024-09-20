@@ -1,1 +1,1 @@
-console.log("index.html extra.js loaded")
+console.log("index.html extra.js loaded") // checkt of dit script werkt in de console van inspect element.
