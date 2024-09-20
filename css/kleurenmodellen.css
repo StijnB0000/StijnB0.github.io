@@ -1,51 +1,79 @@
-
 .clrRedBox .clrBlueBox .clrGreenBox .clrYellowBox {
-  background-color: transparent; /*maakt de achtergrond doorzichtig*/
-  text-align: center; /*tekst *in het midden van de pagina*/
-  padding: 5px; /*ruimte er om heen*/
-  width: 150px; /*breedte*/
-  height: 50px; /*hoogte*/
-  margin: 10px auto;  /*zorgt ervoor dat de ruimte er tussen groot genoeg is*/
-  font-size: 24px; /*tekst grootte*/
+  background-color: transparent;
+  /*maakt de achtergrond doorzichtig*/
+  text-align: center;
+  /*tekst *in het midden van de pagina*/
+  padding: 5px;
+  /*ruimte er om heen*/
+  width: 150px;
+  /*breedte*/
+  height: 50px;
+  /*hoogte*/
+  margin: 10px auto;
+  /*zorgt ervoor dat de ruimte er tussen groot genoeg is*/
+  font-size: 24px;
+  /*tekst grootte*/
 }
 
-#clrRedBox, #clrGreenBox, #clrBlueBox, #clrYellowBox {
-  transition: background-color 0.5s ease;  /*zorgt ervoor dat de kleur een beetje overvloeid ipv spontaan veranderd*/
-  color: transparent; /*standaard kleur: doorzichtig*/ 
+#clrRedBox,
+#clrGreenBox,
+#clrBlueBox,
+#clrYellowBox {
+  transition: background-color 0.5s ease;
+  /*zorgt ervoor dat de kleur een beetje overvloeid ipv spontaan veranderd*/
+  color: transparent;
+  /*standaard kleur: doorzichtig*/
 
   /*zorgen dat je de tekst niet kunt selecteren*/
-  -ms-user-select: none; /*voor explorer*/
-  -webkit-user-select: none; /*voor safari*/
-  user-select: none; /*voor overige waar het wel normaal werkt*/
+  -ms-user-select: none;
+  /*voor explorer*/
+  -webkit-user-select: none;
+  /*voor safari*/
+  user-select: none;
+  /*voor overige waar het wel normaal werkt*/
 }
 
 
 .divlisthorizontal {
-  display: flex; /*zorgen dat de hij makkelijk te positioneren is met andere onderdelen*/
-  justify-content: center; /*zorgt dat het in het midden zit*/
-  gap: 10px; /*ruimte tussen de onderdelen*/
+  display: flex;
+  /*zorgen dat de hij makkelijk te positioneren is met andere onderdelen*/
+  justify-content: center;
+  /*zorgt dat het in het midden zit*/
+  gap: 10px;
+  /*ruimte tussen de onderdelen*/
 }
 
 .hoverlist {
   /*zorgen dat je de tekst niet kunt selecteren*/
-  -ms-user-select: none; /*voor explorer*/
-  -webkit-user-select: none; /*voor safari*/
-  user-select: none; /*voor overige waar het wel normaal werkt*/
+  -ms-user-select: none;
+  /*voor explorer*/
+  -webkit-user-select: none;
+  /*voor safari*/
+  user-select: none;
+  /*voor overige waar het wel normaal werkt*/
 
-  letter-spacing: 0.1vw; /*ruimte tussen de letters*/
-  transition: letter-spacing 650ms cubic-bezier(0.67, -0.41, 0.41, 1.75); /*vloeiend over laten lopen van weinig naar veel ruimte tussen de letters*/
-  cursor: pointer; /*maakt je muis zon leuk klik dingetje*/
+  letter-spacing: 0.1vw;
+  /*ruimte tussen de letters*/
+  transition: letter-spacing 650ms cubic-bezier(0.67, -0.41, 0.41, 1.75);
+  /*vloeiend over laten lopen van weinig naar veel ruimte tussen de letters*/
+  cursor: pointer;
+  /*maakt je muis zon leuk klik dingetje*/
 }
 
 .hoverlist:hover {
-  letter-spacing: 2vw; /*maakt de ruimte tussen de letters groter*/
+  letter-spacing: 2vw;
+  /*maakt de ruimte tussen de letters groter*/
 }
 
-body { /*achtergrond pagina en zorgen dat je kunt scrollen*/
-  background: 
-      url('/Images/BGimage.jpg') no-repeat center top; /*achtergrond foto*/
-      background-color: #313131; /*achtergrond kleur na de foto*/
-      background-size: 100vw 100vh; /*grootte achtergrond*/
-      height: 200vh; /*hoogte achtergrond zodat je kunt scrollen*/
+body {
+  /*achtergrond pagina en zorgen dat je kunt scrollen*/
+  background:
+    url('/Images/BGimage.jpg') no-repeat center top;
+  /*achtergrond foto*/
+  background-color: #313131;
+  /*achtergrond kleur na de foto*/
+  background-size: 100vw 100vh;
+  /*grootte achtergrond*/
+  height: 200vh;
+  /*hoogte achtergrond zodat je kunt scrollen*/
 }
-

@@ -1,4 +1,5 @@
-document.addEventListener('visibilitychange', e => { /* kijkt voor een event genaamd 'visibitychange' 
+document.addEventListener('visibilitychange', e => { 
+    /* kijkt voor een event genaamd 'visibitychange' 
     en kijkt of die visisble is, 
     en zo niet dan zorgt de 'else' statement ervoor dat hij ervan uitgaat dat hij niet visible is.
     Hij verander de website titel als visibility state niet 'visible is' en veranderd hem weer terug als hij weer 'visible is'  */
