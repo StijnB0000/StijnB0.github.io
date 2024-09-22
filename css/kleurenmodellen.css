@@ -33,8 +33,8 @@
   /*voor overige waar het wel normaal werkt*/
 }
 
-
 .divlisthorizontal {
+  
   display: flex;
   /*zorgen dat de hij makkelijk te positioneren is met andere onderdelen*/
   justify-content: center;
@@ -44,6 +44,7 @@
 }
 
 .hoverlist {
+
   /*zorgen dat je de tekst niet kunt selecteren*/
   -ms-user-select: none;
   /*voor explorer*/
@@ -61,14 +62,14 @@
 }
 
 .hoverlist:hover {
+
   letter-spacing: 2vw;
   /*maakt de ruimte tussen de letters groter*/
 }
 
-body {
-  /*achtergrond pagina en zorgen dat je kunt scrollen*/
-  background:
-    url('/Images/BGimage.jpg') no-repeat center top;
+body {  /*achtergrond pagina en zorgen dat je kunt scrollen*/
+
+  background: url("/Images/BGimage.jpg") no-repeat center top;
   /*achtergrond foto*/
   background-color: #313131;
   /*achtergrond kleur na de foto*/

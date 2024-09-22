@@ -31,3 +31,11 @@ body { /*achtergrond pagina en zorgen dat je kunt scrollen*/
     /*Animatie snelheid voor de flow*/
 }
 
+.footer {
+    min-height:180vh;  
+    display:flex; 
+    flex-direction:column; 
+    justify-content:end;
+    color: rgb(129, 155, 189);
+    font-size: 20px;
+}
