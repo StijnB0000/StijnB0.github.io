@@ -107,4 +107,32 @@ hoverlistGe.addEventListener("click", function(){
 
 
 
+const cyaanSlider = document.getElementById('CyaanSlider');
+const magentaSlider = document.getElementById('MagentaSlider');
+const geelSlider = document.getElementById('GeelSlider');
+
+
+
+
+function updateColor() {
+    const cyaanwaarde = cyaanSlider.value;
+    const magentawaarde = magentaSlider.value;
+    const geelwaarde = geelSlider.value;
+
+
+
+    console.log(`Cyaan: ${cyaanwaarde}, Magenta: ${magentawaarde}, Geel: ${geelwaarde}`);
+
+    const rood = 255 - cyaanwaarde; 
+    const groen = 255 - magentawaarde; 
+    const blauw = 255 - geelwaarde; 
+
+    // Change the color of the element with ID GekleurdeTekst
+    document.getElementById("GekleurdeTekst").style.color = `rgb(${rood}, ${groen}, ${blauw})`;
+}
+
+
+cyaanSlider.addEventListener('input', updateColor);
+magentaSlider.addEventListener('input', updateColor);
+geelSlider.addEventListener('input', updateColor);
 

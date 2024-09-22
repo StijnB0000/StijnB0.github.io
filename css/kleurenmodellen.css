@@ -44,6 +44,7 @@
 }
 
 .hoverlist {
+
   /*zorgen dat je de tekst niet kunt selecteren*/
   -ms-user-select: none;
   /*voor explorer*/
@@ -66,6 +67,9 @@
   /*maakt de ruimte tussen de letters groter*/
 }
 
+
+
+
 body {  /*achtergrond pagina en zorgen dat je kunt scrollen*/
 
   background: url("/Images/BGimage.jpg") no-repeat center top;
@@ -77,3 +81,7 @@ body {  /*achtergrond pagina en zorgen dat je kunt scrollen*/
   height: 200vh;
   /*hoogte achtergrond zodat je kunt scrollen*/
 }
+
+
+
+
