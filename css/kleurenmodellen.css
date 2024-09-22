@@ -44,7 +44,6 @@
 }
 
 .hoverlist {
-
   /*zorgen dat je de tekst niet kunt selecteren*/
   -ms-user-select: none;
   /*voor explorer*/
