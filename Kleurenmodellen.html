@@ -67,34 +67,42 @@
     </div>
   </div>
 
-  <h1 style="text-align: center;">CMY</h1>
+  <h1 style="text-align: center;">CMY</h1> <!--tekst over het CMY kleurenmodel-->
   <p style="text-align: center;">In tegenstelling tot RGB gaat CMY van licht naar donker in plaats van donker naar licht. <br>
     Bij het CMY kleurenmodel heb je 3 basis kleuren: Cyaan, Magenta en Geel. Dit kleurmodel word veel gebruikt door printers omdat ze (vaak) op wit papier printen.
   </p>
 
-  <div class="SliderDiv">
+
+  <div class="SliderDiv"> 
+    <!--sliders met een id en class voor de js en css-->
     <input type="range" min="0" max="255" value="0" class="slider" id="CyaanSlider" style="margin-left:40%; cursor: pointer;"> Cyaan <br>
     <input type="range" min="0" max="255" value="0" class="slider" id="MagentaSlider" style="margin-left:40%; cursor: pointer;"> Magenta <br>
     <input type="range" min="0" max="255" value="0" class="slider" id="GeelSlider" style="margin-left:40%; cursor: pointer;"> Geel
   </div>
  
+  <!--de tekst die de js aanpast op basis van de sliders-->
   <p id="GekleurdeTekst" style="text-align: center; background-color: rgba(0, 0, 0, 0.288); font-size: 24px ;">Deze tekst heeft een leuke kleur</p>
   
 
-
+  <!--Pijl naar beneden afbeelding voor scrollen verduidelijken-->
   <img src="/Images/ArrowDown.png" alt="Arrow Pointing Down" width="150" style="display: block; margin-left: auto; margin-right: auto; margin-top: 35ch; padding-bottom: 20vh;">
 
  
+
+  <!--CMY afbeelding voor uitleg-->
   <img src="/Images/cmy.png"  width="50px" height="50px">
 
+
+  <!--Aangeven dat dit de footer is-->
   <footer>
-    <div class="footer">
+    <div class="footer"> <!--class aan de div geven voor de js-->
       <p style="text-align: center;">Gemaakt door: Stijn Boyce<br> 
        
         Email:
         <a href="mailto:school@stijnboyce.com" 
         style="color: rgb(170, 238, 215); 
-        font-size: 20px;">school@stijnboyce.com</a>
+        font-size: 20px;">school@stijnboyce.com</a> <!--Zorgen dat als je op de link klikt dat hij
+        automatisch naar de mailing app gaat door gebruik te maken van mailto: -->
         
       </p>
     </div>
