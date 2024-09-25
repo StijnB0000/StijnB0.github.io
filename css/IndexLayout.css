@@ -2,7 +2,7 @@
     color: black;
     text-shadow: 10px;
     text-shadow: black;
-    text-align: center;
+    text-align: center !important;
 }
 
 
