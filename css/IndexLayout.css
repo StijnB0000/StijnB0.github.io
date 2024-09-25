@@ -12,6 +12,13 @@ body { /*achtergrond pagina en zorgen dat je kunt scrollen*/
         height: 200vh;
 }
 
+.centerImage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
 .content {
     padding: 100px; /*ruimte eromheen*/
     color: white; /**/
