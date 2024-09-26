@@ -86,4 +86,7 @@ body {  /*achtergrond pagina en zorgen dat je kunt scrollen*/
 
 #GekleurdeTekst{
   color: white;
+  width: fit-content;
+  margin-left:auto;
+  margin-right:auto;
 }
