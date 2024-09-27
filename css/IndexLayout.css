@@ -1,7 +1,7 @@
 .BasisText { /*style voor algemene text op de site*/
     color: black;
     text-align: center !important;
-    font-size: 32px;
+    font-size: 25px;
 }
 
 
@@ -27,12 +27,12 @@ body { /*achtergrond pagina en zorgen dat je kunt scrollen*/
 }
 
 .linkje:hover {
-    font-size: 20px;
+    font-size: 229px;
     /*text grootte muis erop*/
 }
 
 .linkje {
-    font-size: 16px;
+    font-size: 25px;
     /*Standaard letter grootte*/
     transition: font-size 0.3s;
     /*Animatie snelheid voor de flow*/
