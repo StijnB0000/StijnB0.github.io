@@ -3,6 +3,8 @@
   <head class="mainHead">
     <link rel="stylesheet" href="css/Menu.css" />
     <link rel="stylesheet" href="css/IndexLayout.css" />
+    <!--Css bestanden linken aan het html document zodat hij de classes id's etc kan vinden-->
+
     <link rel="shortcut icon" href="Images/favicon.ico" />
     <!--icoontje naast website titel / page name-->
 
@@ -15,9 +17,11 @@
 
   <body>
     <div class="uitvouwen">
-      <!-- Menu knop Linksboven-->
+      <!-- container van Menu knop Linksboven die altijd zichtbaar is-->
       <button class="menuknop">Menu</button>
+      <!--De menu knop zelf in de container, waar als je er op klikt de volgende container met inhoud zichtbaar word.-->
       <div class="uitgevouwenInhoud">
+        <!-- container met alle menu opties die alleen zichtbaar is als de button:hover actief is -->
         <a href="Binairstelsel.html">&#127760;Binairstelsel</a>
         <a href="Kleurenmodellen.html">&#127752;Kleurenmodel</a>
         <a href="Bitmap&vectorafbeeldingen.html">&#128221;Afbeeldingen</a>
@@ -26,8 +30,11 @@
       </div>
     </div>
 
-    <!-- website titel -->
+    <!-- website titel word nog veranderd door de javascript maar voor de zekerheid als javascript geblokkeerd is in de browser.-->
     <title>Mijn persoonlijke website</title>
+
+    <!--De class BasisText worde gebruikt voor alle tekst op de site, als een tekst er toch anders 
+    uit moet zien gebruik ik na de "class" de "style" attribuut om dat te overschrijven-->
 
     <!-- kopje 1 -->
     <h1 class="BasisText"><i>Over Mij</i></h1>
@@ -57,21 +64,22 @@
       <li style="text-align: center">Lezen</li>
     </p>
 
-
-    <br><br><br><br><br><br><br>
-    <p class="BasisText">Hier een uitleg <a class="linkje" href="">video</a> over de site en de code erachter! </p>
+    <br /><br /><br /><br /><br /><br /><br />
+    <!--makkelijk een paar regels ertussen, had ook iets van padding of margin kunnen gebruiken-->
+    <p class="BasisText">
+      Hier een uitleg <a class="linkje" href="">video</a> over de site en de
+      code erachter!
+    </p>
 
     <img
       src="/Images/ArrowDown.png"
-      alt="Arrow Pointing Down"
       width="150"
       style="
         display: block;
         margin-left: auto;
         margin-right: auto;
         margin-top: 35ch;
-      "
-    />
+        "/>
 
     <br />
     <br />
@@ -115,6 +123,7 @@
             style="color: rgb(170, 238, 215); font-size: 20px"
             >school@stijnboyce.com</a
           >
+          <!--mailto: gebruikt zodat hij automatisch gmail of een ander geschikt mailings platform opent-->
         </p>
       </div>
     </footer>
