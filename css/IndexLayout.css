@@ -17,7 +17,6 @@ body { /*achtergrond pagina en zorgen dat je kunt scrollen*/
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
 }
 
 .content {
