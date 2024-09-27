@@ -1,127 +1,206 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Kleurenmodellen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Zorg dat de website zich aanpast naar andere resoluties zoals die op je telefoon-->
+    <link rel="stylesheet" href="css/kleurenmodellen.css" />
+    <!--link het css document met het html document-->
+    <link rel="stylesheet" href="css/IndexLayout.css" />
+    <link rel="stylesheet" href="css/Menu.css" />
+    <link rel="shortcut icon" href="Images/favicon.ico" />
+    <!--icoontje naast website titel / page name-->
 
-<head>
-  <title>Kleurenmodellen</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!--Zorg dat de website zich aanpast naar andere resoluties zoals die op je telefoon-->
-  <link rel="stylesheet" href="css/kleurenmodellen.css" /> <!--link het css document met het html document-->
-  <link rel="stylesheet" href="css/IndexLayout.css" />
-  <link rel="stylesheet" href="css/Menu.css" />
-  <link rel="shortcut icon" href="Images/favicon.ico" /> <!--icoontje naast website titel / page name-->
-
-  <div class="uitvouwen">
-    <!-- Menu knop Linksboven-->
-    <button class="menuknop">Menu</button>
-    <div class="uitgevouwenInhoud">
-      <a href="index.html">&#127968;Home</a>
-      <a href="Binairstelsel.html">&#127760;Binairstelsel</a>
-      <a href="Bitmap&vectorafbeeldingen.html">&#128221;Afbeeldingen</a>
-      <a href="Game.html">&#127918;MiniGame</a>
-      <a href="Compressie.html">&#128193;compressie</a>
-    </div>
-  </div>
-
-  <script src="/Javascript/kleurenmodellen/Head.js"></script>
-</head>
-
-<body>
-  <h1 class="BasisText">RGB</h1>
-  <p class="BasisText">
-    RGB staat voor Red, Green, Blue. Deze manier van kleuren tonen werkt door
-    als standaard kleur zwart te vertonen. <br> Als er bij een van de RGB waardes een
-    aanpassing word gedaan door bijv RGB(255,0,0) dan krijg je rood. <br />
-    <li style="text-align: center; list-style: none" class="hoverlist hoverlistR" id="hoverlistR">
-      RGB(255,0,0) = rood
-    </li>
-    <li style="text-align: center; list-style: none" class="hoverlist hoverlistGr" id="hoverlistG">
-      RGB(0,255,0) = groen
-    </li>
-    <li style="text-align: center; list-style: none" class="hoverlist hoverlistB" id="hoverlistB">
-      RGB(0,0,255) = blauw
-    </li>
-    <li style="text-align: center; list-style: none" class="hoverlist hoverlistGe" id="hoverlistGe">
-      RGB(255,255,0) = geel
-    </li>
-  </p>
-
-  <div class="divlisthorizontal">
-    <div class="clrRedBox kleurrood" ; id="clrRedBox" ;>
-      <!-- Vierkant veranderd van kleur als je muis erop zit -->
-      Dit is Rood maar je ziet het niet!
+    <div class="uitvouwen">
+      <!-- Menu knop Linksboven-->
+      <button class="menuknop">Menu</button>
+      <div class="uitgevouwenInhoud">
+        <a href="index.html">&#127968;Home</a>
+        <a href="Binairstelsel.html">&#127760;Binairstelsel</a>
+        <a href="Bitmap&vectorafbeeldingen.html">&#128221;Afbeeldingen</a>
+        <a href="Game.html">&#127918;MiniGame</a>
+        <a href="Compressie.html">&#128193;compressie</a>
+      </div>
     </div>
 
-    <div class="clrGreenBox kleurgroen" ; id="clrGreenBox" ;>
-      <!-- Vierkant veranderd van kleur als je muis erop zit -->
-      Dit is Groen maar je ziet het niet!
+    <script src="/Javascript/kleurenmodellen/Head.js"></script>
+  </head>
+
+  <body>
+    <h1 class="BasisText">RGB</h1>
+    <p class="BasisText">
+      RGB staat voor Red, Green, Blue. Deze manier van kleuren tonen werkt door
+      als standaard kleur zwart te vertonen en daar, op basis van de 3 RGB
+      waardes, een kleur bovenop te maken. <br />
+      Als er bij een van de RGB waardes een aanpassing word gedaan door bijv
+      RGB(255,0,0) dan krijg je dus rood. <br />
+      Hieronder staan een paar voorbeelden van RGB waardes.
+      <li
+        style="text-align: center; list-style: none"
+        class="hoverlist hoverlistR"
+        id="hoverlistR"
+      >
+        RGB(255,0,0) = rood
+      </li>
+      <li
+        style="text-align: center; list-style: none"
+        class="hoverlist hoverlistGr"
+        id="hoverlistG"
+      >
+        RGB(0,255,0) = groen
+      </li>
+      <li
+        style="text-align: center; list-style: none"
+        class="hoverlist hoverlistB"
+        id="hoverlistB"
+      >
+        RGB(0,0,255) = blauw
+      </li>
+      <li
+        style="text-align: center; list-style: none"
+        class="hoverlist hoverlistGe"
+        id="hoverlistGe"
+      >
+        RGB(255,255,0) = geel
+      </li>
+    </p>
+
+    <div class="divlisthorizontal">
+      <div class="clrRedBox kleurrood" ; id="clrRedBox" ;>
+        <!-- Vierkant veranderd van kleur als je muis erop zit -->
+        Dit is Rood maar je ziet het niet!
+      </div>
+
+      <div class="clrGreenBox kleurgroen" ; id="clrGreenBox" ;>
+        <!-- Vierkant veranderd van kleur als je muis erop zit -->
+        Dit is Groen maar je ziet het niet!
+      </div>
+
+      <div class="clrBlueBox kleurblauw" ; id="clrBlueBox" ;>
+        <!-- Vierkant veranderd van kleur als je muis erop zit -->
+        Dit is Blauw maar je ziet het niet!
+      </div>
+
+      <div class="clrYellowBox kleurgeel" ; id="clrYellowBox" ;>
+        <!-- Vierkant veranderd van kleur als je muis erop zit -->
+        Dit is Geel maar je ziet het niet!
+      </div>
     </div>
 
-    <div class="clrBlueBox kleurblauw" ; id="clrBlueBox" ;>
-      <!-- Vierkant veranderd van kleur als je muis erop zit -->
-      Dit is Blauw maar je ziet het niet!
+    <h1 class="BasisText">CMY</h1>
+    <!--tekst over het CMY kleurenmodel-->
+    <p class="BasisText">
+      In tegenstelling tot RGB gaat CMY van licht naar donker in plaats van
+      donker naar licht. <br />
+      Bij het CMY kleurenmodel heb je 3 basis kleuren: Cyaan, Magenta en Geel.
+      <br />
+      Dit kleurmodel word veel gebruikt door printers omdat ze (vaak) op wit
+      papier printen.
+    </p>
+
+    <div class="SliderDiv">
+      <!--sliders met een id en class voor de js en css-->
+      <input
+        type="range"
+        min="0"
+        max="255"
+        value="0"
+        class="slider"
+        id="CyaanSlider"
+        style="margin-left:40%; cursor: pointer;"
+      />
+      Cyaan <br />
+      <input
+        type="range"
+        min="0"
+        max="255"
+        value="0"
+        class="slider"
+        id="MagentaSlider"
+        style="margin-left:40%; cursor: pointer;"
+      />
+      Magenta <br />
+      <input
+        type="range"
+        min="0"
+        max="255"
+        value="0"
+        class="slider"
+        id="GeelSlider"
+        style="margin-left:40%; cursor: pointer;"
+      />
+      Geel
     </div>
 
-    <div class="clrYellowBox kleurgeel" ; id="clrYellowBox" ;>
-      <!-- Vierkant veranderd van kleur als je muis erop zit -->
-      Dit is Geel maar je ziet het niet!
+    <!--de tekst die de js aanpast op basis van de sliders-->
+    <p
+      id="GekleurdeTekst"
+      style="text-align: center; background-color: rgba(0, 0, 0, 0.288); font-size: 24px ;"
+    >
+      Deze tekst heeft een leuke kleur
+    </p>
+
+    <!--CMY afbeelding voor uitleg-->
+    <img src="/Images/RGBenCMY2.jpg" width="50px" class="centerImage" />
+
+    <h1 class="BasisText" style="color: white;">Pixels</h1>
+    <p class="BasisText" style="color: white;">
+      Schermen bestaan uit groepjes van 3 kleine lampjes. Schermen werken
+      meestal met RGB, je hebt in je scherm dus heel veel groepjes van rode,
+      groene en blauwe lampjes. <br />
+      De resolutie is hoeveel van die groepjes je scherm heeft. Tegenwoordig
+      zijn de meeste goedkope beeldschermen 1920x1080 pixel maar je hebt ook
+      schermen die 7680x4320 pixels zijn. <br />
+      Hoe hoger de resolutie hoe meer computer kracht er nodig is om het te
+      laten zien. <br />
+    </p>
+
+    <div style="display: flex;">
+      <img
+        src="/Images/ResolutieVoorbeeld.png"
+        width="10%"
+        height="10%"
+        class="centerImage"
+      />
+      <img
+        src="/Images/PixelsVoorbeeld.png"
+        width="3%"
+        height="3%"
+        class="centerImage"
+      />
     </div>
-  </div>
 
-  <h1 class="BasisText">CMY</h1> <!--tekst over het CMY kleurenmodel-->
-  <p class="BasisText">In tegenstelling tot RGB gaat CMY van licht naar donker in plaats van donker naar licht. <br>
-    Bij het CMY kleurenmodel heb je 3 basis kleuren: Cyaan, Magenta en Geel. <br> Dit kleurmodel word veel gebruikt door printers omdat ze (vaak) op wit papier printen.
-  </p>
+    <iframe
+      width="100%"
+      height="50%"
+      src="https://www.youtube.com/embed/3kz2GAof9tI"
+      title="AMD Simplified: Pixels and Resolution"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
 
+    <!--Aangeven dat dit de footer is-->
+    <footer>
+      <div class="footer">
+        <!--class aan de div geven voor de js-->
+        <p style="text-align: center;">
+          Gemaakt door: Stijn Boyce<br />
 
-  <div class="SliderDiv"> 
-    <!--sliders met een id en class voor de js en css-->
-    <input type="range" min="0" max="255" value="0" class="slider" id="CyaanSlider" style="margin-left:40%; cursor: pointer;"> Cyaan <br>
-    <input type="range" min="0" max="255" value="0" class="slider" id="MagentaSlider" style="margin-left:40%; cursor: pointer;"> Magenta <br>
-    <input type="range" min="0" max="255" value="0" class="slider" id="GeelSlider" style="margin-left:40%; cursor: pointer;"> Geel
-  </div>
- 
-  <!--de tekst die de js aanpast op basis van de sliders-->
-  <p id="GekleurdeTekst" style="text-align: center; background-color: rgba(0, 0, 0, 0.288); font-size: 24px ;">Deze tekst heeft een leuke kleur</p>
-  
- 
-
-  <!--CMY afbeelding voor uitleg-->
-  <img src="/Images/RGBenCMY2.jpg"  width="50px" class="centerImage">
-
-  <h1 class="BasisText" style="color: white;">Pixels</h1>
-  <p class="BasisText" style= "color: white;">Schermen bestaan uit groepjes van 3 kleine lampjes. Schermen werken meestal met RGB, je hebt in je scherm dus heel veel groepjes van rode, groene en blauwe lampjes. <br>
-  De resolutie is hoeveel van die groepjes je scherm heeft. Tegenwoordig zijn de meeste goedkope beeldschermen 1920x1080 pixel maar je hebt ook schermen die 7680x4320 pixels zijn. <br>
-  Hoe hoger de resolutie hoe meer computer kracht er nodig is om het te laten zien. <br>
-  </p>
-
-  <div style="display: flex;">
-    <img src="/Images/ResolutieVoorbeeld.png"  width="10%" height="10%" class="centerImage">
-    <img src="/Images/PixelsVoorbeeld.png"  width="3%" height="3%" class="centerImage">
-  </div>
-
-  
-
-  <iframe width="100%" height="50%" src="https://www.youtube.com/embed/3kz2GAof9tI" title="AMD Simplified: Pixels and Resolution" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-
-
-  <!--Aangeven dat dit de footer is-->
-  <footer>
-    <div class="footer"> <!--class aan de div geven voor de js-->
-      <p style="text-align: center;">Gemaakt door: Stijn Boyce<br> 
-       
-        Email:
-        <a href="mailto:school@stijnboyce.com" 
-        style="color: rgb(170, 238, 215); 
-        font-size: 20px;">school@stijnboyce.com</a> <!--Zorgen dat als je op de link klikt dat hij
+          Email:
+          <a
+            href="mailto:school@stijnboyce.com"
+            style="color: rgb(170, 238, 215); 
+        font-size: 20px;"
+            >school@stijnboyce.com</a
+          >
+          <!--Zorgen dat als je op de link klikt dat hij
         automatisch naar de mailing app gaat door gebruik te maken van mailto: -->
-        
-      </p>
-    </div>
-  </footer>
+        </p>
+      </div>
+    </footer>
 
-
-  <script src="/Javascript/kleurenmodellen/Body.js"></script>
-</body>
-
+    <script src="/Javascript/kleurenmodellen/Body.js"></script>
+  </body>
 </html>
