@@ -1,8 +1,19 @@
-.BasisText { /*style voor algemene text op de site*/
+.BasisText-Wit { /*style voor algemene text op de site*/
     color: black; 
     text-align: center !important;
     font-size: 25px;
 }
+
+.BasisText-Zwart { /*style voor algemene text op de site*/
+    color: white; 
+    text-align: center !important;
+    font-size: 25px;
+}
+
+/* meer ruimte tussen kopjes ipv <br /> */
+h1, p, .footer {
+    margin-bottom: 2em; /* Adjust the value as needed */
+  }
 
 
 body { /*achtergrond pagina en zorgen dat je kunt scrollen*/
@@ -45,3 +56,4 @@ body { /*achtergrond pagina en zorgen dat je kunt scrollen*/
     color: rgb(129, 155, 189);
     font-size: 20px;
 }
+
