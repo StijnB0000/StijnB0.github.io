@@ -62,7 +62,7 @@ hoverlistB.addEventListener("mouseleave", function(){
     }
 });
 
-hoverlistG.addEventListener("mouseleave", function(){
+hoverlistG.addEventListener("mouseleave", function(){ 
     if (!IsGroenActief) {
         document.getElementById("clrGreenBox").style.backgroundColor = "#00000000";
     }
