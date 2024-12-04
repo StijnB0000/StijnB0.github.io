@@ -1,1 +1,0 @@
-console.log("index.html body.js loaded") // checkt of dit script werkt in de console van inspect element.
