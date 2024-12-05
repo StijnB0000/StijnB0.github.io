@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binair Stelsel</title>
+    <link rel="stylesheet" href="Css/Main.css" />
+    <link rel="stylesheet" href="/ReusableCss/Menu.css" />
+    <link rel="stylesheet" href="/ReusableCss/Loading.css" />
+    <script src="JavaScript/Main.js"></script>
+  </head>
+
+  <body class="container">
+
+    <button class="HomeButton">
+      <span><a href="/index.html" style="text-decoration: none; color: whitesmoke; padding: 15%;">Home!</a></span>
+    </button>
+
+    <div class="dropdown">
+      <label class="hamburger">
+        <input type="checkbox" />
+        <svg viewBox="0 0 32 32">
+          <path
+            class="line line-top-bottom"
+            d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+          ></path>
+          <path class="line" d="M7 16 27 16"></path>
+        </svg>
+      </label>
+    </div>
+
+    <div class="dropdown-content">
+      <ul>
+        <li class="menu-opties" id="Personal">
+          Personal
+          <ul class="subcategories">
+            <li class="subcategory">
+              <a href="/Personal/About_Me.html">About Me</a>
+            </li>
+            <li class="subcategory">
+              <a href="/Personal/Family.html">Family</a>
+            </li>
+            <li class="subcategory">
+              <a href="/Personal/UnderConstruction.html">Under Construction</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-opties" id="School">
+          School
+          <ul class="subcategories">
+            <li class="subcategory">
+              <a href="/School/Binairstelsel.html">Binairstelsel</a>
+            </li>
+            <li class="subcategory">
+              <a href="/School/Bitmap&VectorAfbeeldingen.html"
+                >Bitmap- & Vectorafbeeldingen</a
+              >
+            </li>
+            <li class="subcategory">
+              <a href="/School/compressie.html">Compressie</a>
+            </li>
+            <li class="subcategory">
+              <a href="/School/Kleurenmodellen.html">Kleurenmodellen</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-opties" id="Extras">
+          Extra's
+          <ul class="subcategories">
+            <li class="subcategory"><a href="/Extra/Game.html">Game</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+
+    <h1 class="BasisText">Binair Stelsel</h1>
+    <p style="padding-bottom: 40px;">Welkom op deze pagina met uitleg over de werking van het binaire stelsel.</p>
+    <p>
+        Het binair stelsel gebruikt alleen de cijfers 0 en 1,
+        in tegenstelling tot het decimale stelsel dat wij dagelijks gebruiken (met de cijfers 0-9).
+        De kleinste eenheid van informatie in een computer is een bit (binary digit).
+        Acht bits samen vormen een bye, wat een belangrijke een stukje informatie moet voorstellen.
+        Elke combinatie van bits kan een andere betekenis hebben, 
+        bijvoorbeeld tekens of cijfers. 
+        Via het ASCII-systeem (American Standard Code for Information Exchange) worden karakters zoals letters en symbolen omgezet naar binaire code.
+         De ketter "A" is bijvoorbeeld 01000001.
+    </p>
+
+    <img src="Sources/ASCII.jpg" width="55%" class="centerImage" />
+
+
+
+
+    <div class="LoadingScreen">
+      <div class="terminal-loader">
+        <div class="terminal-header">
+          <div class="terminal-title">Binary</div>
+          <div class="terminal-controls">
+            <div class="control close"></div>
+            <div class="control minimize"></div>
+            <div class="control maximize"></div>
+          </div>
+        </div>
+        <div class="text">Loading...</div>
+      </div>
+    </div>
+
+
+  </body>
+  <footer>
+    <div class="footer" style="padding-top: 80px;">
+      <!--class aan de div geven voor de js-->
+      <p style="text-align: center">
+        Gemaakt door: Stijn Boyce<br />
+
+        Email:
+        <a
+          href="mailto:school@stijnboyce.com"
+          style="color: rgb(170, 238, 215); font-size: 20px"
+          >school@stijnboyce.com</a
+        >
+        <!--Zorgen dat als je op de link klikt dat hij
+      automatisch naar de mailing app gaat door gebruik te maken van mailto: -->
+      </p>
+    </div>
+  </footer>
+</html>
