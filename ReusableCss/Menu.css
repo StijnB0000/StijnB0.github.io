@@ -25,10 +25,7 @@
   Copyright - 2024 https://github.com/Afif13 
   For the wallpaper / background
   */
-
-
-} 
-
+}
 
 /*
   Copyright - 2024 JulanDeAlb (JulanDeAlb)
@@ -88,11 +85,8 @@
   border-radius: 8px;
   margin-bottom: 5px;
   position: relative; /* Positie relatief tot knop */
-  list-style: none;  
+  list-style: none;
 }
-
-
-
 
 .menu-opties:hover {
   background-color: rgb(196, 196, 196);
@@ -112,9 +106,7 @@
   border-radius: 8px;
   margin-bottom: 5px;
   border-top: 5px;
-  
 }
-
 
 .subcategory {
   padding: 8px 20px;
@@ -127,7 +119,7 @@
 
 .subcategory:hover {
   border-radius: 8px !important;
-  background-color: #f0f0f0; 
+  background-color: #f0f0f0;
   transform: translateX(5px); /* Verplaatsing naar rechts bij muis erover */
 }
 
@@ -136,10 +128,9 @@
   color: black;
 }
 
-
 .subcategories {
   display: block;
-  max-height: 0; 
+  max-height: 0;
   overflow: hidden; /* verberg dubbele onderdeleen */
   opacity: 0; /* Fade-in effect */
   transition: max-height 0.4s ease, opacity 0.8s ease; /* transitie */
