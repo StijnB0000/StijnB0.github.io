@@ -66,4 +66,20 @@
     stroke-dashoffset: -32.42;
 }
 
+.dropdown-content{
+    display: none;
+}
 
+.menu-opties{
+    background-color: white;
+    padding: 10px;
+    cursor: pointer;
+    margin-right: 75%;
+    font-size: medium;
+    transition: 0.5s;
+}
+
+.menu-opties:hover{
+    background-color: rgb(196, 196, 196);
+    font-size: larger;
+}
