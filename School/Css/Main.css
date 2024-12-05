@@ -30,3 +30,8 @@ h2 {
 body {
   overflow-x: hidden;
 }
+
+.centerImage {
+  display: block;
+  margin: 0 auto;
+}
