@@ -1,7 +1,6 @@
-.slider{
-  position:static;
+.slider {
+  position: static;
   display: block;
   margin-left: 10vw;
   float: left;
-
 }
