@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binair Stelsel</title>
+    <link rel="stylesheet" href="Css/Main.css" />
+    <link rel="stylesheet" href="/ReusableCss/Menu.css" />
+    <link rel="stylesheet" href="/ReusableCss/Loading.css" />
+    <script src="JavaScript/Main.js"></script>
+  </head>
+
+  <body class="container">
+
+    <button class="HomeButton">
+      <span><a href="/index.html" style="text-decoration: none; color: whitesmoke; padding: 15%;">Home!</a></span>
+    </button>
+
+    <div class="dropdown">
+      <label class="hamburger">
+        <input type="checkbox" />
+        <svg viewBox="0 0 32 32">
+          <path
+            class="line line-top-bottom"
+            d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+          ></path>
+          <path class="line" d="M7 16 27 16"></path>
+        </svg>
+      </label>
+    </div>
+
+    <div class="dropdown-content">
+      <ul>
+        <li class="menu-opties" id="Personal">
+          Personal
+          <ul class="subcategories">
+            <li class="subcategory">
+              <a href="/Personal/About_Me.html">About Me</a>
+            </li>
+            <li class="subcategory">
+              <a href="/Personal/Family.html">Family</a>
+            </li>
+            <li class="subcategory">
+              <a href="/Personal/UnderConstruction.html">Under Construction</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-opties" id="School">
+          School
+          <ul class="subcategories">
+            <li class="subcategory">
+              <a href="/School/Binairstelsel.html">Binairstelsel</a>
+            </li>
+            <li class="subcategory">
+              <a href="/School/Bitmap&VectorAfbeeldingen.html"
+                >Bitmap- & Vectorafbeeldingen</a
+              >
+            </li>
+            <li class="subcategory">
+              <a href="/School/compressie.html">Compressie</a>
+            </li>
+            <li class="subcategory">
+              <a href="/School/Kleurenmodellen.html">Kleurenmodellen</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-opties" id="Extras">
+          Extra's
+          <ul class="subcategories">
+            <li class="subcategory"><a href="/Extra/Game.html">Game</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+
+    <h1>Bitmap- & Vectorafbeeldingen</h1>
+    <p style="padding-bottom: 40px;">Welkom op deze pagina met uitleg over de soorten afbeeldingen die we in de computerwereld kennen.</p>
+   
+    <h2>Bitmap Afbeeldingen</h2>
+    <p style="padding-bottom: 80px;">
+        Bitmap afbeeldingen zijn opgebouwd uit een rooster van pixels.
+        Elke pixel bevat specifieke kleurinformatie, waardoor de afbeelding zijn detail krijgt.
+        Bitmapsafbeeldingen kunnen complexe kleurverlopen en details weergeven.
+        Een van de nadelen daarintegen is dat als je gaat inzoomen op een bitmapafbeelding je een duidelijke kwaliteitsvermindering kunt waarnemen.
+        En doordat de gegevens per inviduele pixel is opgeslagen neemt het ook veel ruimte in.
+    </p>
+
+    <h2>Vector Afbeeldingen</h2>
+    <p style="padding-bottom: 80px;">
+        Vector afbeeldingen zijn opgebouwd uit lijnen, vormen en paden, die worden gedefinieerd door wiskundige formules.
+        Dit betekent dat ze oneindig kunnen worden geschaald zonder verlies van kwaliteit.
+        Het voordeel hiervan is dat je niet per inviduele pixel gegevens hoeft op te slaan waardoor de bestandsgrootte vaak kleiner is.
+        Een nadeel van vectorafbeeldingen is dat je moeilijk tot niet complexe foto's of beelden kan laten zien.
+    </p>
+
+    <img src="Sources/vectorvsbitmap.jpg" class="centerImage" width="70%" />
+
+    <h2>Opslag Beeld & Geluid</h2>
+    <p style="padding-bottom: 80px;">
+      Bij het opslaan van geluid word er elke aantal miliseconde of seconde
+      gekeken naar een waarde die de microfoon oppakt, dit heet samplen. Hoe
+      vaker de computer kijkt naar de waarde van de microfoon hoe hoger de
+      kwaliteit van het geluid, maar dit zorgt ook voor grotere bestanden. Bij
+      een frequentie van bijvoorbeeld 40.000 Hz worden er dus 40 duizend
+      metingen in een seconde gedaan.
+    </p>
+
+    <img src="Sources/Samplen.png" class="centerImage" width="70%" />
+
+
+
+
+    <div class="LoadingScreen">
+      <div class="terminal-loader">
+        <div class="terminal-header">
+          <div class="terminal-title">Binary</div>
+          <div class="terminal-controls">
+            <div class="control close"></div>
+            <div class="control minimize"></div>
+            <div class="control maximize"></div>
+          </div>
+        </div>
+        <div class="text">Loading...</div>
+      </div>
+    </div>
+
+
+  </body>
+  <footer>
+    <div class="footer" style="padding-top: 80px;">
+      <!--class aan de div geven voor de js-->
+      <p style="text-align: center">
+        Gemaakt door: Stijn Boyce<br />
+
+        Email:
+        <a
+          href="mailto:school@stijnboyce.com"
+          style="color: rgb(170, 238, 215); font-size: 20px"
+          >school@stijnboyce.com</a
+        >
+        <!--Zorgen dat als je op de link klikt dat hij
+      automatisch naar de mailing app gaat door gebruik te maken van mailto: -->
+      </p>
+    </div>
+  </footer>
+</html>
