@@ -1,0 +1,207 @@
+/* Algemene stijl */
+.container {
+  width: 100%;
+  height: 100%;
+  --s: 300px; /* control the size */
+  --c1: #1d1d1d;
+  --c2: #4e4f51;
+  --c3: #3c3c3c;
+
+  background: repeating-conic-gradient(
+        from 30deg,
+        #0000 0 120deg,
+        var(--c3) 0 180deg
+      )
+      calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),
+    repeating-conic-gradient(
+      from 30deg,
+      var(--c1) 0 60deg,
+      var(--c2) 0 120deg,
+      var(--c3) 0 180deg
+    );
+  background-size: var(--s) calc(var(--s) * 0.577);
+  /*
+  Copyright - 2024 Afif13  - https://github.com/Afif13  
+  Copyright - 2024 https://github.com/Afif13 
+  For the wallpaper / background
+  */
+}
+
+/*
+  Copyright - 2024 JulanDeAlb (JulanDeAlb)
+  For the menu button
+*/
+
+/* Hamburger-styling */
+.hamburger {
+  cursor: pointer;
+}
+
+.hamburger input {
+  display: none;
+}
+
+.hamburger svg {
+  height: 3em;
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  fill: none;
+  stroke: white;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+  stroke-dasharray: 12 63;
+}
+
+.hamburger input:checked + svg {
+  transform: rotate(-45deg);
+}
+
+.hamburger input:checked + svg .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
+
+.dropdown-content {
+  display: none;
+  position: fixed;
+}
+
+.menu-opties {
+  background-color: white;
+  padding: 10px;
+  padding-right: 150px;
+  cursor: pointer;
+  margin-right: 75%;
+  font-size: medium;
+  transition: 0.5s;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  position: relative; /* Positie relatief tot knop */
+  list-style: none;
+}
+
+.menu-opties:hover {
+  background-color: rgb(196, 196, 196);
+}
+
+/* Standaard verborgen */
+.subcategories {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%; /* rechts van het hoofdcatagorie */
+  background-color: white;
+  padding: 0px 0px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  z-index: 1000;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  border-top: 5px;
+}
+
+.subcategory {
+  padding: 8px 20px;
+  color: black;
+  cursor: pointer;
+
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transitie */
+}
+
+.subcategory:hover {
+  border-radius: 8px !important;
+  background-color: #f0f0f0;
+  transform: translateX(5px); /* Verplaatsing naar rechts bij muis erover */
+}
+
+.subcategory a {
+  text-decoration: none;
+  color: black;
+}
+
+.subcategories {
+  display: block;
+  max-height: 0;
+  overflow: hidden; /* verberg dubbele onderdeleen */
+  opacity: 0; /* Fade-in effect */
+  transition: max-height 0.4s ease, opacity 0.8s ease; /* transitie */
+}
+
+/* uitklappen bij cursor */
+.menu-opties:hover .subcategories {
+  max-height: 300px; /* max hoogte */
+  opacity: 1; /* transitie */
+}
+
+.menu-opties,
+.subcategory {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+}
+
+
+
+@media screen and (min-width:660px) {
+  .HomeButton{
+    position: fixed;
+    left: 75vw;
+  }
+}
+
+@media screen and (max-width:660px) {
+  .HomeButton{
+    position: fixed;
+    margin-left: 35vw;
+  }
+}
+
+
+
+.HomeButton {
+  padding: 0.1em 0.25em;
+  width: 13em;
+  height: 4.2em;
+  background-color: #212121;
+  border: 0.08em solid #fff;
+  border-radius: 0.3em;
+  font-size: 12px;
+  cursor: pointer;
+  position: absolute;
+}
+
+.HomeButton span {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0.4em;
+  width: 8.25em;
+  height: 2.5em;
+  background-color: #212121;
+  border-radius: 0.2em;
+  font-size: 1.5em;
+  color: #fff;
+  border: 0.08em solid #fff;
+  box-shadow: 0 0.4em 0.1em 0.019em #fff;
+}
+
+.HomeButton span:hover {
+  transition: all 0.5s;
+  transform: translate(0, 0.4em);
+  box-shadow: 0 0 0 0 #fff;
+}
+
+.HomeButton span:not(hover) {
+  transition: all 1s;
+}

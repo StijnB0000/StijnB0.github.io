@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hoofdmenu</title>
-    <link rel="stylesheet" href="ReusableCss/Menu.css" />
-    <link rel="stylesheet" href="Main.css" />
-    <link rel="stylesheet" href="ReusableCss/Loading.css" />
-    <script src="index.js"></script>
+    <title>Binair Stelsel</title>
+    <link rel="stylesheet" href="Css/Main.css" />
+    <link rel="stylesheet" href="/ReusableCss/Menu.css" />
+    <link rel="stylesheet" href="/ReusableCss/Loading.css" />
+    <script src="JavaScript/Main.js"></script>
   </head>
 
   <body class="container">
-    
+
     <button class="HomeButton">
       <span><a href="/index.html" style="text-decoration: none; color: whitesmoke; padding: 15%;">Home!</a></span>
     </button>
@@ -72,29 +72,30 @@
         </li>
       </ul>
     </div>
-    <h1 class="BasisText">Hey hallo!</h1>
 
-    <p class="BasisText">
-      Hallo, wat leuk dat je deze site bezoekt! Deze site is gestart als
-      schoolproject maar is al snel uitgebreid naar iets groters. Zoals je
-      linksbovenin kunt zien zijn er naast pagina's over school ook andere
-      catagoriën bijgekomen. <br />
-      Je kunt de geschiedenis van dit project bekijken op
-      <a href="https://github.com/stijnb0000/StijnB0.github.io" class="link"
-        >Github</a
-      >.
+
+    <h1>Binair Stelsel</h1>
+    <p style="padding-bottom: 40px;">Welkom op deze pagina met uitleg over de werking van het binaire stelsel.</p>
+    <p>
+        Het binair stelsel gebruikt alleen de cijfers 0 en 1,
+        in tegenstelling tot het decimale stelsel dat wij dagelijks gebruiken (met de cijfers 0-9).
+        De kleinste eenheid van informatie in een computer is een bit (binary digit).
+        Acht bits samen vormen een bye, wat een belangrijke een stukje informatie moet voorstellen.
+        Elke combinatie van bits kan een andere betekenis hebben, 
+        bijvoorbeeld tekens of cijfers. 
+        Via het ASCII-systeem (American Standard Code for Information Exchange) worden karakters zoals letters en symbolen omgezet naar binaire code.
+         De ketter "A" is bijvoorbeeld 01000001.
     </p>
 
-    <img
-      src="Src/XmasTree.png"
-      alt="Christmas Tree"
-      style="position: absolute; bottom: 0px; right: 0px"
-    />
+    <img src="Sources/ASCII.jpg" width="55%" class="centerImage" />
+
+
+
 
     <div class="LoadingScreen">
       <div class="terminal-loader">
         <div class="terminal-header">
-          <div class="terminal-title">Home</div>
+          <div class="terminal-title">Binary</div>
           <div class="terminal-controls">
             <div class="control close"></div>
             <div class="control minimize"></div>
@@ -104,6 +105,24 @@
         <div class="text">Loading...</div>
       </div>
     </div>
+
+
   </body>
-  <footer></footer>
+  <footer>
+    <div class="footer" style="padding-top: 80px;">
+      <!--class aan de div geven voor de js-->
+      <p style="text-align: center">
+        Gemaakt door: Stijn Boyce<br />
+
+        Email:
+        <a
+          href="mailto:school@stijnboyce.com"
+          style="color: rgb(170, 238, 215); font-size: 20px"
+          >school@stijnboyce.com</a
+        >
+        <!--Zorgen dat als je op de link klikt dat hij
+      automatisch naar de mailing app gaat door gebruik te maken van mailto: -->
+      </p>
+    </div>
+  </footer>
 </html>

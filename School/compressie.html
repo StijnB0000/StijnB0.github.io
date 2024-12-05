@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compressie</title>
+    <link rel="stylesheet" href="Css/Main.css" />
+    <link rel="stylesheet" href="/ReusableCss/Menu.css" />
+    <link rel="stylesheet" href="/ReusableCss/Loading.css" />
+    <script src="JavaScript/Main.js"></script>
+  </head>
+
+  <body class="container">
+
+    <button class="HomeButton">
+      <span><a href="/index.html" style="text-decoration: none; color: whitesmoke; padding: 15%;">Home!</a></span>
+    </button>
+
+    <div class="dropdown">
+      <label class="hamburger">
+        <input type="checkbox" />
+        <svg viewBox="0 0 32 32">
+          <path
+            class="line line-top-bottom"
+            d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+          ></path>
+          <path class="line" d="M7 16 27 16"></path>
+        </svg>
+      </label>
+    </div>
+
+    <div class="dropdown-content">
+      <ul>
+        <li class="menu-opties" id="Personal">
+          Personal
+          <ul class="subcategories">
+            <li class="subcategory">
+              <a href="/Personal/About_Me.html">About Me</a>
+            </li>
+            <li class="subcategory">
+              <a href="/Personal/Family.html">Family</a>
+            </li>
+            <li class="subcategory">
+              <a href="/Personal/UnderConstruction.html">Under Construction</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-opties" id="School">
+          School
+          <ul class="subcategories">
+            <li class="subcategory">
+              <a href="/School/Binairstelsel.html">Binairstelsel</a>
+            </li>
+            <li class="subcategory">
+              <a href="/School/Bitmap&VectorAfbeeldingen.html"
+                >Bitmap- & Vectorafbeeldingen</a
+              >
+            </li>
+            <li class="subcategory">
+              <a href="/School/compressie.html">Compressie</a>
+            </li>
+            <li class="subcategory">
+              <a href="/School/Kleurenmodellen.html">Kleurenmodellen</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-opties" id="Extras">
+          Extra's
+          <ul class="subcategories">
+            <li class="subcategory"><a href="/Extra/Game.html">Game</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+
+    <h1 class="BasisText">Compressie</h1>
+    <p style="padding-bottom: 40px;">Welkom op deze pagina met uitleg over de werking van compressie. Compressie is namelijk erg belangrijk in de computer wereld!</p>
+
+
+    <p class="BasisText">
+        Compressie bestaat omdat computers niet oneindig opslag hebben.
+        Om dus zoveel mogelijk bestanden op je computer te kunnen zetten moet je ze op een slimme manier zo klein mogelijk maken.
+        Je hebt 2 soorten compressie, lossless en lossy compressie. Lossless, zoals de naam eigenlijk al zegt, maakt het bestand kleiner zonder gegevens te verliezen.
+        Lossy compressie daarintegen vermindert ook de kwaliteit van het bestand.
+        Zoals je in de afbeelding hieronder kunt zien zie je bij de lossy afbeelding allemaal
+        wazige spikkeltjes om het takje en de vleugels terwijl je bij de lossless de originele scherpe afbeelding behoud.
+        Bestanden comprimeren gebeurd op windows computers vaak door gebruik te maken van .Zip bestanden.
+    </p>
+    <img
+      src="Sources/lossyvslossless.jpeg"
+      width="50%"
+      class="centerImage"
+    />
+
+    <h2 class="BasisText">Voorbeeld</h2>
+    <p class="BasisText-Zwart">
+      Lossy compressie bij afbeeldingen zorgt ervoor dat kleine verschillen in
+      kleur verdwijnen<br />
+      waardoor bijvoorbeeld de tint blauw van het water hetzelfde wordt als de
+      net iets lichtere tint blauw van de lucht. <br />
+      Daarnaast worden tekens minder vaak herhaald, als er in het bestand
+      bijvoorbeeld "aaababbb" staat zal hij dit verkorten naar "3aba3b"<br />
+    </p>
+
+    <h2 class="BasisText-Zwart">Audio</h2>
+    <p class="BasisText-Zwart">
+      Audio-compressie vermindert de bestandsgrootte van geluidsbestanden door
+      overbodige of minder hoorbare gegevens te verwijderen. <br />
+      <br />
+      Bij lossy compressie: <br />
+      Hierbij worden onhoorbare frequenties verwijderd om de bestandsgrootte erg
+      te verkleinen. Bestanden zoals MP3 en AAC gebruiken deze soort compressie.
+      De geluidskwaliteit wordt iets lager, maar het verschil is vaak moeilijk
+      te merken. <br />
+      <br />
+      Bij lossless compressie: <br />
+      Hierbij blijft alle audio-informatie behouden. Dit wordt gebruikt in
+      formaten zoals FLAC en ALAC. Hoewel de bestandsgrootte kleiner wordt dan
+      bij ongecomprimeerde audio, blijft de kwaliteit perfect behouden. Dit word
+      vaak gebruikt in studios waar ze muziek maken.
+    </p>
+
+    <img src="Sources/audiocompressie.jpg" class="centerImage" width="50%" />
+
+
+
+
+    <div class="LoadingScreen">
+      <div class="terminal-loader">
+        <div class="terminal-header">
+          <div class="terminal-title">Compressie</div>
+          <div class="terminal-controls">
+            <div class="control close"></div>
+            <div class="control minimize"></div>
+            <div class="control maximize"></div>
+          </div>
+        </div>
+        <div class="text">Loading...</div>
+      </div>
+    </div>
+
+
+  </body>
+  <footer>
+    <div class="footer" style="padding-top: 80px;">
+      <!--class aan de div geven voor de js-->
+      <p style="text-align: center">
+        Gemaakt door: Stijn Boyce<br />
+
+        Email:
+        <a
+          href="mailto:school@stijnboyce.com"
+          style="color: rgb(170, 238, 215); font-size: 20px"
+          >school@stijnboyce.com</a
+        >
+        <!--Zorgen dat als je op de link klikt dat hij
+      automatisch naar de mailing app gaat door gebruik te maken van mailto: -->
+      </p>
+    </div>
+  </footer>
+</html>

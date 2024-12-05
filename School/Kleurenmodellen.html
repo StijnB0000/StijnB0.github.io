@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hoofdmenu</title>
+    <link rel="stylesheet" href="Css/Main.css" />
+    <link rel="stylesheet" href="Css/RadioColors.css" />
+    <link rel="stylesheet" href="/ReusableCss/Menu.css" />
+    <link rel="stylesheet" href="/ReusableCss/Loading.css" />
+    <link rel="stylesheet" href="Css/CMY.css" />
+    <script src="JavaScript/Main.js"></script>
+  </head>
+
+  <body class="container">
+
+    <button class="HomeButton">
+      <span><a href="/index.html" style="text-decoration: none; color: whitesmoke; padding: 15%;">Home!</a></span>
+    </button>
+
+    <div class="dropdown">
+      <label class="hamburger">
+        <input type="checkbox" />
+        <svg viewBox="0 0 32 32">
+          <path
+            class="line line-top-bottom"
+            d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+          ></path>
+          <path class="line" d="M7 16 27 16"></path>
+        </svg>
+      </label>
+    </div>
+
+    <div class="dropdown-content">
+      <ul>
+        <li class="menu-opties" id="Personal">
+          Personal
+          <ul class="subcategories">
+            <li class="subcategory">
+              <a href="/Personal/About_Me.html">About Me</a>
+            </li>
+            <li class="subcategory">
+              <a href="/Personal/Family.html">Family</a>
+            </li>
+            <li class="subcategory">
+              <a href="/Personal/UnderConstruction.html">Under Construction</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-opties" id="School">
+          School
+          <ul class="subcategories">
+            <li class="subcategory">
+              <a href="/School/Binairstelsel.html">Binairstelsel</a>
+            </li>
+            <li class="subcategory">
+              <a href="/School/Bitmap&VectorAfbeeldingen.html"
+                >Bitmap- & Vectorafbeeldingen</a
+              >
+            </li>
+            <li class="subcategory">
+              <a href="/School/compressie.html">Compressie</a>
+            </li>
+            <li class="subcategory">
+              <a href="/School/Kleurenmodellen.html">Kleurenmodellen</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-opties" id="Extras">
+          Extra's
+          <ul class="subcategories">
+            <li class="subcategory"><a href="/Extra/Game.html">Game</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <h1>Kleurenmodellen</h1>
+    <p style="padding-bottom: 80px;">Welkom op deze pagina met uitleg over de werking van de kleurenmodellen RGB en CMY. Er zijn ook leuke widgets om mee te spelen!</p>
+
+    <h2>RGB</h2>
+    <p>
+      RGB staat voor Red, Green, Blue. Deze manier van kleuren tonen werkt door
+      als standaard kleur zwart te vertonen en daar, op basis van de 3 RGB
+      waardes, een kleur bovenop te maken. 
+      Als er bij een van de RGB waardes een aanpassing wordt gedaan door bijv
+      RGB(255,0,0) dan krijg je dus rood. 
+      Hieronder staan een paar voorbeelden van RGB waardes.
+      <div class="radio-input" style="padding-bottom: 80px;">
+        <input class="input red" type="radio" name="radio" />
+        <input checked="" class="input green" type="radio" name="radio" />
+        <input class="input blue" type="radio" name="radio" />
+      </div>
+      
+    </p>
+
+    <h2>CMY</h2>
+    <p>
+      In tegenstelling tot RGB gaat CMY van licht naar donker in plaats van
+      donker naar licht. 
+      Bij het CMY kleurenmodel heb je 3 basis kleuren: Cyaan, Magenta en Geel.
+      
+      Dit kleurmodel word veel gebruikt door printers omdat ze (vaak) op wit
+      papier printen.
+      Omdat de donkerste kleur die je kunt bereiken niet donker genoeg is hebben
+      ze vaak ook nog naast de CMY een kleur zwart.
+      De letter K staat voor "Key".
+      Hieronder heb je 3 sliders om te zien hoe de drie kleuren mengen.
+      <br>
+      <br>
+
+      <input
+      type="range"
+      min="0"
+      max="255"
+      value="0"
+      class="slider"
+      id="CyaanSlider"
+      style="margin-left: 40%; cursor: pointer"
+    />
+    Cyan <br />
+    <input
+      type="range"
+      min="0"
+      max="255"
+      value="0"
+      class="slider"
+      id="MagentaSlider"
+      style="margin-left: 40%; cursor: pointer"
+    />
+    Magenta <br />
+    <input
+      type="range"
+      min="0"
+      max="255"
+      value="0"
+      class="slider"
+      id="GeelSlider"
+      style="margin-left: 40%; cursor: pointer"
+    /> Yellow
+
+
+    <br>
+
+    <div style="display: flex; justify-content: center; padding-bottom: 80px;">
+      <div style="width: 80vw; height: 50px; background-color: rgb(63, 63, 63); border-radius: 5px;" class="coloredBlock"> 
+      </div>
+    </div>
+
+    <img src="Sources/RGBenCMY2.jpg" width="70%" class="centerImage" />
+
+    </p>
+
+    <h2>Pixels</h2>
+    <p>
+      Schermen bestaan uit groepjes van 3 kleine lampjes en werken meestal met RGB, je hebt in je scherm dus heel veel groepjes van rode, groene en blauwe lampjes.
+      De resolutie is de hoeveelheid van die groepjes in je scherm. Tegenwoordig zijn de meeste goedkope beeldschermen 1920x1080 pixels (FHD) maar je hebt ook schermen die bijvoorbeeld 7680x4320 pixels (8K) zijn.
+      Hoe hoger de resolutie hoe meer computer kracht er nodig is om het te laten zien.
+    </p>
+
+    <div style="display: flex">
+      <img
+        src="Sources/PixelsVoorbeeld.png"
+
+        width="40%"
+        class="centerImage"
+      />
+      <img
+        src="Sources/ResolutieVoorbeeld.png"
+
+        width="40%"
+        class="centerImage"
+      />
+    </div>
+
+    <iframe
+      width="40%"
+      height="20%"
+      src="https://www.youtube.com/embed/3kz2GAof9tI"
+      title="AMD Simplified: Pixels and Resolution"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+      class="centerImage"
+    ></iframe>
+
+
+
+    <div class="LoadingScreen">
+      <div class="terminal-loader">
+        <div class="terminal-header">
+          <div class="terminal-title">Kleurmodel</div>
+          <div class="terminal-controls">
+            <div class="control close"></div>
+            <div class="control minimize"></div>
+            <div class="control maximize"></div>
+          </div>
+        </div>
+        <div class="text">Loading...</div>
+      </div>
+    </div>
+
+    <script src="JavaScript/CMYconvert.js"></script>
+  </body>
+  <footer>
+    <div class="footer" style="padding-top: 80px;">
+      <!--class aan de div geven voor de js-->
+      <p style="text-align: center">
+        Gemaakt door: Stijn Boyce<br />
+
+        Email:
+        <a
+          href="mailto:school@stijnboyce.com"
+          style="color: rgb(170, 238, 215); font-size: 20px"
+          >school@stijnboyce.com</a
+        >
+        <!--Zorgen dat als je op de link klikt dat hij
+      automatisch naar de mailing app gaat door gebruik te maken van mailto: -->
+      </p>
+    </div>
+  </footer>
+</html>
