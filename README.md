@@ -24,7 +24,6 @@ Dit project is gestart voor een informatica opdracht. Het is een website met mee
 
 - Commentaar en laatste puntjes op de index
 
-- Zo nu en dan uitbreiden met leuke dingetjes in branch "revamp"
 
 
 ## Contact

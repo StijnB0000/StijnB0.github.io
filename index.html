@@ -1,51 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hoofdmenu</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="Menu.css"/>
+    <link rel="stylesheet" href="Main.css"/>
+    <link rel="stylesheet" href="Loading.css"/>
     <script src="index.js"></script>
-</head>
+  </head>
 
-<body class="container">
+  <body class="container">
+    <div class="LoadingScreen">
+        <div class="terminal-loader">
+            <div class="terminal-header">
+              <div class="terminal-title">Status</div>
+              <div class="terminal-controls">
+                <div class="control close"></div>
+                <div class="control minimize"></div>
+                <div class="control maximize"></div>
+              </div>
+            </div>
+            <div class="text">Loading...</div>
+          </div>          
+    </div>
+
     <div class="dropdown">
-        <label class="hamburger">
-            <input type="checkbox">
-            <svg viewBox="0 0 32 32">
-                <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
-                <path class="line" d="M7 16 27 16"></path>
-            </svg>
-        </label>
+      <label class="hamburger">
+        <input type="checkbox" />
+        <svg viewBox="0 0 32 32">
+          <path
+            class="line line-top-bottom"
+            d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+          ></path>
+          <path class="line" d="M7 16 27 16"></path>
+        </svg>
+      </label>
     </div>
 
     <div class="dropdown-content">
-        <ul>
-            <li class="menu-opties" id="Personal">Personal
-                <ul class="subcategories">
-                    <li class="subcategory"><a href="/Personal/About_Me.html">About Me</a></li>
-                    <li class="subcategory"><a href="/Personal/Family.html">Family</a></li>
-                    <li class="subcategory"><a href="/Personal/UnderConstruction.html">Under Construction</a></li>
-                </ul>
+      <ul>
+        <li class="menu-opties" id="Personal">
+          Personal
+          <ul class="subcategories">
+            <li class="subcategory">
+              <a href="/Personal/About_Me.html">About Me</a>
             </li>
-            <li class="menu-opties" id="School">School
-                <ul class="subcategories">
-                    <li class="subcategory"><a href="/School/Binairstelsel.html">Binairstelsel</a></li>
-                    <li class="subcategory"><a href="/School/Bitmap&VectorAfbeeldingen.html">Bitmap- & Vectorafbeeldingen</a></li>
-                    <li class="subcategory"><a href="/School/compressie.html">Compressie</a></li>
-                    <li class="subcategory"><a href="/School/Kleurenmodellen.html">Kleurenmodellen</a></li>
-                </ul>
+            <li class="subcategory">
+              <a href="/Personal/Family.html">Family</a>
             </li>
-            <li class="menu-opties" id="Extras">Extra's
-                <ul class="subcategories">
-                    <li class="subcategory"><a href="/Extra/Game.html">Game</a></li>
-                </ul>
+            <li class="subcategory">
+              <a href="/Personal/UnderConstruction.html">Under Construction</a>
             </li>
-        </ul>
+          </ul>
+        </li>
+        <li class="menu-opties" id="School">
+          School
+          <ul class="subcategories">
+            <li class="subcategory">
+              <a href="/School/Binairstelsel.html">Binairstelsel</a>
+            </li>
+            <li class="subcategory">
+              <a href="/School/Bitmap&VectorAfbeeldingen.html"
+                >Bitmap- & Vectorafbeeldingen</a
+              >
+            </li>
+            <li class="subcategory">
+              <a href="/School/compressie.html">Compressie</a>
+            </li>
+            <li class="subcategory">
+              <a href="/School/Kleurenmodellen.html">Kleurenmodellen</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-opties" id="Extras">
+          Extra's
+          <ul class="subcategories">
+            <li class="subcategory"><a href="/Extra/Game.html">Game</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
-    
+    <h1>Test</h1>
 
-</body>
+
+  </body>
+  <footer>
+
+
+
+  </footer>
 
 </html>

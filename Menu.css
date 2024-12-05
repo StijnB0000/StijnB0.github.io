@@ -20,12 +20,20 @@
       var(--c3) 0 180deg
     );
   background-size: var(--s) calc(var(--s) * 0.577);
-}
+  /*
+  Copyright - 2024 Afif13  - https://github.com/Afif13  
+  Copyright - 2024 https://github.com/Afif13 
+  For the wallpaper / background
+  */
 
-.basistekst {
-  color: whitesmoke;
-  font-size: 16px;
-}
+
+} 
+
+
+/*
+  Copyright - 2024 JulanDeAlb (JulanDeAlb)
+  For the menu button
+*/
 
 /* Hamburger-styling */
 .hamburger {
@@ -77,24 +85,20 @@
   transition: 0.5s;
   border-radius: 8px;
   margin-bottom: 5px;
+  position: relative; /* Positie relatief tot knop */
+  list-style: none;
 }
 
 .menu-opties:hover {
   background-color: rgb(196, 196, 196);
 }
 
-/* Style for the main menu options */
-.menu-opties {
-  position: relative; /* Needed to position subcategories relative to the parent */
-  list-style: none;
-}
-
-/* Hide subcategories by default */
+/* Standaard verborgen */
 .subcategories {
   display: none;
   position: absolute;
   top: 0;
-  left: 100%; /* Align subcategories to the right of the parent menu */
+  left: 100%; /* rechts van het hoofdcatagorie */
   background-color: white;
   padding: 0px 0px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -105,16 +109,20 @@
   border-top: 5px;
 }
 
-/* Subcategories style */
+
 .subcategory {
   padding: 8px 20px;
   color: black;
   cursor: pointer;
+
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transitie */
 }
 
 .subcategory:hover {
-  background-color: rgb(196, 196, 196);
   border-radius: 8px !important;
+  background-color: #f0f0f0; 
+  transform: translateX(5px); /* Verplaatsing naar rechts bij muis erover */
 }
 
 .subcategory a {
@@ -122,7 +130,25 @@
   color: black;
 }
 
-/* Show subcategories when hovering over a parent option */
+
+.subcategories {
+  display: block;
+  max-height: 0; 
+  overflow: hidden; /* verberg dubbele onderdeleen */
+  opacity: 0; /* Fade-in effect */
+  transition: max-height 0.4s ease, opacity 0.8s ease; /* transitie */
+}
+
+/* uitklappen bij cursor */
 .menu-opties:hover .subcategories {
-  display: initial;
+  max-height: 300px; /* max hoogte */
+  opacity: 1; /* transitie */
+}
+
+.menu-opties,
+.subcategory {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
 }
