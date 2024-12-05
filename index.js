@@ -22,7 +22,7 @@ document.onreadystatechange = function () {
         loadingScreen.style.display = "none";
         console.log("Page Loaded Successfully!");
       }
-    }, 3000); // 3000 miliseconde -> 3 sec
+    }, 1900); // 3000 miliseconde -> 3 sec
   } else {
     let loadingScreen = document.getElementsByClassName("LoadingScreen")[0];
     if (loadingScreen) {

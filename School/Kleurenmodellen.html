@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hoofdmenu</title>
+    <link rel="stylesheet" href="Css/Main.css" />
+    <link rel="stylesheet" href="Css/RadioColors.css" />
+    <link rel="stylesheet" href="/ReusableCss/Menu.css" />
+    <link rel="stylesheet" href="/ReusableCss/Loading.css" />
+    <script src="JavaScript/Main.js"></script>
+  </head>
+
+  <body class="container">
+
+    <button class="HomeButton">
+      <span><a href="/index.html" style="text-decoration: none; color: whitesmoke; padding: 15%;">Home!</a></span>
+    </button>
+
+    <div class="dropdown">
+      <label class="hamburger">
+        <input type="checkbox" />
+        <svg viewBox="0 0 32 32">
+          <path
+            class="line line-top-bottom"
+            d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+          ></path>
+          <path class="line" d="M7 16 27 16"></path>
+        </svg>
+      </label>
+    </div>
+
+    <div class="dropdown-content">
+      <ul>
+        <li class="menu-opties" id="Personal">
+          Personal
+          <ul class="subcategories">
+            <li class="subcategory">
+              <a href="/Personal/About_Me.html">About Me</a>
+            </li>
+            <li class="subcategory">
+              <a href="/Personal/Family.html">Family</a>
+            </li>
+            <li class="subcategory">
+              <a href="/Personal/UnderConstruction.html">Under Construction</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-opties" id="School">
+          School
+          <ul class="subcategories">
+            <li class="subcategory">
+              <a href="/School/Binairstelsel.html">Binairstelsel</a>
+            </li>
+            <li class="subcategory">
+              <a href="/School/Bitmap&VectorAfbeeldingen.html"
+                >Bitmap- & Vectorafbeeldingen</a
+              >
+            </li>
+            <li class="subcategory">
+              <a href="/School/compressie.html">Compressie</a>
+            </li>
+            <li class="subcategory">
+              <a href="/School/Kleurenmodellen.html">Kleurenmodellen</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-opties" id="Extras">
+          Extra's
+          <ul class="subcategories">
+            <li class="subcategory"><a href="/Extra/Game.html">Game</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <h1>Kleurenmodellen</h1>
+    <p style="padding-bottom: 80px;">Welkom op deze pagina met uitleg over de werking van de kleurenmodellen RGB en CMY. Er zijn ook leuke widgets om mee te spelen!</p>
+
+    <h2>RGB</h2>
+    <p>
+      RGB staat voor Red, Green, Blue. Deze manier van kleuren tonen werkt door
+      als standaard kleur zwart te vertonen en daar, op basis van de 3 RGB
+      waardes, een kleur bovenop te maken. 
+      Als er bij een van de RGB waardes een aanpassing wordt gedaan door bijv
+      RGB(255,0,0) dan krijg je dus rood. 
+      Hieronder staan een paar voorbeelden van RGB waardes.
+      <div class="radio-input" style="padding-bottom: 80px;">
+        <input class="input red" type="radio" name="radio" />
+        <input checked="" class="input green" type="radio" name="radio" />
+        <input class="input blue" type="radio" name="radio" />
+      </div>
+      
+    </p>
+
+    <h2>CMY</h2>
+    <p>
+      In tegenstelling tot RGB gaat CMY van licht naar donker in plaats van
+      donker naar licht. 
+      Bij het CMY kleurenmodel heb je 3 basis kleuren: Cyaan, Magenta en Geel.
+      
+      Dit kleurmodel word veel gebruikt door printers omdat ze (vaak) op wit
+      papier printen.
+      Omdat de donkerste kleur die je kunt bereiken niet donker genoeg is hebben
+      ze vaak ook nog naast de CMY een kleur zwart.
+      De letter K staat voor "Key".
+      Hieronder heb je 3 sliders om te zien hoe de drie kleuren mengen.
+
+      <input id="myRange" class="slider" value="50" max="100" min="0" type="range">
+      <input id="myRange" class="slider" value="50" max="100" min="0" type="range">
+      <input id="myRange" class="slider" value="50" max="100" min="0" type="range">
+
+    </p>
+
+
+
+
+    <!--
+    <div class="LoadingScreen">
+      <div class="terminal-loader">
+        <div class="terminal-header">
+          <div class="terminal-title">Kleurmodel</div>
+          <div class="terminal-controls">
+            <div class="control close"></div>
+            <div class="control minimize"></div>
+            <div class="control maximize"></div>
+          </div>
+        </div>
+        <div class="text">Loading...</div>
+      </div>
+    </div>
+    -->
+  </body>
+  <footer></footer>
+</html>
