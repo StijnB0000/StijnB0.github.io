@@ -86,6 +86,7 @@
   margin-bottom: 5px;
   position: relative; /* Positie relatief tot knop */
   list-style: none;
+  user-select: none;
 }
 
 .menu-opties:hover {
