@@ -74,11 +74,13 @@
 
 .dropdown-content {
   display: none;
+  position: fixed;
 }
 
 .menu-opties {
   background-color: white;
   padding: 10px;
+  padding-right: 150px;
   cursor: pointer;
   margin-right: 75%;
   font-size: medium;
@@ -86,8 +88,11 @@
   border-radius: 8px;
   margin-bottom: 5px;
   position: relative; /* Positie relatief tot knop */
-  list-style: none;
+  list-style: none;  
 }
+
+
+
 
 .menu-opties:hover {
   background-color: rgb(196, 196, 196);
@@ -107,6 +112,7 @@
   border-radius: 8px;
   margin-bottom: 5px;
   border-top: 5px;
+  
 }
 
 

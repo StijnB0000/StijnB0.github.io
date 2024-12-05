@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // aan/uit toggle van de zichtbaarheid
         dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
     });
+
+
 });
 
 
