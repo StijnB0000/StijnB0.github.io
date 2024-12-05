@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="Css/RadioColors.css" />
     <link rel="stylesheet" href="/ReusableCss/Menu.css" />
     <link rel="stylesheet" href="/ReusableCss/Loading.css" />
+    <link rel="stylesheet" href="Css/CMY.css" />
     <script src="JavaScript/Main.js"></script>
   </head>
 
@@ -104,10 +105,46 @@
       ze vaak ook nog naast de CMY een kleur zwart.
       De letter K staat voor "Key".
       Hieronder heb je 3 sliders om te zien hoe de drie kleuren mengen.
+      <br>
+      <br>
 
-      <input id="myRange" class="slider" value="50" max="100" min="0" type="range">
-      <input id="myRange" class="slider" value="50" max="100" min="0" type="range">
-      <input id="myRange" class="slider" value="50" max="100" min="0" type="range">
+      <input
+      type="range"
+      min="0"
+      max="255"
+      value="0"
+      class="slider"
+      id="CyaanSlider"
+      style="margin-left: 40%; cursor: pointer"
+    />
+    Cyan <br />
+    <input
+      type="range"
+      min="0"
+      max="255"
+      value="0"
+      class="slider"
+      id="MagentaSlider"
+      style="margin-left: 40%; cursor: pointer"
+    />
+    Magenta <br />
+    <input
+      type="range"
+      min="0"
+      max="255"
+      value="0"
+      class="slider"
+      id="GeelSlider"
+      style="margin-left: 40%; cursor: pointer"
+    /> Yellow
+
+
+    <br>
+
+    <div style="display: flex; justify-content: center;">
+      <div style="width: 80vw; height: 50px; background-color: white;" class="coloredBlock"> 
+      </div>
+    </div>
 
     </p>
 
@@ -129,6 +166,7 @@
       </div>
     </div>
     -->
+    <script src="JavaScript/CMYconvert.js"></script>
   </body>
   <footer></footer>
 </html>

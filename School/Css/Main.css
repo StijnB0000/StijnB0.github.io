@@ -1,28 +1,32 @@
 p {
-    color: white;
-    text-align: center;
-    font-family: cursive;
-    font-size: 16px;
-    text-wrap: balance;
-  }
-  
-  h1, h2 {
-    color: white;
-    text-align: center;
-    font-size: 32px;
-  }
-  
-  .link {
-    text-decoration: none;
-    color: rgb(182, 182, 182);
-    text-align: center;
-    font-family: cursive;
-    font-size: 16px;
-    text-wrap: balance;
-    transition: font-size 0.5s;
-  }
-  
-  .link:hover {
-    font-size: 20px;
-  }
-  
+  color: white;
+  text-align: center;
+  font-family: cursive;
+  font-size: 16px;
+  text-wrap: balance;
+}
+
+h1,
+h2 {
+  color: white;
+  text-align: center;
+  font-size: 32px;
+}
+
+.link {
+  text-decoration: none;
+  color: rgb(182, 182, 182);
+  text-align: center;
+  font-family: cursive;
+  font-size: 16px;
+  text-wrap: balance;
+  transition: font-size 0.5s;
+}
+
+.link:hover {
+  font-size: 20px;
+}
+
+body {
+  overflow-x: hidden;
+}
