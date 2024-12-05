@@ -81,5 +81,40 @@
 
 .menu-opties:hover{
     background-color: rgb(196, 196, 196);
-    font-size: larger;
+}
+
+/* Style for the main menu options */
+.menu-opties {
+    position: relative; /* Needed to position subcategories relative to the parent */
+    list-style: none;
+}
+
+/* Hide subcategories by default */
+.subcategories {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%; /* Align subcategories to the right of the parent menu */
+    background-color: white;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    list-style: none;
+    z-index: 1000;
+}
+
+/* Subcategories style */
+.subcategory {
+    padding: 8px 20px;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.subcategory:hover {
+    background-color: rgb(196, 196, 196);
+}
+
+/* Show subcategories when hovering over a parent option */
+.menu-opties:hover .subcategories {
+    display: block;
 }
