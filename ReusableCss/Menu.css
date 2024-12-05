@@ -86,6 +86,7 @@
   margin-bottom: 5px;
   position: relative; /* Positie relatief tot knop */
   list-style: none;
+  user-select: none;
 }
 
 .menu-opties:hover {
@@ -106,13 +107,14 @@
   border-radius: 8px;
   margin-bottom: 5px;
   border-top: 5px;
+  user-select: none;
 }
 
 .subcategory {
   padding: 8px 20px;
   color: black;
   cursor: pointer;
-
+  user-select: none;
   padding: 10px 20px;
   transition: background-color 0.3s ease, transform 0.2s ease; /* Transitie */
 }
