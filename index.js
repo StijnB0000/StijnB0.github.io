@@ -31,3 +31,13 @@ document.onreadystatechange = function () {
     }
   }
 };
+
+
+const title = document.getElementById("Title");
+console.log(title);
+
+if (document.body.onfocus, function(){
+  console.log("Focus");
+}); else{
+  console.log("unfocus")
+};
