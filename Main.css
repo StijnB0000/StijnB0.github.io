@@ -1,15 +1,16 @@
 p {
   color: white;
   text-align: center;
-  font-family: sans-serif;
   font-size: 16px;
   text-wrap: balance;
+  font-family: 'Montserrat'
 }
 
 h1 {
   color: white;
   text-align: center;
   font-size: 32px;
+  font-family: 'Montserrat'
 }
 
 .link {
