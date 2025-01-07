@@ -11,13 +11,19 @@
 </head>
 
 <body style="background-color: #222222;">
+
+
+
     <form id="calculator-form">
+        <h1>Basis Instellingen:</h1>
         <label for="voldoende" style="color: #F0EDEE;">Voldoende:</label>
         <input id="voldoende" type="number" min="1" max="10" value="5.5">
         <br>
         <label for="max-punten" style="color: #F0EDEE;">Max punten:</label>
         <input id="max-punten" type="number" min="0" max="2000" value="28">
         <br><br>
+
+        <h1>Wat wil je berekenen?</h1>
 
         <label style="color: #F0EDEE;">Nterm:</label>
         <input id="nterm-checkbox" type="checkbox">
@@ -39,6 +45,8 @@
         <input id="behaalde-input" type="number" min="0" max="2000" value="15">
         <Br>
 
+
+        <h1>Tabel instellingen:</h1>
         <label style="color: #F0EDEE;">Per aantal punten (stappen van aantal punten): </label>
         <input id="stappen-punten" type="number" min="0" max="2000" value="2">
     </form>
@@ -57,8 +65,13 @@
             <!-- Will be filled by JavaScript -->
         </tbody>
     </table>
-    <button onclick="calculate()">Calculate</button>
-    <button onclick="exportToCSV()">Open in Spreadsheets</button>
+    <div style="display: flex; flex-direction: column; align-items: center; max-width: fit-content; margin-inline: auto;">
+        <button onclick="calculate()" >&#128202 Calculate</button>
+        <br>
+        <button onclick="exportToCSV()" >&#128228 Open in Spreadsheets</button>
+    </div>
+    
+
 </body>
 
 </html>
