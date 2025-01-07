@@ -1,18 +1,59 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nterm Calculator</title>
     <link rel="stylesheet" href="/Main.css" />
-
+    <link rel="stylesheet" href="NTerm.css" />
+    <script src="NTerm.js" defer></script>
 </head>
 
+<body style="background-color: #222222;">
+    <form id="calculator-form">
+        <label for="voldoende" style="color: #F0EDEE;">Voldoende:</label>
+        <input id="voldoende" type="number" min="1" max="10" value="5.5">
+        <br>
+        <label for="max-punten" style="color: #F0EDEE;">Max punten:</label>
+        <input id="max-punten" type="number" min="0" max="2000" value="28">
+        <br><br>
 
-<body>
-    <h1>test</h1>
-    <p>test</p>
+        <label style="color: #F0EDEE;">Nterm:</label>
+        <input id="nterm-checkbox" type="checkbox">
+        <input id="nterm-input" type="number" min="0" max="2" value="1">
+        <br>
+
+        <label style="color: #F0EDEE;">Percentage:</label>
+        <input id="percentage-checkbox" type="checkbox">
+        <input id="percentage-input" type="number" min="0" max="100" value="1">
+        <br>
+
+        <label style="color: #F0EDEE;">Fouten per punt:</label>
+        <input id="fouten-checkbox" type="checkbox">
+        <input id="fouten-input" type="number" min="0" max="2000" value="2">
+        <br>
+
+        <label style="color: #F0EDEE;">Aantal punten:</label>
+        <input id="behaalde-checkbox" type="checkbox">
+        <input id="behaalde-input" type="number" min="0" max="2000" value="15">
+    </form>
+
+    <p>Test</p>
+
+    <table id="results-table">
+        <thead>
+            <tr>
+                <th>Juist</th>
+                <th>Onjuist</th>
+                <th>Cijfer</th>
+            </tr>
+        </thead>
+        <tbody id="results-table-body">
+            <!-- Will be filled by JavaScript -->
+        </tbody>
+    </table>
+    <button onclick="calculate()">Calculate</button>
 </body>
 
-
-<footer>
-
-</footer>
+</html>
