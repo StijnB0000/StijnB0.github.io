@@ -1,5 +1,28 @@
 console.log('Script Loaded');
 
+function setupCheckboxes() {
+    const checkboxes = [
+        document.getElementById('nterm-checkbox'),
+        document.getElementById('percentage-checkbox'),
+        document.getElementById('fouten-checkbox'),
+        document.getElementById('behaalde-checkbox')
+    ];
+
+    // Add event listeners to each checkbox
+    checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                // Uncheck all other checkboxes
+                checkboxes.forEach((otherCheckbox) => {
+                    if (otherCheckbox !== checkbox) {
+                        otherCheckbox.checked = false;
+                    }
+                });
+            }
+        });
+    });
+}
+
 function calculate() {
     console.log('Calculation started');
 
@@ -10,6 +33,7 @@ function calculate() {
     const percentageInput = document.getElementById('percentage-input');
     const foutenInput = document.getElementById('fouten-input');
     const behaaldeInput = document.getElementById('behaalde-input');
+    const StappenPunten = document.getElementById('stappen-punten');
 
     const nTermCheckbox = document.getElementById('nterm-checkbox');
     const percentageCheckbox = document.getElementById('percentage-checkbox');
@@ -19,12 +43,13 @@ function calculate() {
     const resultsTableBody = document.getElementById('results-table-body');
 
     // Parse input values
-    const voldoende = parseFloat(voldoendeInput.value) || 0;
-    const maxPunten = parseFloat(maxPuntenInput.value) || 0;
-    const nTerm = parseFloat(nTermInput.value) || 0;
-    const percentage = parseFloat(percentageInput.value) || 0;
-    const foutenPerPunt = parseFloat(foutenInput.value) || 0;
+    const voldoende = parseFloat(voldoendeInput.value) || 5.5;
+    const maxPunten = parseFloat(maxPuntenInput.value) || 28;
+    const nTerm = parseFloat(nTermInput.value) || 1;
+    const percentage = parseFloat(percentageInput.value) || 55;
+    const foutenPerPunt = parseFloat(foutenInput.value) || 1;
     const behaaldePunten = parseFloat(behaaldeInput.value) || 0;
+    const stappenPuntenWaarde = parseFloat(StappenPunten.value) || 0;
 
     console.log('Voldoende:', voldoende);
     console.log('Max Punten:', maxPunten);
@@ -33,24 +58,30 @@ function calculate() {
     resultsTableBody.innerHTML = '';
 
     // Loop through all possible points from 0 to maxPunten with steps of 0.25
-    for (let correct = 0; correct <= maxPunten; correct += 0.25) {
+    for (let correct = 0; correct <= maxPunten; correct += stappenPuntenWaarde) {
         const incorrect = maxPunten - correct; // Fouten = Max punten - Correcte punten
         let grade = 0;
 
         if (nTermCheckbox.checked) {
             // Calculate grade using Nterm formula
             if (maxPunten && voldoende && nTerm) {
-                grade = ;
+                grade = (correct / maxPunten) * 9 + nTerm;
             }
         } else if (percentageCheckbox.checked) {
-            // Calculate grade using percentage
-            grade = ;
+            // Ensure all required inputs are valid numbers
+            if (maxPunten > 0 && !isNaN(voldoende) && !isNaN(percentage)) {
+                // Calculate the grade based on percentage
+                const grens = percentage / 100; // Percentage omgezet naar een decimaal
+                grade = ((correct / maxPunten) - grens) * (10 - voldoende) / (1 - grens) + voldoende;
+            } else {
+                console.error('Invalid inputs for maxPunten, percentage, or voldoende.');
+            }
         } else if (foutenCheckbox.checked) {
-            // Calculate grade based on fouten per punt
-            grade = ;
+            grade = maxPunten/( incorrect/foutenPerPunt);
+
         } else if (behaaldeCheckbox.checked) {
             // Calculate grade based on behaalde punten
-            grade = ;
+
         }
 
         // Ensure the grade is between 0 and 10
@@ -73,3 +104,6 @@ function calculate() {
         console.log('No valid calculation made.');
     }
 }
+
+// Initialize the checkboxes setup
+setupCheckboxes();
