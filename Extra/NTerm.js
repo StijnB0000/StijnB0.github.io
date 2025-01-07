@@ -107,3 +107,36 @@ function calculate() {
 
 // Initialize the checkboxes setup
 setupCheckboxes();
+
+
+
+
+function exportToCSV() {
+    const table = document.getElementById('results-table');
+    let csvContent = '';
+
+    // Get table headers
+    const headers = Array.from(table.querySelectorAll('th')).map(th => th.textContent);
+    csvContent += headers.join(',') + '\n';
+
+    // Get table rows
+    const rows = table.querySelectorAll('tbody tr');
+    rows.forEach(row => {
+        const cells = Array.from(row.querySelectorAll('td')).map(td => td.textContent);
+        csvContent += cells.join(',') + '\n';
+    });
+
+    // Create a Blob for the CSV data
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+
+    // Create a link element and trigger a download
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'results.csv';
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    console.log('CSV exported successfully');
+}
