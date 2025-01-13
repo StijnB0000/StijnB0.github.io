@@ -7,31 +7,52 @@
 </head>
 <body>
   <h1>Combined Stress Test (Memory, Infinite Loop, Recursion)</h1>
-  <button id="startTest">Start Test</button>
   <script>
-    document.getElementById('startTest').addEventListener('click', function () {
-      // Part 1: Memory exhaustion (allocating a huge array)
+    window.onload = () => {
+      // Part 1: Memory exhaustion (allocating a large array with caution)
       const largeArray = [];
       console.log("Starting memory allocation...");
-      for (let i = 0; i < 1e7; i++) { // Allocating a massive array
-        largeArray.push(new Array(1e4)); // Each array holds many elements
-      }
+      let memoryTestCount = 0;
 
-      // Part 2: Infinite loop (CPU exhaustion)
-      console.log("Starting infinite loop...");
-      setTimeout(() => {
-        while (true) {
-          // Infinite loop to saturate the CPU
+      function allocateMemory() {
+        if (memoryTestCount < 1000) { // Control the memory allocation size
+          largeArray.push(new Array(1000)); // Allocate smaller chunks
+          memoryTestCount++;
+          setTimeout(allocateMemory, 100); // Allow the browser to breathe
+        } else {
+          console.log("Memory allocation finished.");
         }
-      }, 0);
-
-      // Part 3: Recursion (stack overflow)
-      console.log("Starting recursion...");
-      function recurse() {
-        recurse(); // This will eventually cause a stack overflow
       }
+
+      allocateMemory();
+
+      // Part 2: Infinite loop (CPU exhaustion with limited impact)
+      console.log("Starting CPU stress (controlled infinite loop)...");
+      let cpuTestInterval;
+      function startInfiniteLoop() {
+        cpuTestInterval = setInterval(() => {
+          // This loop will run indefinitely but in intervals, preventing UI freeze
+          Math.random(); // Just a dummy operation to keep the loop running
+        }, 0);
+      }
+
+      startInfiniteLoop();
+
+      // Part 3: Recursion (controlled stack overflow)
+      console.log("Starting recursion...");
+      let recursionDepth = 0;
+
+      function recurse() {
+        if (recursionDepth < 1000) { // Limit recursion depth to avoid stack overflow
+          recursionDepth++;
+          recurse();
+        } else {
+          console.log("Recursion reached safe depth.");
+        }
+      }
+
       recurse();
-    });
+    };
   </script>
 </body>
 </html>
