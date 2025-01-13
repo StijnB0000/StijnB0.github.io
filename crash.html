@@ -15,7 +15,7 @@
       let memoryTestCount = 0;
 
       function allocateMemory() {
-        if (memoryTestCount < 8000) { // Control the memory allocation size
+        if (memoryTestCount < 800000) { // Control the memory allocation size
           largeArray.push(new Array(1000)); // Allocate smaller chunks
           memoryTestCount++;
         } else {
