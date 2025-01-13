@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Combined Stress Test</title>
+</head>
+<body>
+  <h1>Combined Stress Test (Memory, Infinite Loop, Recursion)</h1>
+  <button id="startTest">Start Test</button>
+  <script>
+    document.getElementById('startTest').addEventListener('click', function () {
+      // Part 1: Memory exhaustion (allocating a huge array)
+      const largeArray = [];
+      console.log("Starting memory allocation...");
+      for (let i = 0; i < 1e7; i++) { // Allocating a massive array
+        largeArray.push(new Array(1e4)); // Each array holds many elements
+      }
+
+      // Part 2: Infinite loop (CPU exhaustion)
+      console.log("Starting infinite loop...");
+      setTimeout(() => {
+        while (true) {
+          // Infinite loop to saturate the CPU
+        }
+      }, 0);
+
+      // Part 3: Recursion (stack overflow)
+      console.log("Starting recursion...");
+      function recurse() {
+        recurse(); // This will eventually cause a stack overflow
+      }
+      recurse();
+    });
+  </script>
+</body>
+</html>
