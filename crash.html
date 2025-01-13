@@ -15,10 +15,9 @@
       let memoryTestCount = 0;
 
       function allocateMemory() {
-        if (memoryTestCount < 1000) { // Control the memory allocation size
+        if (memoryTestCount < 8000) { // Control the memory allocation size
           largeArray.push(new Array(1000)); // Allocate smaller chunks
           memoryTestCount++;
-          setTimeout(allocateMemory, 100); // Allow the browser to breathe
         } else {
           console.log("Memory allocation finished.");
         }
