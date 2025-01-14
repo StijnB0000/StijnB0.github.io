@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Web Proxy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Web Proxy</h1>
+        <form id="proxyForm">
+            <input type="text" id="urlInput" placeholder="Enter URL (e.g., https://example.com)" required>
+            <button type="submit">Go</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('proxyForm');
+        const resultDiv = document.getElementById('result');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const url = document.getElementById('urlInput').value;
+
+            if (!url) {
+                alert("Please enter a URL.");
+                return;
+            }
+
+            try {
+                const response = await fetch(`proxy.php?url=${encodeURIComponent(url)}`);
+                const text = await response.text();
+                resultDiv.innerHTML = text;
+            } catch (error) {
+                resultDiv.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>
