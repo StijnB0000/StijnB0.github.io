@@ -55,6 +55,37 @@
             font-size: 16px;
             margin-right: 10px;
         }
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        #overlay iframe {
+            width: 100vw; /* Full viewport width */
+            height: 100vh; /* Full viewport height */
+            border: none;
+        }
+        #open-overlay-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #open-overlay-button:hover {
+            background: #218838;
+        }
     </style>
 </head>
 <body>
@@ -67,6 +98,14 @@
         <input id="message-input" type="text" placeholder="Type a message..." required>
         <button id="send-button" type="submit">Send</button>
     </form>
+
+    <!-- Button to open overlay -->
+    <button id="open-overlay-button">Open je escape!</button>
+
+    <!-- Overlay -->
+    <div id="overlay">
+        <iframe src="https://studygo.com/" title="SOM Today"></iframe>
+    </div>
 
     <script>
         const socket = new WebSocket('ws://chatservice.zapto.org:3000'); // Connect to server
@@ -104,6 +143,21 @@
             if (message.trim()) {
                 socket.send(`${username}: ${message}`); // Send message with username
                 input.value = '';
+            }
+        });
+
+        // Overlay functionality
+        const overlay = document.getElementById('overlay');
+        const openOverlayButton = document.getElementById('open-overlay-button');
+
+        openOverlayButton.addEventListener('click', () => {
+            overlay.style.display = 'flex'; // Show the overlay
+        });
+
+        // Close the overlay when pressing the Esc key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {  // Check if the Esc key is pressed
+                overlay.style.display = 'none'; // Hide the overlay
             }
         });
     </script>
