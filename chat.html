@@ -20,11 +20,13 @@
             padding: 10px;
             background: white;
             border-bottom: 2px solid #ccc;
+            display: none; /* Hide chat window initially */
         }
         #message-form {
             display: flex;
             padding: 10px;
             background: #ccc;
+            display: none; /* Hide message form initially */
         }
         #message-input {
             flex: 1;
@@ -42,9 +44,24 @@
         #send-button:hover {
             background: #0056b3;
         }
+        #username-form {
+            display: flex;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+        #username-input {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
+    <div id="username-form">
+        <input id="username-input" type="text" placeholder="Enter your username" required>
+        <button id="username-button">Join Chat</button>
+    </div>
     <div id="chat-window"></div>
     <form id="message-form">
         <input id="message-input" type="text" placeholder="Type a message..." required>
@@ -52,10 +69,15 @@
     </form>
 
     <script>
-        const socket = new WebSocket('ws://chatservice.zapto.org:3000'); // Verbind met de server
+        const socket = new WebSocket('ws://chatservice.zapto.org:3000'); // Connect to server
         const chatWindow = document.getElementById('chat-window');
         const form = document.getElementById('message-form');
         const input = document.getElementById('message-input');
+        const usernameInput = document.getElementById('username-input');
+        const usernameButton = document.getElementById('username-button');
+        const usernameForm = document.getElementById('username-form');
+        
+        let username = '';
 
         socket.addEventListener('message', (event) => {
             const message = document.createElement('div');
@@ -64,11 +86,25 @@
             chatWindow.scrollTop = chatWindow.scrollHeight;
         });
 
+        usernameButton.addEventListener('click', () => {
+            username = usernameInput.value.trim();
+            if (username) {
+                usernameForm.style.display = 'none';
+                chatWindow.style.display = 'block';
+                form.style.display = 'flex';
+                socket.send(username + ' has joined the chat'); // Notify others about the new user
+            } else {
+                alert('Please enter a username.');
+            }
+        });
+
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const message = input.value;
-            socket.send(message); // Verstuur bericht naar de server
-            input.value = '';
+            if (message.trim()) {
+                socket.send(`${username}: ${message}`); // Send message with username
+                input.value = '';
+            }
         });
     </script>
 </body>
