@@ -38,6 +38,8 @@ console.log(title);
 
 if (document.body.onfocus, function(){
   console.log("Focus");
+  title = "test"
 }); else{
   console.log("unfocus")
+    title = "test2"
 };
