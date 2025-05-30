@@ -22,7 +22,8 @@ Dit project is gestart voor een informatica opdracht. Het is een website met mee
 
 - Toevoegen van Javascript functionaliteit
 
-- Commentaar en laatste puntjes op de index
+- Commentaar en laatste puntjes op de i(ndex)
+
 
 
 
