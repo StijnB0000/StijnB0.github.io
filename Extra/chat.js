@@ -95,7 +95,7 @@ AI:`;
   }
 
   // Update location if AI mentions it
-  const locationMatch = aiText.match(/(?:arrive at|are in|enter|reach|find yourself in) ([A-Za-z\s]+)/i);
+  const locationMatch = aiText.match(/(?:arrive at|are in|enter|reach|find yourself in) ([A-Za-z\s]+)/i); // Idk how this works thanks stackoverflow ✨✨
   if (locationMatch) {
     gameState.location = locationMatch[1].trim();
   }
@@ -138,5 +138,5 @@ sendBtn.addEventListener('click', async () => {
   }
 });
 
-//start
+//start or sum
 init();
