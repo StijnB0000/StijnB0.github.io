@@ -1,0 +1,80 @@
+Random story based game
+
+met history en de ai die bepaalt wat er gebeurd
+
+🎯 Goal:
+Build a text-based adventure game where the AI acts as the Game Master and responds creatively to your input. The story evolves based on your choices.
+
+🧱 1. Structure the Interface
+A scrollable chat window for the game log
+
+A single-line input for the player’s actions
+
+A "Send" button
+
+A "Restart" button
+
+🧠 2. Design the Game Loop
+Each turn:
+
+Get player input
+
+Add it to a running history string
+
+Combine history with a prompt template that tells the AI it’s a game master
+
+Send it to the LLM (with pipe(...))
+
+Display the result
+
+Append both player input and AI response to the visible game log
+
+🧰 3. Define the Prompt Template
+Design a consistent structure:
+
+plaintext
+Copy
+Edit
+You are a game master guiding the player through a fantasy adventure.
+
+History:
+Player: open the door  
+Game Master: The door creaks open to reveal a dark corridor.  
+
+Player: walk into the corridor  
+Game Master:
+Append player input and AI response after each turn to maintain context
+
+🔁 4. Store State
+Use a history variable (a string or array of {role: "user"/"ai", message} objects)
+
+Reset it when clicking "Restart"
+
+Display the full back-and-forth in the chat box
+
+🎨 5. Polish the UX
+Add loading feedback while waiting for AI
+
+Autoscroll to the bottom after each message
+
+Disable the input while the AI is "thinking"
+
+Maybe add sound effects or background music 🎵
+
+🚀 6. Stretch Goals
+Theme selector: Fantasy, Sci-fi, Post-apocalyptic, etc.
+
+Simple inventory system (just tracked in history)
+
+Let the player name their character
+
+Save/load game state using localStorage
+
+💭 7. Prompt Engineering Experiments
+Once it's working, tweak the behavior by:
+
+Adjusting the initial system prompt (make it silly, dark, mysterious)
+
+Adding constraints ("Only describe events in haiku")
+
+Giving it personality ("You're a sarcastic Dungeon Master")

@@ -1,0 +1,118 @@
+
+
+
+/* Clean up the page with all 0 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* All full height and transparent */
+html, body {
+  height: 100%;
+  background: transparent; /* or your preferred bg */
+  font-family: Arial, sans-serif;
+}
+
+/* Remove margin on all headings */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 1rem 0; /* some spacing */
+}
+
+/* Remove outline for inputs */
+input:focus, button:focus {
+  outline: none;
+}
+
+/* Container to keep the 2 boxes next to eachother */
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Left box */
+#history-box {
+  width: 50%;
+  background-color: gray;
+  overflow-y: auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Right box */
+#next-move-box {
+  width: 50%;
+  background-color: cadetblue;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Header styling */
+.header {
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+/* History box */
+.history-item {
+  background-color: brown;
+  width: 100%;
+  height: 10vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+/* Input & button styles */
+#user-input {
+  width: calc(100% - 110px);
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-right: 10px;
+  border-radius: 4px;
+  border: none;
+}
+
+/*Send button style*/
+#send-btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #0077cc;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+/*send button style when hovered*/
+#send-btn:hover {
+  background-color: #005fa3;
+}
+
+/*Ai response box*/
+.ai-response {
+  background-color: #ff6b6b;
+  color: white;
+  width: 80%;
+  margin: 30px auto 0 auto; /* fix positioning */
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  user-select: none; /* No text selection */
+}
+
+/*Latest response box*/
+#latest-response {
+  margin: 0;
+}

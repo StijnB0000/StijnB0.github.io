@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Local Chatbot</title>
+  <link rel="stylesheet" href="chat.css" />
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Left Box -->
+    <section id="history-box">
+      <h1 class="header">Previous Moves</h1>
+
+
+      
+      <!-- Fill with Js -->
+    </section>
+
+    <!-- Right Box -->
+    <section id="next-move-box">
+      <h1 class="header">Moves</h1>
+
+      <div id="messages"></div>
+
+      <div id="input-area" style="display: flex; margin-top: 1rem;">
+        <input id="user-input" type="text" placeholder="Say something..." />
+        <button id="send-btn">Send</button>
+      </div>
+
+      <!-- Ai most recent response, will also be added to history, in a short and brief manner-->
+        <div class="ai-response">
+            <p id="latest-response"></p>
+        </div>
+
+    </section>
+
+  </div>
+
+  <script type="module" src="./chat.js"></script>
+</body>
+</html>
