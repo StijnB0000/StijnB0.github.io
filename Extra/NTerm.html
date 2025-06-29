@@ -5,14 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nterm Calculator</title>
-    <link rel="stylesheet" href="/Main.css" />
-    <link rel="stylesheet" href="NTerm.css" />
+    <link rel="stylesheet" href="/styles/global.css" /> <!-- New Global CSS -->
+    <link rel="stylesheet" href="/shared/menu.css" /> <!-- Path relative to root -->
+    <!-- <link rel="stylesheet" href="/Main.css" /> --> <!-- Replaced by global.css -->
+    <link rel="stylesheet" href="NTerm.css" /> <!-- NTerm specific styles -->
+    <script src="/shared/menu.js" defer></script> <!-- Path relative to root -->
     <script src="NTerm.js" defer></script>
 </head>
 
 <body style="background-color: #222222;">
 
-
+    <div id="menu-placeholder"></div> <!-- Menu placeholder -->
 
     <form id="calculator-form">
         <h1>Basis Instellingen:</h1>

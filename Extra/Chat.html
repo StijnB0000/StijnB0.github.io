@@ -4,11 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Local Chatbot</title>
+  <link rel="stylesheet" href="/styles/global.css" /> <!-- New Global CSS -->
+  <link rel="stylesheet" href="/shared/menu.css" /> <!-- Path relative to root -->
   <link rel="stylesheet" href="chat.css" />
+  <script src="/shared/menu.js" defer></script> <!-- Path relative to root -->
 </head>
 
-<body>
-  <div class="container">
+<body class="container"> <!-- Added .container class to body -->
+  <div id="menu-placeholder"></div> <!-- Menu placeholder -->
+  <!-- <div class="container"> --> <!-- Original container div removed, class moved to body -->
 
     <!-- Left Box -->
     <section id="history-box">

@@ -1,0 +1,171 @@
+/* styles/global.css */
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif; /* Default font */
+  overflow-x: hidden; /* From School/Css/Main.css */
+  color: white; /* Default text color for body */
+  line-height: 1.6;
+}
+
+/* Background pattern for pages using the .container class on body */
+/* This is the same pattern used in shared/menu.css for .container */
+/* If a page should NOT have this background, don't add .container to its body */
+body.container {
+  width: 100%;
+  min-height: 100vh; /* Ensure it covers full viewport height */
+  --s: 300px; /* control the size */
+  --c1: #1d1d1d;
+  --c2: #4e4f51;
+  --c3: #3c3c3c;
+
+  background: repeating-conic-gradient(
+        from 30deg,
+        #0000 0 120deg,
+        var(--c3) 0 180deg
+      )
+      calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),
+    repeating-conic-gradient(
+      from 30deg,
+      var(--c1) 0 60deg,
+      var(--c2) 0 120deg,
+      var(--c3) 0 180deg
+    );
+  background-size: var(--s) calc(var(--s) * 0.577);
+  background-attachment: fixed; /* Keep background fixed during scroll */
+}
+
+
+p {
+  /* color: white; /* Inherited from body */
+  text-align: center;
+  font-size: 16px;
+  text-wrap: balance;
+  /* font-family: 'Montserrat'; /* Inherited from body */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  /* color: white; /* Inherited from body */
+  text-align: center;
+  /* font-family: 'Montserrat'; /* Inherited from body */
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+/* Specific text alignment/color classes if needed */
+.text-center {
+  text-align: center;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-grey {
+  color: rgb(182, 182, 182);
+}
+
+/* Links */
+a, .link { /* Apply .link styles to general 'a' tags as well for consistency */
+  text-decoration: none;
+  color: rgb(182, 182, 182); /* Default link color */
+  font-family: 'Cursive', sans-serif; /* Specify a fallback for cursive */
+  font-size: 16px;
+  text-wrap: balance;
+  transition: font-size 0.5s, color 0.3s;
+}
+
+a:hover, .link:hover {
+  font-size: 20px;
+  color: #ffffff; /* Brighter on hover */
+}
+
+/* Utility Classes */
+.centerImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%; /* Ensure images are responsive */
+  height: auto;
+}
+
+/* Padding utility classes (examples) */
+.pb-40 {
+  padding-bottom: 40px !important;
+}
+
+.pb-80 {
+  padding-bottom: 80px !important;
+}
+
+/* Margin utility classes (examples) */
+.ml-40p { /* margin-left: 40% */
+  margin-left: 40% !important;
+}
+
+/* Cursor utility */
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+/* BasisText from index.html - can be generalized or kept if specific enough */
+.BasisText {
+  /* Assuming this is for main page content text */
+  /* Styles already covered by p, h1, etc. but if it has unique properties, add them here */
+}
+
+/* BasisText-Zwart from compressie.html */
+.BasisText-Zwart {
+  color: black !important; /* Overrides default white from body */
+  /* Other styles if they differed from standard 'p' */
+}
+
+.pt-80 {
+  padding-top: 80px !important;
+}
+
+.footer-email-link {
+  color: rgb(170, 238, 215) !important;
+  font-size: 20px !important;
+}
+
+/* For Kleurenmodellen.html */
+.flex-center {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.coloredBlock-style {
+  width: 80vw;
+  height: 50px;
+  background-color: rgb(63, 63, 63);
+  border-radius: 5px;
+}
+
+/* For NTerm.html labels */
+.label-light-text {
+  color: #F0EDEE !important;
+}
+
+/* For NTerm.html button container */
+.button-container-nterm {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  max-width: fit-content !important;
+  margin-inline: auto !important;
+}
+
+/* For Chat.html input area */
+.chat-input-area {
+  display: flex !important;
+  margin-top: 1rem !important;
+}

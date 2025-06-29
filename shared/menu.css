@@ -1,0 +1,219 @@
+/* Styles for the dynamically generated menu */
+
+/* Hamburger-styling */
+.hamburger {
+  cursor: pointer;
+  position: fixed; /* Keep menu button fixed on screen */
+  top: 10px;
+  left: 10px;
+  z-index: 1001; /* Ensure it's above other content */
+}
+
+.hamburger input {
+  display: none;
+}
+
+.hamburger svg {
+  height: 3em;
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  fill: none;
+  stroke: white;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+  stroke-dasharray: 12 63;
+}
+
+.hamburger input:checked + svg {
+  transform: rotate(-45deg);
+}
+
+.hamburger input:checked + svg .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
+
+/* Dropdown Content Styling */
+.dropdown-content {
+  /* display: none; /* Managed by JS now */
+  position: fixed; /* Fixed position for the dropdown */
+  top: 50px; /* Adjust as needed, below the hamburger */
+  left: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Below hamburger but above other page content */
+  border-radius: 8px;
+  padding: 0; /* Remove padding if ul will have it */
+  list-style: none;
+  user-select: none;
+}
+
+.dropdown-content ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px; /* Add padding to the UL */
+}
+
+.menu-opties {
+  /* background-color: white; /* Now on .dropdown-content */
+  padding: 10px;
+  /* padding-right: 150px; /* This seems excessive, adjust if needed */
+  cursor: pointer;
+  /* margin-right: 75%; /* This seems excessive, adjust if needed */
+  font-size: medium;
+  transition: 0.5s;
+  border-radius: 8px; /* Can be applied to subcategories too for consistency */
+  margin-bottom: 5px;
+  position: relative; /* For subcategory positioning */
+  user-select: none;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+}
+
+.menu-opties:hover {
+  background-color: rgb(196, 196, 196);
+}
+
+.subcategories {
+  /* display: none; /* Handled by hover now */
+  position: absolute;
+  top: 0;
+  left: 100%; /* Position to the right of the parent menu-optie */
+  background-color: white;
+  padding: 0; /* Remove padding if subcategory li will have it */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  z-index: 1005; /* Ensure submenus are on top */
+  border-radius: 8px;
+  /* margin-bottom: 5px; /* Not needed if parent has margin */
+  /* border-top: 5px; /* This seems like an odd border, removing */
+  user-select: none;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.8s ease;
+  min-width: 200px; /* Give submenus a decent width */
+}
+
+.menu-opties:hover .subcategories {
+  max-height: 300px; /* Adjust as needed for content */
+  opacity: 1;
+}
+
+.subcategory {
+  padding: 10px 20px;
+  color: black;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  display: block; /* Make the whole area clickable */
+}
+
+.subcategory:hover {
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  transform: translateX(5px);
+}
+
+.subcategory a {
+  text-decoration: none;
+  color: black;
+  display: block; /* Make the link fill the subcategory item */
+}
+
+/* Home Button Styling */
+.HomeButton {
+  padding: 0.1em 0.25em;
+  width: 13em;
+  height: 4.2em;
+  background-color: #212121;
+  border: 0.08em solid #fff;
+  border-radius: 0.3em;
+  font-size: 12px;
+  cursor: pointer;
+  position: fixed; /* Fixed position for home button */
+  top: 10px; /* Align with hamburger or adjust as needed */
+  /* left: 75vw; /* Will be handled by media queries for better responsiveness */
+  right: 10px; /* Place it on the right */
+  z-index: 1001; /* Ensure it's above other content */
+}
+
+.HomeButton span {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0.4em;
+  width: 8.25em;
+  height: 2.5em;
+  background-color: #212121;
+  border-radius: 0.2em;
+  font-size: 1.5em;
+  color: #fff;
+  border: 0.08em solid #fff;
+  box-shadow: 0 0.4em 0.1em 0.019em #fff;
+}
+
+.HomeButton span:hover {
+  transition: all 0.5s;
+  transform: translate(0, 0.4em);
+  box-shadow: 0 0 0 0 #fff;
+}
+
+.HomeButton span:not(hover) {
+  transition: all 1s;
+}
+
+.HomeButton a.home-link-style {
+  text-decoration: none;
+  color: whitesmoke;
+  /* The padding: 15% was very large and caused the text to be tiny or overflow.
+     Assuming the goal was to make the link fill the span and be clickable.
+     The span itself has padding-like behavior due to its fixed width/height and flex centering.
+     If specific padding inside the link is needed, it should be in px or em.
+     For now, ensuring it's a block and fills the area. */
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box; /* Ensures padding/border don't expand it beyond 100% */
+  /* padding: 0.5em; /* Example of a more reasonable padding if needed */
+}
+
+/* Responsive adjustments for HomeButton */
+/* @media screen and (min-width: 660px) {
+  .HomeButton {
+    left: 75vw;
+  }
+}
+
+@media screen and (max-width: 659px) {
+  .HomeButton {
+    left: auto;
+    right: 10px; /* Keep it to the right on smaller screens */
+    margin-left: 0; /* Remove margin if fixed right */
+    /* Adjust width or other properties if it feels too large for small screens */
+  }
+} */
+
+/* Simplified HomeButton positioning: Fixed to top-right. Adjust if needed. */
+/* The media queries for left positioning seemed a bit complex for a fixed button. */
+/* If specific left positioning based on viewport width is desired, it can be added back. */
+
+#menu-placeholder {
+    position: relative; /* Needed for absolute positioning of dropdown if not fixed */
+    z-index: 1000; /* Ensure menu components are above other page content */
+}

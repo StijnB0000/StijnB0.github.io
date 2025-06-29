@@ -1,38 +1,15 @@
+/* styles/components/loading.css */
+
 .LoadingScreen {
   width: 100%;
-  height: 100%;
-  display: block;
-  background-color: rgb(117, 117, 117);
-  position: absolute;
+  height: 100%; /* Should cover the initial screen */
+  display: block; /* Will be toggled by JS */
+  background-color: rgba(45, 45, 45, 0.9); /* Dark overlay, adjust as needed */
+  position: fixed; /* Use fixed to ensure it covers viewport if page is scrollable */
   top: 0;
   left: 0;
-
-  width: 100%;
-  height:300% ;
-  --s: 300px; /* control the size */
-  --c1: #1d1d1d;
-  --c2: #4e4f51;
-  --c3: #3c3c3c;
-
-  background: repeating-conic-gradient(
-        from 30deg,
-        #0000 0 120deg,
-        var(--c3) 0 180deg
-      )
-      calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),
-    repeating-conic-gradient(
-      from 30deg,
-      var(--c1) 0 60deg,
-      var(--c2) 0 120deg,
-      var(--c3) 0 180deg
-    );
-  background-size: var(--s) calc(var(--s) * 0.577);
-
-  /* 
-    Copyright - 2024 Afif13  - https://github.com/Afif13  
-    Copyright - 2024 https://github.com/Afif13 
-    Voor de wallpaper/background
-    */
+  z-index: 2000; /* High z-index to be on top of everything */
+  /* The complex background pattern is removed as it should be on body.container */
 }
 
 @keyframes blinkCursor {
@@ -48,13 +25,12 @@
   }
   45%,
   55% {
-    width: 6.2em;
-  } /* adjust width based on content */
+    width: 6.2em; /* adjust width based on content */
+  }
   90%,
   100% {
     width: 0;
   }
-
   /*
     Copyright - 2024 jeremyssocial (nr.bln) 
     Voor de Loader
@@ -69,10 +45,11 @@
   font-size: 1em;
   padding: 1.5em 1em;
   width: 12em;
-  margin: 100px auto;
+  margin: 100px auto; /* This will center it horizontally if parent is full width */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  position: relative;
+  position: relative; /* Changed from absolute to relative for centering within fixed .LoadingScreen */
+  top: 20vh; /* Position it down a bit from the top of the viewport */
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -125,8 +102,8 @@
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 0.2em solid green;
-  animation: typeAndDelete 4s steps(11) infinite,
-    blinkCursor 0.5s step-end infinite alternate;
-  margin-top: 1.5em;
+  border-right: 0.2em solid green; /* Cursor */
+  animation: typeAndDelete 4s steps(11) infinite, /* Text animation */
+    blinkCursor 0.5s step-end infinite alternate; /* Cursor animation */
+  margin-top: 1.5em; /* Space for the header */
 }
