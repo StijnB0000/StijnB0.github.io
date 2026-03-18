@@ -201,7 +201,9 @@ Jouw taak:
 
 Blijf scherp. Niet elk verzoek is wat het lijkt.
 
-[[Start de verdediging]]</tw-passagedata><tw-passagedata pid="2" name="Start de verdediging" tags="" position="1600,650" size="100,100">(set: $selected to (a:))
+[[Start de verdediging]]</tw-passagedata><tw-passagedata pid="2" name="Start de verdediging" tags="" position="1600,650" size="100,100">{
+(set: $selected to (a:))
+(set: $pogingen to 0)
 (set: $ips to (a:
   &quot;10.1.1.1 (1 request)&quot;,
   &quot;45.23.11.9 (500 requests)&quot;,
@@ -216,8 +218,7 @@ Blijf scherp. Niet elk verzoek is wat het lijkt.
 ))
 (set: $verdacht to (a: &quot;45.23.11.9&quot;, &quot;123.45.6.7&quot;, &quot;45.23.11.10&quot;))
 (set: $hinttimer to 0)
-
-&#39;&#39;🖥 ROODKAPJE-SERVER v2.4.1 — DASHBOARD&#39;&#39;
+}&#39;&#39;🖥 ROODKAPJE-SERVER v2.4.1 — DASHBOARD&#39;&#39;
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
 ⏱ Uptime: //3d 14h 22m// | 🌡 CPU: //34%// | 💾 RAM: //1.2 / 4 GB//
 📶 Inkomend: //2.3 Mbps// | Uitgaand: //0.4 Mbps//
@@ -236,53 +237,42 @@ Blijf scherp. Niet elk verzoek is wat het lijkt.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 (live: 0.3s)[
-(for: each _ip, ...$ips)[
+(for: each _ip, ...$ips)[{
 (set: _pureIP to (split: &quot; &quot;, _ip)&#39;s 1st)
-(if: $selected contains _pureIP)[
+}(if: $selected contains _pureIP)[
 (link: &quot;✅ &quot; + _ip)[(set: $selected to (find: _x where _x is not _pureIP, ...$selected))]
 ](else:)[
 (link: &quot;🔲 &quot; + _ip)[(set: $selected to it + (a: _pureIP))]
-]
-]
-]
-
+]]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-(live: 0.5s)[
 📌 Geselecteerd: &#39;&#39;(print: $selected&#39;s length) / 3&#39;&#39; IP&#39;s
 (if: $selected&#39;s length &gt; 0)[
-→ (for: each _s, ...$selected)[ &#39;&#39;_s&#39;&#39; ]
-(link: &quot;🗑 Selectie wissen&quot;)[
-(set: $selected to (a:))
-]
-]
+→ (for: each _s, ...$selected)[&#39;&#39;_s&#39;&#39; ]
+(link: &quot;🗑 Selectie wissen&quot;)[(set: $selected to (a:))]
+]{
 (set: $hinttimer to $hinttimer + 1)
-(if: $hinttimer &gt; 30)[
+}(if: $hinttimer &gt; 30)[
 💡 //Hint: normaal verkeer stuurt maar een paar requests. Kijk naar de getallen…//
-]
-]
+]]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[[✔ Bevestig selectie →|CheckPuzzel1]]</tw-passagedata><tw-passagedata pid="3" name="CheckPuzzel1" tags="" position="1600,775" size="100,100">(set: $pogingen to $pogingen + 1)
-
+[[✔ Bevestig selectie →|CheckPuzzel1]]</tw-passagedata><tw-passagedata pid="3" name="CheckPuzzel1" tags="" position="1600,775" size="100,100">{
+(set: $pogingen to $pogingen + 1)
 (set: $allFound to true)
 (set: $noFalse to ($selected&#39;s length is $verdacht&#39;s length))
 (set: $gemist to (a:))
 (set: $fout to (a:))
-
-(for: each _v, ...$verdacht)[
-  (if: not ($selected contains _v))[
-    (set: $allFound to false)
-    (set: $gemist to $gemist + (a: _v))
-  ]
-]
-(for: each _s, ...$selected)[
-  (if: not ($verdacht contains _s))[
-    (set: $fout to $fout + (a: _s))
-  ]
-]
-
-&#39;&#39;🖥 ROODKAPJE-SERVER — ANALYSE RESULTAAT&#39;&#39;
+(for: each _v, ...$verdacht)[{
+(if: not ($selected contains _v))[{
+(set: $allFound to false)
+(set: $gemist to $gemist + (a: _v))
+}]]
+(for: each _s, ...$selected)[{
+(if: not ($verdacht contains _s))[{
+(set: $fout to $fout + (a: _s))
+}]]
+}&#39;&#39;🖥 ROODKAPJE-SERVER — ANALYSE RESULTAAT&#39;&#39;
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
 📋 Poging: &#39;&#39;(print: $pogingen)&#39;&#39; | Geselecteerd: &#39;&#39;(print: $selected&#39;s length)&#39;&#39; IP&#39;s
 
@@ -290,7 +280,6 @@ Blijf scherp. Niet elk verzoek is wat het lijkt.
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
 ✅ &#39;&#39;ANALYSE COMPLEET — GEEN FOUTEN&#39;&#39;
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
-(set: $p1 to true)
 
 Goed gedaan! Je hebt alle verdachte IP&#39;s correct geïdentificeerd.
 
@@ -312,8 +301,7 @@ de server tegelijk met honderden requests per minuut.
 ⚠️ //Gemiste verdachten://
 (for: each _g, ...$gemist)[
 &gt; 🔴 &#39;&#39;_g&#39;&#39; — had je moeten markeren
-]
-]
+]]
 (if: $fout&#39;s length &gt; 0)[
 🚫 //Onterecht geblokkeerd://
 (for: each _f, ...$fout)[
@@ -330,9 +318,9 @@ Kijk goed naar de getallen achter elk adres.
 ]
 
 [[↩ Opnieuw proberen|Start de verdediging]]
-]</tw-passagedata><tw-passagedata pid="4" name="Puzzel2" tags="" position="1775,650" size="100,100">(set: $maatregelen to (a:))
+]</tw-passagedata><tw-passagedata pid="4" name="Puzzel2" tags="" position="1775,650" size="100,100">{
+(set: $maatregelen to (a:))
 (set: $p2pogingen to 0)
-
 (set: $opties to (a:
   &quot;🛡 Rate limiting (max 10 req/s per IP)&quot;,
   &quot;🚫 IP-range blokkade (45.23.x.x + 123.45.x.x)&quot;,
@@ -343,15 +331,13 @@ Kijk goed naar de getallen achter elk adres.
   &quot;🗃 Database cache legen&quot;,
   &quot;🧺 Mandje-buffer vergroten&quot;
 ))
-
 (set: $goedeMaatregelen to (a:
   &quot;🛡 Rate limiting (max 10 req/s per IP)&quot;,
   &quot;🚫 IP-range blokkade (45.23.x.x + 123.45.x.x)&quot;,
   &quot;🔍 Traffic scrubbing activeren&quot;,
   &quot;🤖 CAPTCHA voor nieuwe verbindingen&quot;
 ))
-
-&#39;&#39;🖥 ROODKAPJE-SERVER v2.4.1 — FIREWALL CONSOLE&#39;&#39;
+}&#39;&#39;🖥 ROODKAPJE-SERVER v2.4.1 — FIREWALL CONSOLE&#39;&#39;
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
 &gt; [14:33:12] ❗ DDoS-aanval bevestigd — 1.350 req/min inkomend
 &gt; [14:33:14] Mandje-buffer: 94% vol — //kritiek niveau//
@@ -364,18 +350,16 @@ Kijk goed naar de getallen achter elk adres.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-(live: 0.3s)[
+(live: 0.3s)[{
 (set: _load to 85)
-(for: each _m, ...$maatregelen)[
-(if: $goedeMaatregelen contains _m)[
+(for: each _m, ...$maatregelen)[{
+(if: $goedeMaatregelen contains _m)[{
 (set: _load to _load - 20)
-](else:)[
+}](else:)[{
 (set: _load to _load + 15)
-]
-]
+}]}]
 (set: _load to (max: 0, (min: 100, _load)))
-
-&#39;&#39;SERVER LOAD:&#39;&#39; (if: _load &gt; 70)[🔴 &#39;&#39;KRITIEK&#39;&#39;](else-if: _load &gt; 40)[🟠 &#39;&#39;VERHOOGD&#39;&#39;](else-if: _load &gt; 25)[🟡 &#39;&#39;MATIG&#39;&#39;](else:)[🟢 &#39;&#39;STABIEL&#39;&#39;] — &#39;&#39;(print: _load)%&#39;&#39;
+}&#39;&#39;SERVER LOAD:&#39;&#39; (if: _load &gt; 70)[🔴 &#39;&#39;KRITIEK&#39;&#39;](else-if: _load &gt; 40)[🟠 &#39;&#39;VERHOOGD&#39;&#39;](else-if: _load &gt; 25)[🟡 &#39;&#39;MATIG&#39;&#39;](else:)[🟢 &#39;&#39;STABIEL&#39;&#39;] — &#39;&#39;(print: _load)%&#39;&#39;
 
 (set: _filled to (round: _load / 10))
 (for: each _x, ...(range: 1, 10))[(if: _x &lt;= _filled)[█](else:)[░]]
@@ -385,15 +369,10 @@ Kijk goed naar de getallen achter elk adres.
 
 (for: each _opt, ...$opties)[
 (if: $maatregelen contains _opt)[
-(link: &quot;✅ &quot; + _opt)[
-(set: $maatregelen to (find: _x where _x is not _opt, ...$maatregelen))
-]
+(link: &quot;✅ &quot; + _opt)[(set: $maatregelen to (find: _x where _x is not _opt, ...$maatregelen))]
 ](else:)[
-(link: &quot;🔲 &quot; + _opt)[
-(set: $maatregelen to it + (a: _opt))
-]
-]
-]
+(link: &quot;🔲 &quot; + _opt)[(set: $maatregelen to it + (a: _opt))]
+]]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📋 Actief: &#39;&#39;(print: $maatregelen&#39;s length)&#39;&#39; maatregel(en)
@@ -402,34 +381,28 @@ Kijk goed naar de getallen achter elk adres.
 → _m
 ]
 (link: &quot;🗑 Alles wissen&quot;)[(set: $maatregelen to (a:))]
-]
-]
+]]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[[✔ Verdediging activeren →|CheckPuzzel2]]</tw-passagedata><tw-passagedata pid="5" name="CheckPuzzel2" tags="" position="1775,775" size="100,100">(set: $p2pogingen to $p2pogingen + 1)
-
+[[✔ Verdediging activeren →|CheckPuzzel2]]</tw-passagedata><tw-passagedata pid="5" name="CheckPuzzel2" tags="" position="1775,775" size="100,100">{
+(set: $p2pogingen to $p2pogingen + 1)
 (set: $goedActief to (a:))
 (set: $foutActief to (a:))
-
-(for: each _m, ...$maatregelen)[
-(if: $goedeMaatregelen contains _m)[
+(for: each _m, ...$maatregelen)[{
+(if: $goedeMaatregelen contains _m)[{
 (set: $goedActief to $goedActief + (a: _m))
-](else:)[
+}](else:)[{
 (set: $foutActief to $foutActief + (a: _m))
-]
-]
-
+}]}]
 (set: _load to 85)
-(for: each _m, ...$maatregelen)[
-(if: $goedeMaatregelen contains _m)[
+(for: each _m, ...$maatregelen)[{
+(if: $goedeMaatregelen contains _m)[{
 (set: _load to _load - 20)
-](else:)[
+}](else:)[{
 (set: _load to _load + 15)
-]
-]
+}]}]
 (set: _load to (max: 0, (min: 100, _load)))
-
-&#39;&#39;🖥 ROODKAPJE-SERVER — VERDEDIGINGSANALYSE&#39;&#39;
+}&#39;&#39;🖥 ROODKAPJE-SERVER — VERDEDIGINGSANALYSE&#39;&#39;
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
 📋 Poging: &#39;&#39;(print: $p2pogingen)&#39;&#39; | Actief: &#39;&#39;(print: $maatregelen&#39;s length)&#39;&#39; | Load: &#39;&#39;(print: _load)%&#39;&#39;
 
@@ -437,7 +410,6 @@ Kijk goed naar de getallen achter elk adres.
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
 ✅ &#39;&#39;AANVAL GESTOPT — SERVER GESTABILISEERD&#39;&#39;
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
-(set: $p2 to true)
 
 &gt; [14:34:01] Rate limiter: ACTIEF — 847 requests geblokkeerd
 &gt; [14:34:02] IP-range ban: ACTIEF — 45.23.x.x + 123.45.x.x offline
@@ -471,8 +443,7 @@ Maar pas op… dit was nog maar de voorbode. De echte aanval komt eraan.
 ]
 (if: $foutActief contains &quot;🧺 Mandje-buffer vergroten&quot;)[
 💀 Een grotere buffer vertraagt alleen het crashen — het stopt de aanval niet.
-]
-]
+]]
 
 (if: $goedActief&#39;s length &lt; 3)[
 🛡 //Actieve juiste maatregelen: (print: $goedActief&#39;s length)/4//
@@ -484,8 +455,7 @@ Maar pas op… dit was nog maar de voorbode. De echte aanval komt eraan.
 Welke maatregelen pakken dat direct aan?
 ](else:)[
 💡 Je hebt nog &#39;&#39;(print: 3 - $goedActief&#39;s length)&#39;&#39; maatregel(en) nodig.
-]
-]
+]]
 
 (if: $p2pogingen &gt;= 3)[
 🆘 Extra hint: zoek maatregelen die &#39;&#39;aanvals-IP&#39;s blokkeren&#39;&#39; of &#39;&#39;requestvolume beperken&#39;&#39;.
@@ -493,11 +463,11 @@ Vermijd drastische acties die de hele server raken.
 ]
 
 [[↩ Opnieuw proberen|Puzzel2]]
-]</tw-passagedata><tw-passagedata pid="6" name="Puzzel3" tags="" position="1925,650" size="100,100">(set: $serverHP to 3)
+]</tw-passagedata><tw-passagedata pid="6" name="Puzzel3" tags="" position="1925,650" size="100,100">{
+(set: $serverHP to 3)
 (set: $golfgeblokkeerd to (a:))
 (set: $p3pogingen to 0)
-
-&#39;&#39;🖥 ROODKAPJE-SERVER v2.4.1 — NOODPROTOCOL ACTIEF&#39;&#39;
+}&#39;&#39;🖥 ROODKAPJE-SERVER v2.4.1 — NOODPROTOCOL ACTIEF&#39;&#39;
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
 &gt; [14:35:00] ❗ FASE 3 — Live aanvalsgolven inkomend
 &gt; [14:35:01] Firewall actief — Wolf past tactiek aan
@@ -514,7 +484,8 @@ Laat legitieme bezoekers door — vals-positieven kosten ook levens!
 &gt; Meerdere IP&#39;s uit hetzelfde subnet → verdacht
 &gt; Laag req/s maar identieke bot-Agent op meerdere IPs → gedistribueerd botnet
 
-[[⚡ Golf 1 starten|Puzzel3Golf1]]</tw-passagedata><tw-passagedata pid="7" name="Puzzel3Golf1" tags="" position="1925,775" size="100,100">(set: $golfgeblokkeerd to (a:))
+[[⚡ Golf 1 starten|Puzzel3Golf1]]</tw-passagedata><tw-passagedata pid="7" name="Puzzel3Golf1" tags="" position="1925,775" size="100,100">{
+(set: $golfgeblokkeerd to (a:))
 (set: $huidigKwaad to (a: &quot;45.23.11.9&quot;, &quot;123.45.6.7&quot;, &quot;45.23.11.10&quot;))
 (set: $huidigRequests to (a:
   &quot;📦 10.1.1.1 — GET /cookies — 2 req/s — Agent: Chrome/102&quot;,
@@ -526,8 +497,7 @@ Laat legitieme bezoekers door — vals-positieven kosten ook levens!
   &quot;📦 45.23.11.10 — GET /cookies — 94 req/s — Agent: WolfBot/1.0&quot;,
   &quot;📦 10.0.0.3 — GET /index — 1 req/s — Agent: Edge/18&quot;
 ))
-
-&#39;&#39;🖥 GOLF 1/3 — DIRECTE AANVAL&#39;&#39;
+}&#39;&#39;🖥 GOLF 1/3 — DIRECTE AANVAL&#39;&#39;
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
 Levens: (if: $serverHP &gt; 0)[❤️](else:)[🖤](if: $serverHP &gt; 1)[❤️](else:)[🖤](if: $serverHP &gt; 2)[❤️](else:)[🖤]
 
@@ -537,37 +507,33 @@ Levens: (if: $serverHP &gt; 0)[❤️](else:)[🖤](if: $serverHP &gt; 1)[❤️
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 (live: 0.3s)[
-(for: each _r, ...$huidigRequests)[
-(if: $golfgeblokkeerd contains (split: &quot; &quot;, _r)&#39;s 2nd)[
-(link: &quot;🚫 &quot; + _r)[(set: $golfgeblokkeerd to (find: _x where _x is not (split: &quot; &quot;, _r)&#39;s 2nd, ...$golfgeblokkeerd))]
+(for: each _r, ...$huidigRequests)[{
+(set: _rIP to (split: &quot; &quot;, _r)&#39;s 2nd)
+}(if: $golfgeblokkeerd contains _rIP)[
+(link: &quot;🚫 &quot; + _r)[(set: $golfgeblokkeerd to (find: _x where _x is not _rIP, ...$golfgeblokkeerd))]
 ](else:)[
-(link: &quot;🔲 &quot; + _r)[(set: $golfgeblokkeerd to it + (a: (split: &quot; &quot;, _r)&#39;s 2nd))]
-]
-]
+(link: &quot;🔲 &quot; + _r)[(set: $golfgeblokkeerd to it + (a: _rIP))]
+]]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📋 Geblokkeerd: &#39;&#39;(print: $golfgeblokkeerd&#39;s length)&#39;&#39; / 3
 (if: $golfgeblokkeerd&#39;s length &gt; 0)[
 (for: each _b, ...$golfgeblokkeerd)[&gt; 🚫 &#39;&#39;_b&#39;&#39;
 ]
 (link: &quot;🗑 Wissen&quot;)[(set: $golfgeblokkeerd to (a:))]
-]
-]
+]]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[[✔ Blokkade activeren →|CheckGolf1]]</tw-passagedata><tw-passagedata pid="8" name="CheckGolf1" tags="" position="1925,900" size="100,100">(set: $p3pogingen to $p3pogingen + 1)
+[[✔ Blokkade activeren →|CheckGolf1]]</tw-passagedata><tw-passagedata pid="8" name="CheckGolf1" tags="" position="1925,900" size="100,100">{
+(set: $p3pogingen to $p3pogingen + 1)
 (set: $huidigKwaad to (a: &quot;45.23.11.9&quot;, &quot;123.45.6.7&quot;, &quot;45.23.11.10&quot;))
 (set: $geblokKwaad to (a:))
 (set: $geblokOnschuldig to (a:))
 (set: $gemistKwaad to (a:))
-
-(for: each _b, ...$golfgeblokkeerd)[
-(if: $huidigKwaad contains _b)[(set: $geblokKwaad to $geblokKwaad + (a: _b))](else:)[(set: $geblokOnschuldig to $geblokOnschuldig + (a: _b))]
-]
-(for: each _k, ...$huidigKwaad)[
-(if: not ($golfgeblokkeerd contains _k))[(set: $gemistKwaad to $gemistKwaad + (a: _k))]
-]
-
-&#39;&#39;🖥 GOLF 1/3 — RESULTAAT&#39;&#39;
+(for: each _b, ...$golfgeblokkeerd)[{
+(if: $huidigKwaad contains _b)[{(set: $geblokKwaad to $geblokKwaad + (a: _b))}](else:)[{(set: $geblokOnschuldig to $geblokOnschuldig + (a: _b))}]}]
+(for: each _k, ...$huidigKwaad)[{
+(if: not ($golfgeblokkeerd contains _k))[{(set: $gemistKwaad to $gemistKwaad + (a: _k))}]}]
+}&#39;&#39;🖥 GOLF 1/3 — RESULTAAT&#39;&#39;
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
 Levens: (if: $serverHP &gt; 0)[❤️](else:)[🖤](if: $serverHP &gt; 1)[❤️](else:)[🖤](if: $serverHP &gt; 2)[❤️](else:)[🖤]
 
@@ -592,14 +558,12 @@ De wolf gooit het over een andere boeg voor golf 2…
 ](else:)[❌ &#39;&#39;NIET ALLE VERDACHTEN GEBLOKKEERD&#39;&#39;
 ]
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
-(set: $serverHP to $serverHP - 1)
-&gt; [14:35:20] ⚠️ Blokkade onvolledig — aanval loopt door
+{(set: $serverHP to $serverHP - 1)}&gt; [14:35:20] ⚠️ Blokkade onvolledig — aanval loopt door
 
 (if: $gemistKwaad&#39;s length &gt; 0)[
 🔴 Gemiste verdachten:
 (for: each _g, ...$gemistKwaad)[&gt; &#39;&#39;_g&#39;&#39;
-]
-]
+]]
 (if: $geblokOnschuldig&#39;s length &gt; 0)[
 ⚪ Ten onrechte geblokkeerd:
 (for: each _f, ...$geblokOnschuldig)[&gt; &#39;&#39;_f&#39;&#39;
@@ -614,8 +578,8 @@ Levens over: (if: $serverHP &gt; 0)[❤️](else:)[🖤](if: $serverHP &gt; 1)[�
 [[↩ Volledig opnieuw|Puzzel3]]
 ](else:)[
 [[↩ Opnieuw proberen|Puzzel3Golf1]]
-]
-]</tw-passagedata><tw-passagedata pid="9" name="Puzzel3Golf2" tags="" position="1925,1025" size="100,100">(set: $golfgeblokkeerd to (a:))
+]]</tw-passagedata><tw-passagedata pid="9" name="Puzzel3Golf2" tags="" position="1900,1025" size="100,100">{
+(set: $golfgeblokkeerd to (a:))
 (set: $huidigKwaad to (a: &quot;77.88.99.1&quot;, &quot;77.88.99.2&quot;, &quot;77.88.99.3&quot;, &quot;77.88.99.4&quot;))
 (set: $huidigRequests to (a:
   &quot;📦 77.88.99.1 — GET /cookies — 45 req/s — Agent: Mozilla/5.0&quot;,
@@ -629,8 +593,7 @@ Levens over: (if: $serverHP &gt; 0)[❤️](else:)[🖤](if: $serverHP &gt; 1)[�
   &quot;📦 192.168.0.12 — GET /index — 2 req/s — Agent: Edge/18&quot;,
   &quot;📦 10.10.10.1 — GET /status — 1 req/s — Agent: Chrome/102&quot;
 ))
-
-&#39;&#39;🖥 GOLF 2/3 — SUBNETAANVAL&#39;&#39;
+}&#39;&#39;🖥 GOLF 2/3 — SUBNETAANVAL&#39;&#39;
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
 Levens: (if: $serverHP &gt; 0)[❤️](else:)[🖤](if: $serverHP &gt; 1)[❤️](else:)[🖤](if: $serverHP &gt; 2)[❤️](else:)[🖤]
 
@@ -641,37 +604,33 @@ Levens: (if: $serverHP &gt; 0)[❤️](else:)[🖤](if: $serverHP &gt; 1)[❤️
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 (live: 0.3s)[
-(for: each _r, ...$huidigRequests)[
-(if: $golfgeblokkeerd contains (split: &quot; &quot;, _r)&#39;s 2nd)[
-(link: &quot;🚫 &quot; + _r)[(set: $golfgeblokkeerd to (find: _x where _x is not (split: &quot; &quot;, _r)&#39;s 2nd, ...$golfgeblokkeerd))]
+(for: each _r, ...$huidigRequests)[{
+(set: _rIP to (split: &quot; &quot;, _r)&#39;s 2nd)
+}(if: $golfgeblokkeerd contains _rIP)[
+(link: &quot;🚫 &quot; + _r)[(set: $golfgeblokkeerd to (find: _x where _x is not _rIP, ...$golfgeblokkeerd))]
 ](else:)[
-(link: &quot;🔲 &quot; + _r)[(set: $golfgeblokkeerd to it + (a: (split: &quot; &quot;, _r)&#39;s 2nd))]
-]
-]
+(link: &quot;🔲 &quot; + _r)[(set: $golfgeblokkeerd to it + (a: _rIP))]
+]]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📋 Geblokkeerd: &#39;&#39;(print: $golfgeblokkeerd&#39;s length)&#39;&#39; / 4
 (if: $golfgeblokkeerd&#39;s length &gt; 0)[
 (for: each _b, ...$golfgeblokkeerd)[&gt; 🚫 &#39;&#39;_b&#39;&#39;
 ]
 (link: &quot;🗑 Wissen&quot;)[(set: $golfgeblokkeerd to (a:))]
-]
-]
+]]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[[✔ Blokkade activeren →|CheckGolf2]]</tw-passagedata><tw-passagedata pid="10" name="CheckGolf2" tags="" position="1925,1150" size="100,100">(set: $p3pogingen to $p3pogingen + 1)
+[[✔ Blokkade activeren →|CheckGolf2]]</tw-passagedata><tw-passagedata pid="10" name="CheckGolf2" tags="" position="1925,1150" size="100,100">{
+(set: $p3pogingen to $p3pogingen + 1)
 (set: $huidigKwaad to (a: &quot;77.88.99.1&quot;, &quot;77.88.99.2&quot;, &quot;77.88.99.3&quot;, &quot;77.88.99.4&quot;))
 (set: $geblokKwaad to (a:))
 (set: $geblokOnschuldig to (a:))
 (set: $gemistKwaad to (a:))
-
-(for: each _b, ...$golfgeblokkeerd)[
-(if: $huidigKwaad contains _b)[(set: $geblokKwaad to $geblokKwaad + (a: _b))](else:)[(set: $geblokOnschuldig to $geblokOnschuldig + (a: _b))]
-]
-(for: each _k, ...$huidigKwaad)[
-(if: not ($golfgeblokkeerd contains _k))[(set: $gemistKwaad to $gemistKwaad + (a: _k))]
-]
-
-&#39;&#39;🖥 GOLF 2/3 — RESULTAAT&#39;&#39;
+(for: each _b, ...$golfgeblokkeerd)[{
+(if: $huidigKwaad contains _b)[{(set: $geblokKwaad to $geblokKwaad + (a: _b))}](else:)[{(set: $geblokOnschuldig to $geblokOnschuldig + (a: _b))}]}]
+(for: each _k, ...$huidigKwaad)[{
+(if: not ($golfgeblokkeerd contains _k))[{(set: $gemistKwaad to $gemistKwaad + (a: _k))}]}]
+}&#39;&#39;🖥 GOLF 2/3 — RESULTAAT&#39;&#39;
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
 Levens: (if: $serverHP &gt; 0)[❤️](else:)[🖤](if: $serverHP &gt; 1)[❤️](else:)[🖤](if: $serverHP &gt; 2)[❤️](else:)[🖤]
 
@@ -687,7 +646,7 @@ Levens: (if: $serverHP &gt; 0)[❤️](else:)[🖤](if: $serverHP &gt; 1)[❤️
 → &#39;&#39;Mozilla/5.0&#39;&#39; was gespoofed — alle vier stuurden exact dezelfde agent
 → Moderate req/s (42–51) — minder extreem, maar samen nog steeds gevaarlijk
 
-Eén golf te gaan. De wolf zet zijn zwaarste wapen in…
+Één golf te gaan. De wolf zet zijn zwaarste wapen in…
 
 [[→ Golf 3|Puzzel3Golf3]]
 
@@ -697,13 +656,11 @@ Eén golf te gaan. De wolf zet zijn zwaarste wapen in…
 ](else:)[❌ &#39;&#39;NIET ALLE VERDACHTEN GEBLOKKEERD&#39;&#39;
 ]
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
-(set: $serverHP to $serverHP - 1)
-
+{(set: $serverHP to $serverHP - 1)}
 (if: $gemistKwaad&#39;s length &gt; 0)[
 🔴 Gemiste verdachten:
 (for: each _g, ...$gemistKwaad)[&gt; &#39;&#39;_g&#39;&#39;
-]
-]
+]]
 (if: $geblokOnschuldig&#39;s length &gt; 0)[
 ⚪ Ten onrechte geblokkeerd:
 (for: each _f, ...$geblokOnschuldig)[&gt; &#39;&#39;_f&#39;&#39;
@@ -721,8 +678,8 @@ Levens over: (if: $serverHP &gt; 0)[❤️](else:)[🖤](if: $serverHP &gt; 1)[�
 [[↩ Volledig opnieuw|Puzzel3]]
 ](else:)[
 [[↩ Opnieuw proberen|Puzzel3Golf2]]
-]
-]</tw-passagedata><tw-passagedata pid="11" name="Puzzel3Golf3" tags="" position="1925,1275" size="100,100">(set: $golfgeblokkeerd to (a:))
+]]</tw-passagedata><tw-passagedata pid="11" name="Puzzel3Golf3" tags="" position="1925,1275" size="100,100">{
+(set: $golfgeblokkeerd to (a:))
 (set: $huidigKwaad to (a: &quot;31.41.59.26&quot;, &quot;27.18.28.18&quot;, &quot;16.18.3.39&quot;, &quot;14.14.21.35&quot;, &quot;62.83.18.53&quot;, &quot;97.93.99.37&quot;))
 (set: $huidigRequests to (a:
   &quot;📦 31.41.59.26 — GET /cookies — 18 req/s — Agent: FloodPack/3.2&quot;,
@@ -738,8 +695,7 @@ Levens over: (if: $serverHP &gt; 0)[❤️](else:)[🖤](if: $serverHP &gt; 1)[�
   &quot;📦 97.93.99.37 — GET /cookies — 20 req/s — Agent: FloodPack/3.2&quot;,
   &quot;📦 10.0.0.2 — GET /about — 2 req/s — Agent: Safari/15&quot;
 ))
-
-&#39;&#39;🖥 GOLF 3/3 — GEDISTRIBUEERDE BOTNETAANVAL&#39;&#39;
+}&#39;&#39;🖥 GOLF 3/3 — GEDISTRIBUEERDE BOTNETAANVAL&#39;&#39;
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
 Levens: (if: $serverHP &gt; 0)[❤️](else:)[🖤](if: $serverHP &gt; 1)[❤️](else:)[🖤](if: $serverHP &gt; 2)[❤️](else:)[🖤]
 
@@ -751,45 +707,40 @@ Levens: (if: $serverHP &gt; 0)[❤️](else:)[🖤](if: $serverHP &gt; 1)[❤️
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 (live: 0.3s)[
-(for: each _r, ...$huidigRequests)[
-(if: $golfgeblokkeerd contains (split: &quot; &quot;, _r)&#39;s 2nd)[
-(link: &quot;🚫 &quot; + _r)[(set: $golfgeblokkeerd to (find: _x where _x is not (split: &quot; &quot;, _r)&#39;s 2nd, ...$golfgeblokkeerd))]
+(for: each _r, ...$huidigRequests)[{
+(set: _rIP to (split: &quot; &quot;, _r)&#39;s 2nd)
+}(if: $golfgeblokkeerd contains _rIP)[
+(link: &quot;🚫 &quot; + _r)[(set: $golfgeblokkeerd to (find: _x where _x is not _rIP, ...$golfgeblokkeerd))]
 ](else:)[
-(link: &quot;🔲 &quot; + _r)[(set: $golfgeblokkeerd to it + (a: (split: &quot; &quot;, _r)&#39;s 2nd))]
-]
-]
+(link: &quot;🔲 &quot; + _r)[(set: $golfgeblokkeerd to it + (a: _rIP))]
+]]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📋 Geblokkeerd: &#39;&#39;(print: $golfgeblokkeerd&#39;s length)&#39;&#39; / 6
 (if: $golfgeblokkeerd&#39;s length &gt; 0)[
 (for: each _b, ...$golfgeblokkeerd)[&gt; 🚫 &#39;&#39;_b&#39;&#39;
 ]
 (link: &quot;🗑 Wissen&quot;)[(set: $golfgeblokkeerd to (a:))]
-]
-]
+]]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[[✔ Blokkade activeren →|CheckGolf3]]</tw-passagedata><tw-passagedata pid="12" name="CheckGolf3" tags="" position="1925,1400" size="100,100">(set: $p3pogingen to $p3pogingen + 1)
+[[✔ Blokkade activeren →|CheckGolf3]]</tw-passagedata><tw-passagedata pid="12" name="CheckGolf3" tags="" position="1900,1425" size="100,100">{
+(set: $p3pogingen to $p3pogingen + 1)
 (set: $huidigKwaad to (a: &quot;31.41.59.26&quot;, &quot;27.18.28.18&quot;, &quot;16.18.3.39&quot;, &quot;14.14.21.35&quot;, &quot;62.83.18.53&quot;, &quot;97.93.99.37&quot;))
 (set: $geblokKwaad to (a:))
 (set: $geblokOnschuldig to (a:))
 (set: $gemistKwaad to (a:))
-
-(for: each _b, ...$golfgeblokkeerd)[
-(if: $huidigKwaad contains _b)[(set: $geblokKwaad to $geblokKwaad + (a: _b))](else:)[(set: $geblokOnschuldig to $geblokOnschuldig + (a: _b))]
-]
-(for: each _k, ...$huidigKwaad)[
-(if: not ($golfgeblokkeerd contains _k))[(set: $gemistKwaad to $gemistKwaad + (a: _k))]
-]
-
-&#39;&#39;🖥 GOLF 3/3 — EINDRESULTAAT&#39;&#39;
+(for: each _b, ...$golfgeblokkeerd)[{
+(if: $huidigKwaad contains _b)[{(set: $geblokKwaad to $geblokKwaad + (a: _b))}](else:)[{(set: $geblokOnschuldig to $geblokOnschuldig + (a: _b))}]}]
+(for: each _k, ...$huidigKwaad)[{
+(if: not ($golfgeblokkeerd contains _k))[{(set: $gemistKwaad to $gemistKwaad + (a: _k))}]}]
+}&#39;&#39;🖥 GOLF 3/3 — EINDRESULTAAT&#39;&#39;
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
 Levens: (if: $serverHP &gt; 0)[❤️](else:)[🖤](if: $serverHP &gt; 1)[❤️](else:)[🖤](if: $serverHP &gt; 2)[❤️](else:)[🖤]
 
 (if: $gemistKwaad&#39;s length is 0 and $geblokOnschuldig&#39;s length is 0)[
 ✅ &#39;&#39;ALLE GOLVEN GESTOPT — AANVAL AFGESLAGEN!&#39;&#39;
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
-(set: $p3 to true)
-&gt; [14:37:20] FloodPack/3.2 botnet herkend ✅
+{(set: $p3 to true)}&gt; [14:37:20] FloodPack/3.2 botnet herkend ✅
 &gt; [14:37:21] 6 gedistribueerde aanvals-IP&#39;s offline
 &gt; [14:37:22] Gecombineerde aanvalsdruk geneutraliseerd
 &gt; [14:37:23] Mandje-server: VOLLEDIG OPERATIONEEL 🧺
@@ -811,13 +762,11 @@ Tijd voor de tegenaanval!
 ](else:)[❌ &#39;&#39;NIET ALLE VERDACHTEN GEBLOKKEERD&#39;&#39;
 ]
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
-(set: $serverHP to $serverHP - 1)
-
+{(set: $serverHP to $serverHP - 1)}
 (if: $gemistKwaad&#39;s length &gt; 0)[
 🔴 Gemiste verdachten:
 (for: each _g, ...$gemistKwaad)[&gt; &#39;&#39;_g&#39;&#39;
-]
-]
+]]
 (if: $geblokOnschuldig&#39;s length &gt; 0)[
 ⚪ Ten onrechte geblokkeerd:
 (for: each _f, ...$geblokOnschuldig)[&gt; &#39;&#39;_f&#39;&#39;
@@ -835,8 +784,9 @@ Levens over: (if: $serverHP &gt; 0)[❤️](else:)[🖤](if: $serverHP &gt; 1)[�
 [[↩ Volledig opnieuw|Puzzel3]]
 ](else:)[
 [[↩ Opnieuw proberen|Puzzel3Golf3]]
-]
-]</tw-passagedata><tw-passagedata pid="13" name="Finale" tags="" position="2100,650" size="100,100">&#39;&#39;🖥 ROODKAPJE-SERVER — AANVALSMODUS GEACTIVEERD&#39;&#39;
+]]</tw-passagedata><tw-passagedata pid="13" name="Finale" tags="" position="2075,650" size="100,100">{
+(set: $strategie to &quot;&quot;)
+}&#39;&#39;🖥 ROODKAPJE-SERVER — AANVALSMODUS GEACTIVEERD&#39;&#39;
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
 &gt; [14:38:00] Alle golven afgeslagen ✅
 &gt; [14:38:01] Roodkapje: &quot;Nu is het genoeg. Pak hem terug.&quot;
@@ -861,25 +811,19 @@ Tijdens deze missie heb je geleerd:
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-(set: $strategie to &quot;&quot;)
-
-(link: &quot;🐺 Optie A — Één krachtige server, 10.000 req/s&quot;)[
-(set: $strategie to &quot;A&quot;)
+(link: &quot;🐺 Optie A — Één krachtige server, 10.000 req/s&quot;)[(set: $strategie to &quot;A&quot;)
 ⚡ Optie A geselecteerd.
 ]
 
-(link: &quot;🤖 Optie B — Botnet van 500 nodes, elk 200 req/s&quot;)[
-(set: $strategie to &quot;B&quot;)
+(link: &quot;🤖 Optie B — Botnet van 500 nodes, elk 200 req/s&quot;)[(set: $strategie to &quot;B&quot;)
 ⚡ Optie B geselecteerd.
 ]
 
-(link: &quot;🌐 Optie C — DNS amplificatie-aanval via reflectors&quot;)[
-(set: $strategie to &quot;C&quot;)
+(link: &quot;🌐 Optie C — DNS amplificatie-aanval via reflectors&quot;)[(set: $strategie to &quot;C&quot;)
 ⚡ Optie C geselecteerd.
 ]
 
-(link: &quot;📧 Optie D — E-mailbomb: miljoen mails tegelijk&quot;)[
-(set: $strategie to &quot;D&quot;)
+(link: &quot;📧 Optie D — E-mailbomb: miljoen mails tegelijk&quot;)[(set: $strategie to &quot;D&quot;)
 ⚡ Optie D geselecteerd.
 ]
 
@@ -889,8 +833,7 @@ Tijdens deze missie heb je geleerd:
 (if: $strategie is not &quot;&quot;)[
 Geselecteerd: &#39;&#39;(print: $strategie)&#39;&#39;
 [[✔ Aanval uitvoeren →|FinaleCheck]]
-]
-]</tw-passagedata><tw-passagedata pid="14" name="FinaleCheck" tags="" position="2100,825" size="100,100">&#39;&#39;🖥 AANVAL GEÏNITIALISEERD — VERBINDING MET WOLF-SERVER&#39;&#39;
+]]</tw-passagedata><tw-passagedata pid="14" name="FinaleCheck" tags="" position="2150,875" size="100,100">&#39;&#39;🖥 AANVAL GEÏNITIALISEERD — VERBINDING MET WOLF-SERVER&#39;&#39;
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
 &gt; [14:38:30] Target: 66.6.6.6:8080
 &gt; [14:38:31] Strategie geladen: &#39;&#39;(print: $strategie)&#39;&#39;
@@ -905,9 +848,7 @@ Geselecteerd: &#39;&#39;(print: $strategie)&#39;&#39;
 &gt; [14:38:36] &#39;&#39;BUFFER OVERFLOW — WOLF-SERVER GECRASHT&#39;&#39; 💥
 &gt; [14:38:37] 66.6.6.6 — STATUS: OFFLINE
 &gt; [14:38:38] Wolf-activiteit: NEERGEHAALD 🐺
-
-(set: $p4 to true)
-[[→ Overwinning! 🏆|Einde]]
+{(set: $p4 to true)}[[→ Overwinning! 🏆|Einde]]
 
 ](else-if: $strategie is &quot;A&quot;)[
 &gt; [14:38:33] Één server verbonden…
@@ -919,7 +860,7 @@ Geselecteerd: &#39;&#39;(print: $strategie)&#39;&#39;
 
 &#39;&#39;❌ AANVAL MISLUKT&#39;&#39;
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Eén krachtige server is makkelijk te blokkeren:
+Één krachtige server is makkelijk te blokkeren:
 → De wolf hoeft maar &#39;&#39;één IP te bannen&#39;&#39;
 → Een DDoS werkt juist door &#39;&#39;gedistribueerde&#39;&#39; bronnen
 → Herinner je puzzel 3: de botnetaanval was het gevaarlijkst
@@ -957,14 +898,14 @@ Een e-mailbomb raakt een &#39;&#39;mailserver&#39;&#39; — niet een webserver:
 → Altijd controleren welke &#39;&#39;services&#39;&#39; een target draait
 
 [[↩ Andere strategie kiezen|Finale]]
-]</tw-passagedata><tw-passagedata pid="15" name="Einde" tags="" position="2225,650" size="100,100">&#39;&#39;🏆 KAMER 3 GESLAAGD&#39;&#39;
+]</tw-passagedata><tw-passagedata pid="15" name="Einde" tags="" position="2550,800" size="100,100">&#39;&#39;🏆 KAMER 3 GESLAAGD&#39;&#39;
 &#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
-&gt; [14:39:00] Wolf-server:  OFFLINE 💀
+&gt; [14:39:00] Wolf-server: OFFLINE 💀
 &gt; [14:39:01] Roodkapje&#39;s mandje: VEILIG EN INTACT 🧺
 &gt; [14:39:02] Koekjes afgeleverd bij Oma ✅
 &gt; [14:39:03] Wolf knockout door Cyber Crime Unit 🐺🔒
 &gt; [14:39:04] Systeem: ALLE DREIGINGEN GENEUTRALISEERD
-━━━━━━━━━━━━━━━━━━━━━
+&#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
 
 &#39;&#39;📘 WAT JE HEBT GELEERD OVER DDoS:&#39;&#39;
 
@@ -987,10 +928,10 @@ Een e-mailbomb raakt een &#39;&#39;mailserver&#39;&#39; — niet een webserver:
 &gt;    Een botnet van honderden nodes tegelijk is dat niet.
 &gt;    Gedistribueerd = krachtig — zowel in aanval als verdediging.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+&#39;&#39;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#39;&#39;
 
-KLIK HIERONDER VOOR DE VOLGENDE KAMER 
-&gt;&lt;a href=&quot;https://docs.google.com/presentation/d/16axFvse-Bc4NJoN14cnRpTtCcfU8Kx87U5hbX-rNSqg/edit?usp=sharing&quot; style=&quot;color: white;&quot;&gt;LINK&lt;/a&gt;&lt;</tw-passagedata></tw-storydata>
+KLIK HIERONDER VOOR DE VOLGENDE KAMER
+&lt;a href=&quot;https://docs.google.com/presentation/d/16axFvse-Bc4NJoN14cnRpTtCcfU8Kx87U5hbX-rNSqg/edit?usp=sharing&quot; style=&quot;color: white;&quot;&gt;LINK&lt;/a&gt;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
