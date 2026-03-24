@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me — Stijn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/ReusableCss/Menu.css" />
+    <script src="/ReusableCss/Nav.js" defer></script>
+    <style>
+      .personal-content {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 64px 24px 80px;
+      }
+
+      .personal-content h1 {
+        font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        margin-bottom: 16px;
+      }
+
+      .personal-content p {
+        font-size: 1rem;
+        line-height: 1.78;
+        color: rgba(241, 245, 249, 0.65);
+      }
+
+      .coming-soon {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--accent);
+        background: var(--accent-glow);
+        border: 1px solid rgba(165, 180, 252, 0.2);
+        border-radius: 100px;
+        padding: 5px 14px;
+        margin-bottom: 28px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- ── Navigation ──────────────────────────────── -->
+    <nav class="topnav">
+      <a href="/index.html" class="nav-logo">Stijn</a>
+      <div class="nav-links">
+        <div class="nav-group">
+          <button class="nav-btn">Personal</button>
+          <div class="nav-dropdown">
+            <a href="/Personal/About_Me.html">About Me</a>
+            <a href="/Personal/Family.html">Familie</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-btn">School</button>
+          <div class="nav-dropdown">
+            <a href="/School/Binairstelsel.html">Binairstelsel</a>
+            <a href="/School/Bitmap&VectorAfbeeldingen.html">Bitmap &amp; Vector</a>
+            <a href="/School/compressie.html">Compressie</a>
+            <a href="/School/Kleurenmodellen.html">Kleurenmodellen</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-btn">Extra's</button>
+          <div class="nav-dropdown">
+            <a href="/Extra/Game.html">Pong Game</a>
+          </div>
+        </div>
+      </div>
+      <button class="nav-hamburger" id="nav-hamburger-btn" aria-label="Menu openen" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+          <line x1="3" y1="7"  x2="21" y2="7"/>
+          <line x1="3" y1="17" x2="21" y2="17"/>
+        </svg>
+      </button>
+    </nav>
+    <div class="nav-mobile-panel" id="nav-mobile-panel" aria-hidden="true">
+      <div class="nav-mobile-section">Personal</div>
+      <a href="/Personal/About_Me.html">About Me</a>
+      <a href="/Personal/Family.html">Familie</a>
+      <div class="nav-mobile-section">School</div>
+      <a href="/School/Binairstelsel.html">Binairstelsel</a>
+      <a href="/School/Bitmap&VectorAfbeeldingen.html">Bitmap &amp; Vector</a>
+      <a href="/School/compressie.html">Compressie</a>
+      <a href="/School/Kleurenmodellen.html">Kleurenmodellen</a>
+      <div class="nav-mobile-section">Extra's</div>
+      <a href="/Extra/Game.html">Pong Game</a>
+    </div>
+
+    <!-- ── Content ─────────────────────────────────── -->
+    <main class="personal-content">
+      <div class="coming-soon">Binnenkort beschikbaar</div>
+      <h1>Over mij</h1>
+      <p>
+        Deze pagina is nog in ontwikkeling. Kom later terug voor meer persoonlijke informatie!
+      </p>
+    </main>
+
+  </body>
+</html>

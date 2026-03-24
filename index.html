@@ -1,120 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hoofdmenu</title>
+    <title>Stijn Boyce</title>
+    <meta name="description" content="Persoonlijke website van Stijn Boyce — school, projecten en meer." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="ReusableCss/Menu.css" />
     <link rel="stylesheet" href="Main.css" />
-    <link rel="stylesheet" href="ReusableCss/Loading.css" />
-    <script src="index.js"></script>
+    <script src="ReusableCss/Nav.js" defer></script>
   </head>
 
-  <body class="container">
-    
-    <button class="HomeButton">
-      <span><a href="/index.html" style="text-decoration: none; color: whitesmoke; padding: 15%;">Home!</a></span>
-    </button>
+  <body>
 
-    <div class="dropdown">
-      <label class="hamburger">
-        <input type="checkbox" />
-        <svg viewBox="0 0 32 32">
-          <path
-            class="line line-top-bottom"
-            d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
-          ></path>
-          <path class="line" d="M7 16 27 16"></path>
-        </svg>
-      </label>
-    </div>
+    <!-- ── Navigation ──────────────────────────────── -->
+    <nav class="topnav">
+      <a href="/index.html" class="nav-logo">Stijn</a>
 
-    <div class="dropdown-content">
-      <ul>
-        <li class="menu-opties" id="Personal">
-          Personal
-          <ul class="subcategories">
-            <li class="subcategory">
-              <a href="/Personal/About_Me.html">About Me</a>
-            </li>
-            <li class="subcategory">
-              <a href="/Personal/Family.html">Family</a>
-            </li>
-            <li class="subcategory">
-              <a href="/Personal/UnderConstruction.html">Under Construction</a>
-            </li>
-          </ul>
-        </li>
-        <li class="menu-opties" id="School">
-          School
-          <ul class="subcategories">
-            <li class="subcategory">
-              <a href="/School/Binairstelsel.html">Binairstelsel</a>
-            </li>
-            <li class="subcategory">
-              <a href="/School/Bitmap&VectorAfbeeldingen.html"
-                >Bitmap- & Vectorafbeeldingen</a
-              >
-            </li>
-            <li class="subcategory">
-              <a href="/School/compressie.html">Compressie</a>
-            </li>
-            <li class="subcategory">
-              <a href="/School/Kleurenmodellen.html">Kleurenmodellen</a>
-            </li>
-          </ul>
-        </li>
-        <li class="menu-opties" id="Extras">
-          Extra's
-          <ul class="subcategories">
-            <li class="subcategory"><a href="/Extra/Game.html">Game</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="hero-card">
-      <h1>Hey hallo!</h1>
-      <p>
-        Hallo, wat leuk dat je deze site bezoekt! Deze site is gestart als
-        schoolproject maar is al snel uitgebreid naar iets groters. Zoals je
-        linksbovenin kunt zien zijn er naast pagina's over school ook andere
-        catagoriën bijgekomen. <br />
-        Je kunt de geschiedenis van dit project bekijken op
-        <a href="https://github.com/stijnb0000/StijnB0.github.io" class="link"
-          >Github</a
-        >.
-      </p>
-    </div>
-
-    <img
-      src="Src/XmasTree.png"
-      alt="Christmas Tree"
-      style="position: absolute; bottom: 0px; right: 0px"
-    />
-
-    <div class="LoadingScreen">
-      <div class="terminal-loader">
-        <div class="terminal-header">
-          <div class="terminal-title">Home</div>
-          <div class="terminal-controls">
-            <div class="control close"></div>
-            <div class="control minimize"></div>
-            <div class="control maximize"></div>
+      <div class="nav-links">
+        <div class="nav-group">
+          <button class="nav-btn">Personal</button>
+          <div class="nav-dropdown">
+            <a href="/Personal/About_Me.html">About Me</a>
+            <a href="/Personal/Family.html">Familie</a>
           </div>
         </div>
-        <div class="text">Loading...</div>
+        <div class="nav-group">
+          <button class="nav-btn">School</button>
+          <div class="nav-dropdown">
+            <a href="/School/Binairstelsel.html">Binairstelsel</a>
+            <a href="/School/Bitmap&VectorAfbeeldingen.html">Bitmap &amp; Vector</a>
+            <a href="/School/compressie.html">Compressie</a>
+            <a href="/School/Kleurenmodellen.html">Kleurenmodellen</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-btn">Extra's</button>
+          <div class="nav-dropdown">
+            <a href="/Extra/Game.html">Pong Game</a>
+          </div>
+        </div>
       </div>
+
+      <button class="nav-hamburger" id="nav-hamburger-btn" aria-label="Menu openen" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+          <line x1="3" y1="7"  x2="21" y2="7"/>
+          <line x1="3" y1="17" x2="21" y2="17"/>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile panel -->
+    <div class="nav-mobile-panel" id="nav-mobile-panel" aria-hidden="true">
+      <div class="nav-mobile-section">Personal</div>
+      <a href="/Personal/About_Me.html">About Me</a>
+      <a href="/Personal/Family.html">Familie</a>
+      <div class="nav-mobile-section">School</div>
+      <a href="/School/Binairstelsel.html">Binairstelsel</a>
+      <a href="/School/Bitmap&VectorAfbeeldingen.html">Bitmap &amp; Vector</a>
+      <a href="/School/compressie.html">Compressie</a>
+      <a href="/School/Kleurenmodellen.html">Kleurenmodellen</a>
+      <div class="nav-mobile-section">Extra's</div>
+      <a href="/Extra/Game.html">Pong Game</a>
     </div>
+
+    <!-- ── Hero ─────────────────────────────────────── -->
+    <main class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Hallo, ik ben Stijn.</h1>
+        <p class="hero-sub">
+          Een persoonlijke website die is gestart als schoolproject
+          maar al snel uitgroeide tot iets meer. Kijk gerust rond!
+        </p>
+        <a href="https://github.com/stijnb0000/StijnB0.github.io"
+           class="hero-github" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" aria-hidden="true">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839
+              9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608
+              1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951
+              0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004
+              1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688
+              0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0
+              .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          Bekijk op GitHub
+        </a>
+      </div>
+
+      <!-- ── Category cards ──────────────────────────── -->
+      <div class="cards">
+        <a href="/Personal/About_Me.html" class="card">
+          <div class="card-icon" aria-hidden="true">👤</div>
+          <h2 class="card-title">Personal</h2>
+          <p class="card-desc">Persoonlijke info, over mij en meer.</p>
+        </a>
+
+        <a href="/School/Binairstelsel.html" class="card">
+          <div class="card-icon" aria-hidden="true">📚</div>
+          <h2 class="card-title">School</h2>
+          <p class="card-desc">Informatica-onderwerpen: binair, compressie, kleurenmodellen.</p>
+        </a>
+
+        <a href="/Extra/Game.html" class="card">
+          <div class="card-icon" aria-hidden="true">🎮</div>
+          <h2 class="card-title">Extra's</h2>
+          <p class="card-desc">Een zelfgemaakt Pong-spel en andere leuke dingen.</p>
+        </a>
+      </div>
+    </main>
+
+    <!-- ── Footer ───────────────────────────────────── -->
+    <footer class="site-footer">
+      <p>Gebouwd door Stijn &mdash; met een beetje hulp van
+        <a href="https://claude.ai" class="footer-link" target="_blank" rel="noopener">Claude</a>
+      </p>
+    </footer>
+
   </body>
-  <footer>
-    <p style="position:fixed;bottom:12px;left:50%;transform:translateX(-50%);font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,0.35);margin:0;white-space:nowrap;">
-      Gebouwd door Stijn &mdash; en een beetje vibecode hulp van <a href="https://claude.ai/code" class="link" style="color:rgba(255,255,255,0.45);">Claude Code</a>
-    </p>
-  </footer>
 </html>
-
-
-
