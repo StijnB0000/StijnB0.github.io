@@ -6,17 +6,204 @@
     <title>Pagina niet gevonden — Stijn</title>
     <meta name="description" content="Deze pagina bestaat niet." />
     <meta name="theme-color" content="#060609" />
+    <!-- base href ensures all relative links resolve from the site root,
+         regardless of which URL triggered this 404 page -->
+    <base href="/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="ReusableCss/Menu.css" />
-    <script src="ReusableCss/Nav.js" defer></script>
     <style>
+      /* ── Design tokens ──────────────────────────────── */
+      :root {
+        --bg:            #060609;
+        --nav-glass:     rgba(6, 6, 9, 0.80);
+        --surface:       rgba(255, 255, 255, 0.04);
+        --surface-hover: rgba(255, 255, 255, 0.075);
+        --border:        rgba(255, 255, 255, 0.07);
+        --text:          #f1f5f9;
+        --text-muted:    rgba(241, 245, 249, 0.45);
+        --accent:        #a5b4fc;
+        --nav-h:         54px;
+        --r-md:          12px;
+        --r-sm:          8px;
+        --font:          -apple-system, BlinkMacSystemFont, 'Inter', system-ui, sans-serif;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: var(--font);
+        background-color: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        padding-top: var(--nav-h);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Film grain */
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        z-index: 9998;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+        opacity: 0.035;
+        mix-blend-mode: overlay;
+      }
+
+      /* ── Animated background orbs ───────────────────── */
+      @keyframes orbDrift1 {
+        0%   { transform: translate(0px,   0px)  scale(1);    }
+        25%  { transform: translate(90px, -60px) scale(1.06); }
+        50%  { transform: translate(140px, 50px) scale(0.97); }
+        75%  { transform: translate(40px, 120px) scale(1.04); }
+        100% { transform: translate(0px,   0px)  scale(1);    }
+      }
+      @keyframes orbDrift2 {
+        0%   { transform: translate(0px,    0px)  scale(1);    }
+        30%  { transform: translate(-110px, 70px) scale(1.08); }
+        60%  { transform: translate(60px,  -90px) scale(0.93); }
+        100% { transform: translate(0px,    0px)  scale(1);    }
+      }
+      @keyframes orbDrift3 {
+        0%   { transform: translate(-50%, -50%) scale(1);    }
+        40%  { transform: translate(calc(-50% + 130px), calc(-50% + 90px)) scale(1.12); }
+        70%  { transform: translate(calc(-50% - 80px),  calc(-50% + 40px)) scale(0.9);  }
+        100% { transform: translate(-50%, -50%) scale(1);    }
+      }
+      @keyframes orbDrift4 {
+        0%   { transform: translate(0px,   0px)    scale(1);    }
+        35%  { transform: translate(-70px, -100px) scale(1.07); }
+        70%  { transform: translate(100px, -40px)  scale(0.94); }
+        100% { transform: translate(0px,   0px)    scale(1);    }
+      }
+
+      .bg-orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; will-change: transform; }
+      .bg-orb-1 { width:680px; height:680px; background: radial-gradient(circle, rgba(99,102,241,0.26) 0%, transparent 70%); filter:blur(70px); top:-14%; left:-14%; animation: orbDrift1 20s ease-in-out infinite; }
+      .bg-orb-2 { width:560px; height:560px; background: radial-gradient(circle, rgba(168,85,247,0.22) 0%, transparent 70%); filter:blur(72px); bottom:-18%; right:-12%; animation: orbDrift2 25s ease-in-out infinite; }
+      .bg-orb-3 { width:400px; height:400px; background: radial-gradient(circle, rgba(59,130,246,0.10) 0%, transparent 70%); filter:blur(64px); top:45%; left:50%; animation: orbDrift3 32s ease-in-out infinite; }
+      .bg-orb-4 { width:320px; height:320px; background: radial-gradient(circle, rgba(139,92,246,0.14) 0%, transparent 70%); filter:blur(60px); top:8%; right:10%; animation: orbDrift4 18s ease-in-out infinite; }
+
+      /* ── Nav ────────────────────────────────────────── */
+      .topnav {
+        position: fixed;
+        inset: 0 0 auto 0;
+        height: var(--nav-h);
+        z-index: 500;
+        display: flex;
+        align-items: center;
+        padding: 0 28px;
+        gap: 8px;
+        background: var(--nav-glass);
+        backdrop-filter: blur(28px) saturate(180%);
+        -webkit-backdrop-filter: blur(28px) saturate(180%);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-logo {
+        font-size: 15px; font-weight: 700; letter-spacing: -0.04em;
+        color: var(--text); text-decoration: none; margin-right: auto;
+        transition: opacity 0.15s;
+      }
+      .nav-logo:hover { opacity: 0.65; }
+
+      .nav-links { display: flex; align-items: center; gap: 2px; }
+
+      .nav-group { position: relative; padding-bottom: 14px; margin-bottom: -14px; }
+
+      .nav-btn {
+        display: flex; align-items: center; gap: 4px;
+        background: transparent; border: none;
+        color: var(--text-muted); font-family: var(--font);
+        font-size: 13.5px; font-weight: 500;
+        padding: 6px 12px; border-radius: var(--r-sm);
+        cursor: pointer; transition: color 0.15s, background 0.15s;
+        white-space: nowrap; position: relative;
+      }
+      .nav-btn::after {
+        content: ''; position: absolute; bottom: 3px; left: 12px; right: 12px;
+        height: 1.5px; background: var(--accent); border-radius: 2px;
+        transform: scaleX(0); transform-origin: left center;
+        transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .nav-btn:hover { color: var(--text); background: var(--surface-hover); }
+      .nav-btn:hover::after { transform: scaleX(1); }
+
+      .nav-dropdown {
+        position: absolute; top: 100%; left: 50%; min-width: 178px;
+        background: rgba(8,8,14,0.97);
+        backdrop-filter: blur(32px) saturate(200%);
+        -webkit-backdrop-filter: blur(32px) saturate(200%);
+        border: 1px solid var(--border); border-radius: var(--r-md);
+        padding: 6px;
+        box-shadow: 0 0 0 1px rgba(255,255,255,0.03), 0 24px 64px rgba(0,0,0,0.65);
+        opacity: 0; visibility: hidden;
+        transform: translateX(-50%) translateY(-8px);
+        transition: opacity 0.18s ease, visibility 0.18s ease, transform 0.18s ease;
+        pointer-events: none; z-index: 600;
+      }
+      .nav-dropdown::before {
+        content: ''; position: absolute; top: -5px; left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        width: 9px; height: 9px;
+        background: rgba(8,8,14,0.97);
+        border-left: 1px solid var(--border); border-top: 1px solid var(--border);
+      }
+      .nav-group:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+      .nav-dropdown a {
+        display: block; padding: 8px 12px; color: var(--text-muted);
+        text-decoration: none; font-size: 13.5px; font-weight: 450;
+        border-radius: var(--r-sm); transition: color 0.12s, background 0.12s;
+        white-space: nowrap; position: relative; z-index: 1;
+      }
+      .nav-dropdown a:hover { color: var(--text); background: var(--surface-hover); }
+
+      .nav-hamburger {
+        display: none; align-items: center; justify-content: center;
+        background: transparent; border: none; color: var(--text);
+        cursor: pointer; padding: 7px; border-radius: var(--r-sm);
+        transition: background 0.15s; line-height: 0; flex-shrink: 0;
+      }
+      .nav-hamburger:hover { background: var(--surface-hover); }
+      .nav-hamburger svg { display: block; }
+
+      .nav-mobile-panel {
+        position: fixed; inset: var(--nav-h) 0 0 0;
+        background: rgba(6,6,9,0.98); backdrop-filter: blur(32px);
+        -webkit-backdrop-filter: blur(32px);
+        z-index: 490; padding: 16px 20px 40px;
+        display: flex; flex-direction: column; gap: 4px;
+        overflow-y: auto;
+        transform: translateX(100%);
+        transition: transform 0.28s cubic-bezier(0.32, 0.72, 0, 1);
+      }
+      .nav-mobile-panel.open { transform: translateX(0); }
+      .nav-mobile-section {
+        font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+        text-transform: uppercase; color: var(--text-muted);
+        padding: 20px 14px 6px;
+      }
+      .nav-mobile-section:first-child { padding-top: 8px; }
+      .nav-mobile-panel a {
+        display: block; padding: 13px 16px; color: var(--text);
+        text-decoration: none; font-size: 15px; font-weight: 500;
+        border-radius: var(--r-md); letter-spacing: -0.01em;
+        transition: background 0.15s;
+      }
+      .nav-mobile-panel a:hover { background: var(--surface-hover); }
+
+      @media (max-width: 600px) {
+        .nav-links { display: none; }
+        .nav-hamburger { display: flex; }
+        .topnav { padding: 0 20px; }
+      }
+
+      /* ── 404 page ───────────────────────────────────── */
       @keyframes floatIn {
         from { opacity: 0; transform: translateY(28px); }
         to   { opacity: 1; transform: translateY(0);    }
       }
-
       @keyframes drift {
         0%, 100% { transform: translateY(0px);  }
         50%       { transform: translateY(-10px); }
@@ -24,73 +211,57 @@
 
       .not-found {
         min-height: calc(100vh - var(--nav-h));
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 40px 24px 80px;
-        gap: 0;
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        text-align: center; padding: 40px 24px 80px;
+        position: relative; z-index: 1;
       }
 
       .nf-code {
         font-size: clamp(5rem, 18vw, 10rem);
-        font-weight: 700;
-        letter-spacing: -0.07em;
-        line-height: 1;
+        font-weight: 700; letter-spacing: -0.07em; line-height: 1;
         background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(165,180,252,0.3) 50%, rgba(168,85,247,0.2) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin-bottom: 24px;
-        animation: floatIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) both, drift 6s ease-in-out 0.8s infinite;
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        background-clip: text; margin-bottom: 24px;
+        animation: floatIn 0.8s cubic-bezier(0.22,1,0.36,1) both, drift 6s ease-in-out 0.8s infinite;
         user-select: none;
       }
 
       .nf-title {
         font-size: clamp(1.3rem, 3.5vw, 1.8rem);
-        font-weight: 600;
-        letter-spacing: -0.03em;
-        color: var(--text);
+        font-weight: 600; letter-spacing: -0.03em; color: var(--text);
         margin-bottom: 12px;
-        animation: floatIn 0.8s 0.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+        animation: floatIn 0.8s 0.1s cubic-bezier(0.22,1,0.36,1) both;
       }
 
       .nf-sub {
-        font-size: 1rem;
-        color: var(--text-muted);
-        line-height: 1.7;
-        max-width: 380px;
-        margin-bottom: 36px;
-        animation: floatIn 0.8s 0.18s cubic-bezier(0.22, 1, 0.36, 1) both;
+        font-size: 1rem; color: var(--text-muted); line-height: 1.7;
+        max-width: 380px; margin-bottom: 36px;
+        animation: floatIn 0.8s 0.18s cubic-bezier(0.22,1,0.36,1) both;
       }
 
       .nf-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
+        display: inline-flex; align-items: center; gap: 8px;
         padding: 11px 24px;
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 100px;
-        color: var(--text-muted);
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: 500;
+        background: var(--surface); border: 1px solid var(--border);
+        border-radius: 100px; color: var(--text-muted);
+        text-decoration: none; font-size: 14px; font-weight: 500;
         transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
-        animation: floatIn 0.8s 0.26s cubic-bezier(0.22, 1, 0.36, 1) both;
+        animation: floatIn 0.8s 0.26s cubic-bezier(0.22,1,0.36,1) both;
       }
-
       .nf-btn:hover {
-        background: var(--surface-hover);
-        border-color: rgba(165,180,252,0.25);
-        color: var(--text);
-        transform: translateY(-2px);
+        background: var(--surface-hover); border-color: rgba(165,180,252,0.25);
+        color: var(--text); transform: translateY(-2px);
       }
     </style>
   </head>
 
   <body>
+
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
+    <div class="bg-orb bg-orb-4"></div>
 
     <nav class="topnav">
       <a href="index.html" class="nav-logo">Stijn</a>
@@ -155,6 +326,34 @@
         Terug naar home
       </a>
     </div>
+
+    <script>
+      // Mobile nav toggle
+      document.addEventListener('DOMContentLoaded', () => {
+        const btn   = document.getElementById('nav-hamburger-btn');
+        const panel = document.getElementById('nav-mobile-panel');
+        if (!btn || !panel) return;
+        btn.addEventListener('click', () => {
+          const isOpen = panel.classList.toggle('open');
+          btn.setAttribute('aria-expanded', isOpen);
+          panel.setAttribute('aria-hidden', !isOpen);
+        });
+        panel.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            panel.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+            panel.setAttribute('aria-hidden', 'true');
+          });
+        });
+        document.addEventListener('click', e => {
+          if (!panel.contains(e.target) && !btn.contains(e.target)) {
+            panel.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+            panel.setAttribute('aria-hidden', 'true');
+          }
+        });
+      });
+    </script>
 
   </body>
 </html>
