@@ -32,16 +32,99 @@ html { scroll-behavior: smooth; }
 body {
   font-family: var(--font);
   background-color: var(--bg);
-  /* Rich multi-orb background — ctrl.xyz style */
-  background-image:
-    radial-gradient(ellipse 65% 55% at 15% 5%,  rgba(99,  102, 241, 0.32) 0%, transparent 55%),
-    radial-gradient(ellipse 55% 45% at 85% 95%,  rgba(168, 85,  247, 0.28) 0%, transparent 55%),
-    radial-gradient(ellipse 40% 30% at 60% 50%,  rgba(59,  130, 246, 0.08) 0%, transparent 60%);
   color: var(--text);
   min-height: 100vh;
   padding-top: var(--nav-h);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Animated background orbs ──────────────────────── */
+@keyframes orbDrift1 {
+  0%   { transform: translate(0px,    0px)   scale(1);    }
+  25%  { transform: translate(90px,  -60px)  scale(1.06); }
+  50%  { transform: translate(140px,  50px)  scale(0.97); }
+  75%  { transform: translate(40px,  120px)  scale(1.04); }
+  100% { transform: translate(0px,    0px)   scale(1);    }
+}
+
+@keyframes orbDrift2 {
+  0%   { transform: translate(0px,   0px)   scale(1);    }
+  30%  { transform: translate(-110px, 70px) scale(1.08); }
+  60%  { transform: translate(60px, -90px)  scale(0.93); }
+  100% { transform: translate(0px,   0px)   scale(1);    }
+}
+
+@keyframes orbDrift3 {
+  0%   { transform: translate(-50%, -50%) scale(1);    }
+  40%  { transform: translate(calc(-50% + 130px), calc(-50% + 90px))  scale(1.12); }
+  70%  { transform: translate(calc(-50% - 80px),  calc(-50% + 40px))  scale(0.9);  }
+  100% { transform: translate(-50%, -50%) scale(1);    }
+}
+
+@keyframes orbDrift4 {
+  0%   { transform: translate(0px,  0px)   scale(1);    }
+  35%  { transform: translate(-70px, -100px) scale(1.07); }
+  70%  { transform: translate(100px, -40px)  scale(0.94); }
+  100% { transform: translate(0px,  0px)   scale(1);    }
+}
+
+/* Ensure page content sits above background orbs */
+main, .about-wrap, .projects-wrap, .not-found {
+  position: relative;
+  z-index: 1;
+}
+
+.bg-orb {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+/* Indigo — top-left */
+.bg-orb-1 {
+  width: 680px;
+  height: 680px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.26) 0%, transparent 70%);
+  filter: blur(70px);
+  top: -14%;
+  left: -14%;
+  animation: orbDrift1 20s ease-in-out infinite;
+}
+
+/* Purple — bottom-right */
+.bg-orb-2 {
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.22) 0%, transparent 70%);
+  filter: blur(72px);
+  bottom: -18%;
+  right: -12%;
+  animation: orbDrift2 25s ease-in-out infinite;
+}
+
+/* Blue — centre */
+.bg-orb-3 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+  filter: blur(64px);
+  top: 45%;
+  left: 50%;
+  animation: orbDrift3 32s ease-in-out infinite;
+}
+
+/* Soft violet — top-right accent */
+.bg-orb-4 {
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.14) 0%, transparent 70%);
+  filter: blur(60px);
+  top: 8%;
+  right: 10%;
+  animation: orbDrift4 18s ease-in-out infinite;
 }
 
 /* Subtle film-grain noise for premium texture */

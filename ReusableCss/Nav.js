@@ -1,4 +1,15 @@
 /* Navigation toggle — shared across all pages */
+
+// Inject animated background orbs
+(function () {
+  const counts = [1, 2, 3, 4];
+  counts.forEach(n => {
+    const orb = document.createElement('div');
+    orb.className = `bg-orb bg-orb-${n}`;
+    document.body.appendChild(orb);
+  });
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   const btn   = document.getElementById('nav-hamburger-btn');
   const panel = document.getElementById('nav-mobile-panel');
