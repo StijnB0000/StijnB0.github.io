@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagina niet gevonden — Stijn</title>
+    <meta name="description" content="Deze pagina bestaat niet." />
+    <meta name="theme-color" content="#060609" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="ReusableCss/Menu.css" />
+    <script src="ReusableCss/Nav.js" defer></script>
+    <style>
+      @keyframes floatIn {
+        from { opacity: 0; transform: translateY(28px); }
+        to   { opacity: 1; transform: translateY(0);    }
+      }
+
+      @keyframes drift {
+        0%, 100% { transform: translateY(0px);  }
+        50%       { transform: translateY(-10px); }
+      }
+
+      .not-found {
+        min-height: calc(100vh - var(--nav-h));
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 40px 24px 80px;
+        gap: 0;
+      }
+
+      .nf-code {
+        font-size: clamp(5rem, 18vw, 10rem);
+        font-weight: 700;
+        letter-spacing: -0.07em;
+        line-height: 1;
+        background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(165,180,252,0.3) 50%, rgba(168,85,247,0.2) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 24px;
+        animation: floatIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) both, drift 6s ease-in-out 0.8s infinite;
+        user-select: none;
+      }
+
+      .nf-title {
+        font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        color: var(--text);
+        margin-bottom: 12px;
+        animation: floatIn 0.8s 0.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      .nf-sub {
+        font-size: 1rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+        max-width: 380px;
+        margin-bottom: 36px;
+        animation: floatIn 0.8s 0.18s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      .nf-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 24px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+        animation: floatIn 0.8s 0.26s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      .nf-btn:hover {
+        background: var(--surface-hover);
+        border-color: rgba(165,180,252,0.25);
+        color: var(--text);
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <nav class="topnav">
+      <a href="index.html" class="nav-logo">Stijn</a>
+      <div class="nav-links">
+        <div class="nav-group">
+          <button class="nav-btn">Personal</button>
+          <div class="nav-dropdown">
+            <a href="Personal/About_Me.html">About Me</a>
+            <a href="Personal/Family.html">Familie</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-btn">School</button>
+          <div class="nav-dropdown">
+            <a href="School/Binairstelsel.html">Binairstelsel</a>
+            <a href="School/Bitmap&VectorAfbeeldingen.html">Bitmap &amp; Vector</a>
+            <a href="School/compressie.html">Compressie</a>
+            <a href="School/Kleurenmodellen.html">Kleurenmodellen</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-btn">Extra's</button>
+          <div class="nav-dropdown">
+            <a href="Extra/Game.html">Pong Game</a>
+            <a href="projects.html">Projecten</a>
+          </div>
+        </div>
+      </div>
+      <button class="nav-hamburger" id="nav-hamburger-btn" aria-label="Menu openen" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+          <line x1="3" y1="7"  x2="21" y2="7"/>
+          <line x1="3" y1="17" x2="21" y2="17"/>
+        </svg>
+      </button>
+    </nav>
+    <div class="nav-mobile-panel" id="nav-mobile-panel" aria-hidden="true">
+      <div class="nav-mobile-section">Personal</div>
+      <a href="Personal/About_Me.html">About Me</a>
+      <a href="Personal/Family.html">Familie</a>
+      <div class="nav-mobile-section">School</div>
+      <a href="School/Binairstelsel.html">Binairstelsel</a>
+      <a href="School/Bitmap&VectorAfbeeldingen.html">Bitmap &amp; Vector</a>
+      <a href="School/compressie.html">Compressie</a>
+      <a href="School/Kleurenmodellen.html">Kleurenmodellen</a>
+      <div class="nav-mobile-section">Extra's</div>
+      <a href="Extra/Game.html">Pong Game</a>
+      <a href="projects.html">Projecten</a>
+    </div>
+
+    <div class="not-found">
+      <div class="nf-code" aria-hidden="true">404</div>
+      <h1 class="nf-title">Pagina niet gevonden</h1>
+      <p class="nf-sub">
+        Deze pagina bestaat niet of is verplaatst.
+        Misschien is het de moeite waard om terug te gaan naar de homepage.
+      </p>
+      <a href="index.html" class="nf-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true">
+          <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        Terug naar home
+      </a>
+    </div>
+
+  </body>
+</html>

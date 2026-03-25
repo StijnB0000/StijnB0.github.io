@@ -4,13 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kleurenmodellen — Stijn</title>
+    <meta name="description" content="Uitleg over RGB en CMY kleurenmodellen met interactieve widgets — schoolproject van Stijn Boyce." />
+    <meta name="theme-color" content="#060609" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../ReusableCss/Menu.css" />
     <link rel="stylesheet" href="Css/School.css" />
     <link rel="stylesheet" href="Css/RadioColors.css" />
+    <link rel="stylesheet" href="../ReusableCss/Scroll.css" />
     <script src="../ReusableCss/Nav.js" defer></script>
+    <script src="../ReusableCss/Scroll.js" defer></script>
   </head>
 
   <body>
@@ -38,6 +42,7 @@
           <button class="nav-btn">Extra's</button>
           <div class="nav-dropdown">
             <a href="../Extra/Game.html">Pong Game</a>
+            <a href="../projects.html">Projecten</a>
           </div>
         </div>
       </div>
@@ -60,14 +65,17 @@
       <a href="Kleurenmodellen.html">Kleurenmodellen</a>
       <div class="nav-mobile-section">Extra's</div>
       <a href="../Extra/Game.html">Pong Game</a>
+      <a href="../projects.html">Projecten</a>
     </div>
 
-    <main class="school-content">
-      <h1>Kleurenmodellen</h1>
-      <p class="lead">Welkom op deze pagina met uitleg over de werking van RGB en CMY. Er zijn ook interactieve widgets om mee te spelen!</p>
+    <div id="reading-progress"></div>
 
-      <h2>RGB</h2>
-      <p>
+    <main class="school-content">
+      <h1 class="reveal">Kleurenmodellen</h1>
+      <p class="lead reveal" data-delay="1">Welkom op deze pagina met uitleg over de werking van RGB en CMY. Er zijn ook interactieve widgets om mee te spelen!</p>
+
+      <h2 class="reveal" data-delay="2">RGB</h2>
+      <p class="reveal" data-delay="3">
         RGB staat voor Red, Green, Blue. Deze manier van kleuren tonen werkt door
         als standaard kleur zwart te vertonen en daar, op basis van de 3 RGB-waardes,
         een kleur bovenop te maken. Als er bij een van de RGB-waardes een aanpassing wordt
@@ -75,7 +83,7 @@
         Hieronder staan een paar voorbeelden van RGB-waardes — klik op een cirkel om te selecteren.
       </p>
 
-      <div class="widget-section">
+      <div class="widget-section reveal" data-delay="4">
         <div class="radio-input">
           <input class="input red"   type="radio" name="radio" aria-label="Rood" />
           <input class="input green" type="radio" name="radio" aria-label="Groen" checked />
@@ -83,8 +91,8 @@
         </div>
       </div>
 
-      <h2>CMY</h2>
-      <p>
+      <h2 class="reveal">CMY</h2>
+      <p class="reveal" data-delay="1">
         In tegenstelling tot RGB gaat CMY van licht naar donker in plaats van donker naar licht.
         Bij het CMY-kleurenmodel heb je 3 basiskleuren: Cyaan, Magenta en Geel.
         Dit kleurmodel wordt veel gebruikt door printers omdat ze (vaak) op wit papier printen.
@@ -93,7 +101,7 @@
         Gebruik de sliders hieronder om te zien hoe de drie kleuren mengen.
       </p>
 
-      <div class="widget-section">
+      <div class="widget-section reveal" data-delay="2">
         <div class="slider-row">
           <span class="slider-label">Cyaan</span>
           <input type="range" min="0" max="255" value="0" id="CyaanSlider" />
@@ -109,10 +117,10 @@
         <div class="coloredBlock"></div>
       </div>
 
-      <img src="Sources/RGBenCMY2.jpg" alt="RGB en CMY schema" class="centerImage" style="width: min(70%, 680px);" />
+      <img src="Sources/RGBenCMY2.jpg" alt="RGB en CMY schema" class="centerImage reveal" data-delay="3" style="width: min(70%, 680px);" />
 
-      <h2>Pixels</h2>
-      <p>
+      <h2 class="reveal">Pixels</h2>
+      <p class="reveal" data-delay="1">
         Schermen bestaan uit groepjes van 3 kleine lampjes en werken meestal met RGB — je hebt
         in je scherm dus heel veel groepjes van rode, groene en blauwe lampjes.
         De resolutie is de hoeveelheid van die groepjes in je scherm. Tegenwoordig zijn de meeste
@@ -120,12 +128,12 @@
         7680×4320 pixels (8K) zijn. Hoe hoger de resolutie, hoe meer computerkracht er nodig is.
       </p>
 
-      <div class="image-row">
+      <div class="image-row reveal" data-delay="2">
         <img src="Sources/PixelsVoorbeeld.png" alt="Pixels voorbeeld" />
         <img src="Sources/ResolutieVoorbeeld.png" alt="Resolutie voorbeeld" />
       </div>
 
-      <div class="video-wrap">
+      <div class="video-wrap reveal" data-delay="3">
         <iframe
           src="https://www.youtube.com/embed/3kz2GAof9tI"
           title="AMD Simplified: Pixels and Resolution"

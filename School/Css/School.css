@@ -176,6 +176,120 @@ input[type="range"]::-webkit-slider-thumb:hover {
   box-shadow: 0 8px 32px rgba(0,0,0,0.4);
 }
 
+/* ── Binary converter widget ────────────────────────── */
+.bin-converter {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bin-input-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.bin-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  min-width: 72px;
+}
+
+.bin-number-input {
+  width: 90px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 7px 12px;
+  outline: none;
+  transition: border-color 0.15s;
+  -moz-appearance: textfield;
+}
+
+.bin-number-input::-webkit-inner-spin-button,
+.bin-number-input::-webkit-outer-spin-button { -webkit-appearance: none; }
+
+.bin-number-input:focus { border-color: var(--accent); }
+
+.bin-bits {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.bit-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.bit-val {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.bit-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04);
+  color: rgba(241,245,249,0.5);
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'SF Mono', 'Fira Mono', monospace;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.1s;
+}
+
+.bit-btn:hover {
+  background: rgba(165,180,252,0.1);
+  border-color: rgba(165,180,252,0.3);
+  color: var(--text);
+}
+
+.bit-btn.active {
+  background: rgba(165,180,252,0.18);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.bit-btn:active { transform: scale(0.92); }
+
+.bin-output-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.bin-output-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.bin-output-value {
+  font-family: 'SF Mono', 'Fira Mono', monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+
+.bin-ascii {
+  font-size: 1.4rem;
+  letter-spacing: 0;
+}
+
 /* ── Footer ──────────────────────────────────────────── */
 .school-footer {
   text-align: center;

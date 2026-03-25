@@ -116,12 +116,31 @@ body::before {
   cursor: pointer;
   transition: color 0.15s, background 0.15s;
   white-space: nowrap;
-  position: relative; /* keeps button above the padding area */
+  position: relative;
+}
+
+/* Slide-in underline on hover */
+.nav-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 3px;
+  left: 12px;
+  right: 12px;
+  height: 1.5px;
+  background: var(--accent);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .nav-btn:hover {
   color: var(--text);
   background: var(--surface-hover);
+}
+
+.nav-btn:hover::after {
+  transform: scaleX(1);
 }
 
 /* Dropdown — sits 14px below button, covered by nav-group padding */

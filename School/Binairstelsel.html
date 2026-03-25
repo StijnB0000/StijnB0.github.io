@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Binair Stelsel — Stijn</title>
+    <meta name="description" content="Uitleg over het binaire stelsel, bits, bytes en ASCII — schoolproject van Stijn Boyce." />
+    <meta name="theme-color" content="#060609" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../ReusableCss/Menu.css" />
     <link rel="stylesheet" href="Css/School.css" />
+    <link rel="stylesheet" href="../ReusableCss/Scroll.css" />
     <script src="../ReusableCss/Nav.js" defer></script>
+    <script src="../ReusableCss/Scroll.js" defer></script>
   </head>
 
   <body>
@@ -37,6 +41,7 @@
           <button class="nav-btn">Extra's</button>
           <div class="nav-dropdown">
             <a href="../Extra/Game.html">Pong Game</a>
+            <a href="../projects.html">Projecten</a>
           </div>
         </div>
       </div>
@@ -59,13 +64,16 @@
       <a href="Kleurenmodellen.html">Kleurenmodellen</a>
       <div class="nav-mobile-section">Extra's</div>
       <a href="../Extra/Game.html">Pong Game</a>
+      <a href="../projects.html">Projecten</a>
     </div>
 
-    <main class="school-content">
-      <h1>Binair Stelsel</h1>
-      <p class="lead">Welkom op deze pagina met uitleg over de werking van het binaire stelsel.</p>
+    <div id="reading-progress"></div>
 
-      <p>
+    <main class="school-content">
+      <h1 class="reveal">Binair Stelsel</h1>
+      <p class="lead reveal" data-delay="1">Welkom op deze pagina met uitleg over de werking van het binaire stelsel.</p>
+
+      <p class="reveal" data-delay="2">
         Het binair stelsel gebruikt alleen de cijfers 0 en 1,
         in tegenstelling tot het decimale stelsel dat wij dagelijks gebruiken (met de cijfers 0–9).
         De kleinste eenheid van informatie in een computer is een bit (binary digit).
@@ -77,8 +85,79 @@
         De letter "A" is bijvoorbeeld 01000001.
       </p>
 
-      <img src="Sources/ASCII.jpg" alt="ASCII-tabel" class="centerImage" style="width: min(55%, 600px);" />
+      <img src="Sources/ASCII.jpg" alt="ASCII-tabel" class="centerImage reveal" data-delay="3" style="width: min(55%, 600px);" />
+
+      <h2 class="reveal">Probeer het zelf!</h2>
+      <p class="reveal" data-delay="1">Voer een decimaal getal in (0–255) of klik op de bits om te schakelen. De ASCII-tekst wordt ook direct getoond.</p>
+
+      <div class="widget-section reveal" data-delay="2" id="bin-widget">
+        <div class="bin-converter">
+          <div class="bin-input-row">
+            <label class="bin-label" for="dec-input">Decimaal</label>
+            <input type="number" id="dec-input" class="bin-number-input" min="0" max="255" value="65" placeholder="0–255" />
+          </div>
+          <div class="bin-bits" id="bin-bits" aria-label="Bitweergave">
+            <div class="bit-col" data-bit="7"><span class="bit-val">128</span><button class="bit-btn" aria-pressed="false">0</button></div>
+            <div class="bit-col" data-bit="6"><span class="bit-val">64</span><button class="bit-btn" aria-pressed="false">0</button></div>
+            <div class="bit-col" data-bit="5"><span class="bit-val">32</span><button class="bit-btn" aria-pressed="false">0</button></div>
+            <div class="bit-col" data-bit="4"><span class="bit-val">16</span><button class="bit-btn" aria-pressed="false">0</button></div>
+            <div class="bit-col" data-bit="3"><span class="bit-val">8</span><button class="bit-btn" aria-pressed="false">0</button></div>
+            <div class="bit-col" data-bit="2"><span class="bit-val">4</span><button class="bit-btn" aria-pressed="false">0</button></div>
+            <div class="bit-col" data-bit="1"><span class="bit-val">2</span><button class="bit-btn" aria-pressed="false">0</button></div>
+            <div class="bit-col" data-bit="0"><span class="bit-val">1</span><button class="bit-btn" aria-pressed="false">0</button></div>
+          </div>
+          <div class="bin-output-row">
+            <span class="bin-output-label">Binair:</span>
+            <span class="bin-output-value" id="bin-output">01000001</span>
+            <span class="bin-output-label">ASCII:</span>
+            <span class="bin-output-value bin-ascii" id="ascii-output">A</span>
+          </div>
+        </div>
+      </div>
     </main>
+
+    <script>
+      (function () {
+        const decInput  = document.getElementById('dec-input');
+        const binOutput = document.getElementById('bin-output');
+        const asciiOut  = document.getElementById('ascii-output');
+        const bitBtns   = document.querySelectorAll('.bit-btn');
+
+        function toBin8(n) {
+          return (n >>> 0).toString(2).padStart(8, '0');
+        }
+
+        function updateFromDecimal(val) {
+          val = Math.max(0, Math.min(255, Math.round(val)));
+          decInput.value = val;
+          const bin = toBin8(val);
+          binOutput.textContent = bin;
+          asciiOut.textContent = (val >= 32 && val <= 126) ? String.fromCharCode(val) : '—';
+          bitBtns.forEach((btn, i) => {
+            const on = bin[i] === '1';
+            btn.textContent = on ? '1' : '0';
+            btn.setAttribute('aria-pressed', on);
+            btn.classList.toggle('active', on);
+          });
+        }
+
+        decInput.addEventListener('input', () => {
+          const v = parseInt(decInput.value, 10);
+          if (!isNaN(v)) updateFromDecimal(v);
+        });
+
+        bitBtns.forEach((btn, i) => {
+          btn.addEventListener('click', () => {
+            const bin = toBin8(parseInt(decInput.value, 10) || 0);
+            const arr = bin.split('');
+            arr[i] = arr[i] === '1' ? '0' : '1';
+            updateFromDecimal(parseInt(arr.join(''), 2));
+          });
+        });
+
+        updateFromDecimal(65);
+      })();
+    </script>
 
     <footer class="school-footer">
       <p>Gemaakt door Stijn Boyce &mdash;

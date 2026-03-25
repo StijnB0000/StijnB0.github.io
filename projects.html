@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projecten — Stijn</title>
+    <meta name="description" content="Overzicht van projecten van Stijn Boyce — games, websites en meer." />
+    <meta name="theme-color" content="#060609" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="ReusableCss/Menu.css" />
+    <link rel="stylesheet" href="ReusableCss/Scroll.css" />
+    <script src="ReusableCss/Nav.js" defer></script>
+    <script src="ReusableCss/Scroll.js" defer></script>
+    <style>
+      .projects-wrap {
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 56px 24px 80px;
+      }
+
+      .projects-header {
+        margin-bottom: 48px;
+        padding-bottom: 36px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .projects-header h1 {
+        font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 1.12;
+        color: var(--text);
+        margin-bottom: 12px;
+      }
+
+      .projects-header p {
+        font-size: 1.05rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      /* Project cards grid */
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .project-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--r-lg);
+        padding: 28px 26px;
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform     0.25s cubic-bezier(0.22, 1, 0.36, 1),
+          background    0.25s,
+          border-color  0.25s,
+          box-shadow    0.25s;
+      }
+
+      .project-card:hover {
+        background: rgba(255,255,255,0.055);
+        border-color: rgba(165, 180, 252, 0.28);
+        transform: translateY(-5px);
+        box-shadow:
+          0 0 0 1px rgba(165,180,252,0.1),
+          0 20px 60px rgba(0, 0, 0, 0.5),
+          0 0 48px rgba(99, 102, 241, 0.1);
+      }
+
+      /* Shimmer */
+      .project-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 80% 70% at 20% 10%, rgba(165,180,252,0.09) 0%, transparent 65%);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .project-card:hover::before { opacity: 1; }
+
+      /* Diagonal shine */
+      .project-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -80%;
+        width: 55%;
+        height: 100%;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.045), transparent);
+        transform: skewX(-18deg);
+        pointer-events: none;
+        transition: none;
+      }
+
+      .project-card:hover::after {
+        left: 130%;
+        transition: left 0.55s ease;
+      }
+
+      .project-emoji {
+        font-size: 2rem;
+        line-height: 1;
+        position: relative;
+      }
+
+      .project-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        position: relative;
+      }
+
+      .project-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+        color: var(--text);
+      }
+
+      .project-tag {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--accent);
+        background: var(--accent-glow);
+        border: 1px solid rgba(165,180,252,0.18);
+        border-radius: 100px;
+        padding: 3px 10px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .project-desc {
+        font-size: 0.88rem;
+        line-height: 1.65;
+        color: rgba(241,245,249,0.48);
+        position: relative;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        position: relative;
+        margin-top: auto;
+      }
+
+      .tech-pill {
+        font-size: 11.5px;
+        font-weight: 500;
+        color: rgba(241,245,249,0.45);
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 6px;
+        padding: 3px 9px;
+      }
+
+      .project-link-hint {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        color: rgba(165,180,252,0.6);
+        position: relative;
+        transition: color 0.15s;
+      }
+
+      .project-card:hover .project-link-hint {
+        color: var(--accent);
+      }
+
+      /* Footer */
+      .projects-footer {
+        text-align: center;
+        padding: 28px 24px;
+        font-size: 12px;
+        color: rgba(241,245,249,0.28);
+        border-top: 1px solid var(--border);
+      }
+
+      .footer-link {
+        color: rgba(241,245,249,0.42);
+        text-decoration: underline;
+        text-decoration-color: rgba(241,245,249,0.15);
+        text-underline-offset: 3px;
+        transition: color 0.15s;
+      }
+
+      .footer-link:hover { color: var(--text); }
+
+      @media (max-width: 600px) {
+        .projects-wrap { padding: 40px 18px 60px; }
+        .project-grid  { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="reading-progress"></div>
+
+    <nav class="topnav">
+      <a href="index.html" class="nav-logo">Stijn</a>
+      <div class="nav-links">
+        <div class="nav-group">
+          <button class="nav-btn">Personal</button>
+          <div class="nav-dropdown">
+            <a href="Personal/About_Me.html">About Me</a>
+            <a href="Personal/Family.html">Familie</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-btn">School</button>
+          <div class="nav-dropdown">
+            <a href="School/Binairstelsel.html">Binairstelsel</a>
+            <a href="School/Bitmap&VectorAfbeeldingen.html">Bitmap &amp; Vector</a>
+            <a href="School/compressie.html">Compressie</a>
+            <a href="School/Kleurenmodellen.html">Kleurenmodellen</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-btn">Extra's</button>
+          <div class="nav-dropdown">
+            <a href="Extra/Game.html">Pong Game</a>
+            <a href="projects.html">Projecten</a>
+          </div>
+        </div>
+      </div>
+      <button class="nav-hamburger" id="nav-hamburger-btn" aria-label="Menu openen" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+          <line x1="3" y1="7"  x2="21" y2="7"/>
+          <line x1="3" y1="17" x2="21" y2="17"/>
+        </svg>
+      </button>
+    </nav>
+    <div class="nav-mobile-panel" id="nav-mobile-panel" aria-hidden="true">
+      <div class="nav-mobile-section">Personal</div>
+      <a href="Personal/About_Me.html">About Me</a>
+      <a href="Personal/Family.html">Familie</a>
+      <div class="nav-mobile-section">School</div>
+      <a href="School/Binairstelsel.html">Binairstelsel</a>
+      <a href="School/Bitmap&VectorAfbeeldingen.html">Bitmap &amp; Vector</a>
+      <a href="School/compressie.html">Compressie</a>
+      <a href="School/Kleurenmodellen.html">Kleurenmodellen</a>
+      <div class="nav-mobile-section">Extra's</div>
+      <a href="Extra/Game.html">Pong Game</a>
+      <a href="projects.html">Projecten</a>
+    </div>
+
+    <div class="projects-wrap">
+
+      <div class="projects-header reveal">
+        <h1>Projecten</h1>
+        <p>Een overzicht van dingen die ik heb gebouwd — van games tot websites.</p>
+      </div>
+
+      <div class="project-grid">
+
+        <a href="Extra/Game.html" class="project-card reveal" data-delay="1">
+          <div class="project-emoji">🎮</div>
+          <div class="project-top">
+            <span class="project-title">Pong Game</span>
+            <span class="project-tag">Game</span>
+          </div>
+          <p class="project-desc">
+            Een zelfgemaakte Pong-kloon gebouwd in Unity. Speelbaar in de browser via WebGL.
+            Gebruik de pijltjestoetsen of W/S om te spelen.
+          </p>
+          <div class="project-tech">
+            <span class="tech-pill">Unity</span>
+            <span class="tech-pill">C#</span>
+            <span class="tech-pill">WebGL</span>
+          </div>
+          <div class="project-link-hint">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" width="13" height="13">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+            Speel nu
+          </div>
+        </a>
+
+        <a href="index.html" class="project-card reveal" data-delay="2">
+          <div class="project-emoji">🌐</div>
+          <div class="project-top">
+            <span class="project-title">Deze website</span>
+            <span class="project-tag">Website</span>
+          </div>
+          <p class="project-desc">
+            Persoonlijke website gebouwd met vanilla HTML, CSS en JavaScript.
+            Geen frameworks, geen build-stap — gewoon code.
+          </p>
+          <div class="project-tech">
+            <span class="tech-pill">HTML</span>
+            <span class="tech-pill">CSS</span>
+            <span class="tech-pill">JavaScript</span>
+          </div>
+          <div class="project-link-hint">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" width="13" height="13">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+            Bekijk broncode
+          </div>
+        </a>
+
+        <a href="EscapeRoom/index.html" class="project-card reveal" data-delay="3">
+          <div class="project-emoji">🔐</div>
+          <div class="project-top">
+            <span class="project-title">Escape Room</span>
+            <span class="project-tag">Game</span>
+          </div>
+          <p class="project-desc">
+            Een interactieve escape room gemaakt als schoolproject.
+            Los de puzzels op en ontsnap!
+          </p>
+          <div class="project-tech">
+            <span class="tech-pill">HTML</span>
+            <span class="tech-pill">CSS</span>
+            <span class="tech-pill">JavaScript</span>
+          </div>
+          <div class="project-link-hint">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" width="13" height="13">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+            Speel nu
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <footer class="projects-footer">
+      <p>Gebouwd door Stijn &mdash; met een beetje hulp van
+        <a href="https://claude.ai" class="footer-link" target="_blank" rel="noopener">Claude</a>
+      </p>
+    </footer>
+
+  </body>
+</html>

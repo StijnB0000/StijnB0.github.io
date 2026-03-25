@@ -4,47 +4,275 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Me — Stijn</title>
+    <meta name="description" content="Over Stijn Boyce — interesses, vaardigheden en meer." />
+    <meta name="theme-color" content="#060609" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../ReusableCss/Menu.css" />
+    <link rel="stylesheet" href="../ReusableCss/Scroll.css" />
     <script src="../ReusableCss/Nav.js" defer></script>
+    <script src="../ReusableCss/Scroll.js" defer></script>
     <style>
-      .personal-content {
-        max-width: 640px;
+      .about-wrap {
+        max-width: 760px;
         margin: 0 auto;
-        padding: 64px 24px 80px;
+        padding: 56px 24px 80px;
       }
-      .personal-content h1 {
-        font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+
+      .about-hero {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        margin-bottom: 56px;
+        padding-bottom: 48px;
+        border-bottom: 1px solid var(--border);
+        flex-wrap: wrap;
+      }
+
+      .about-avatar {
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(99,102,241,0.5) 0%, rgba(168,85,247,0.5) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        flex-shrink: 0;
+        border: 2px solid rgba(165,180,252,0.2);
+      }
+
+      .about-intro h1 {
+        font-size: clamp(1.9rem, 4.5vw, 2.6rem);
         font-weight: 700;
         letter-spacing: -0.04em;
-        margin-bottom: 16px;
+        line-height: 1.12;
+        color: var(--text);
+        margin-bottom: 10px;
       }
-      .personal-content p {
+
+      .about-intro p {
+        font-size: 1rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      .about-section {
+        margin-bottom: 52px;
+      }
+
+      .about-section h2 {
+        font-size: 1.15rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: var(--text);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .about-section h2::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .about-section p {
         font-size: 1rem;
         line-height: 1.78;
-        color: rgba(241, 245, 249, 0.6);
+        color: rgba(241,245,249,0.72);
+        margin-bottom: 0;
       }
-      .coming-soon {
+
+      /* Interests chips */
+      .chip-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 8px 16px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        font-size: 13.5px;
+        font-weight: 500;
+        color: var(--text-muted);
+        transition: background 0.2s, border-color 0.2s, color 0.2s;
+        cursor: default;
+      }
+
+      .chip:hover {
+        background: var(--surface-hover);
+        border-color: rgba(165,180,252,0.25);
+        color: var(--text);
+      }
+
+      /* Skills */
+      .skill-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 12px;
+      }
+
+      .skill-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--r-md);
+        padding: 16px 18px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: background 0.2s, border-color 0.2s;
+      }
+
+      .skill-card:hover {
+        background: var(--surface-hover);
+        border-color: rgba(165,180,252,0.2);
+      }
+
+      .skill-icon { font-size: 1.4rem; line-height: 1; }
+
+      .skill-info { display: flex; flex-direction: column; gap: 3px; }
+
+      .skill-name {
+        font-size: 13.5px;
+        font-weight: 600;
+        color: var(--text);
+        letter-spacing: -0.02em;
+      }
+
+      .skill-level {
+        font-size: 11.5px;
+        color: var(--text-muted);
+      }
+
+      /* Timeline */
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding-left: 28px;
+      }
+
+      .timeline::before {
+        content: '';
+        position: absolute;
+        left: 6px;
+        top: 8px;
+        bottom: 8px;
+        width: 1px;
+        background: var(--border);
+      }
+
+      .timeline-item {
+        position: relative;
+        padding: 0 0 28px 20px;
+      }
+
+      .timeline-item:last-child { padding-bottom: 0; }
+
+      .timeline-dot {
+        position: absolute;
+        left: -22px;
+        top: 6px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: rgba(165,180,252,0.2);
+        border: 2px solid var(--accent);
+      }
+
+      .timeline-year {
+        font-size: 11.5px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 4px;
+      }
+
+      .timeline-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 4px;
+        letter-spacing: -0.02em;
+      }
+
+      .timeline-desc {
+        font-size: 13.5px;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      /* Contact */
+      .contact-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .contact-btn {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        font-size: 11px;
-        font-weight: 600;
-        letter-spacing: 0.07em;
-        text-transform: uppercase;
-        color: var(--accent);
-        background: var(--accent-glow);
-        border: 1px solid rgba(165, 180, 252, 0.2);
+        padding: 10px 20px;
+        background: var(--surface);
+        border: 1px solid var(--border);
         border-radius: 100px;
-        padding: 5px 14px;
-        margin-bottom: 28px;
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 13.5px;
+        font-weight: 500;
+        transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+      }
+
+      .contact-btn:hover {
+        background: var(--surface-hover);
+        border-color: rgba(165,180,252,0.25);
+        color: var(--text);
+        transform: translateY(-1px);
+      }
+
+      .about-footer {
+        text-align: center;
+        padding: 28px 24px;
+        font-size: 12px;
+        color: rgba(241,245,249,0.28);
+        border-top: 1px solid var(--border);
+      }
+
+      .footer-link {
+        color: rgba(241,245,249,0.42);
+        text-decoration: underline;
+        text-decoration-color: rgba(241,245,249,0.15);
+        text-underline-offset: 3px;
+        transition: color 0.15s;
+      }
+
+      .footer-link:hover { color: var(--text); }
+
+      @media (max-width: 600px) {
+        .about-wrap  { padding: 40px 18px 60px; }
+        .about-hero  { gap: 22px; }
+        .skill-grid  { grid-template-columns: repeat(2, 1fr); }
       }
     </style>
   </head>
 
   <body>
+
+    <div id="reading-progress"></div>
 
     <nav class="topnav">
       <a href="../index.html" class="nav-logo">Stijn</a>
@@ -69,6 +297,7 @@
           <button class="nav-btn">Extra's</button>
           <div class="nav-dropdown">
             <a href="../Extra/Game.html">Pong Game</a>
+            <a href="../projects.html">Projecten</a>
           </div>
         </div>
       </div>
@@ -91,13 +320,135 @@
       <a href="../School/Kleurenmodellen.html">Kleurenmodellen</a>
       <div class="nav-mobile-section">Extra's</div>
       <a href="../Extra/Game.html">Pong Game</a>
+      <a href="../projects.html">Projecten</a>
     </div>
 
-    <main class="personal-content">
-      <div class="coming-soon">Binnenkort beschikbaar</div>
-      <h1>Over mij</h1>
-      <p>Deze pagina is nog in ontwikkeling. Kom later terug voor meer persoonlijke informatie!</p>
-    </main>
+    <div class="about-wrap">
+
+      <div class="about-hero reveal">
+        <div class="about-avatar" aria-hidden="true">👋</div>
+        <div class="about-intro">
+          <h1>Hoi, ik ben Stijn.</h1>
+          <p>Ik ben een leerling met een passie voor technologie, programmeren en design.
+             Deze website is begonnen als schoolproject en groeide al snel uit tot iets meer.
+             Hier vind je alles over mij, mijn school en mijn projecten.</p>
+        </div>
+      </div>
+
+      <div class="about-section reveal" data-delay="1">
+        <h2>Over mij</h2>
+        <p>
+          Ik woon in Nederland en ga naar school waar informatica een van mijn favoriete vakken is.
+          In mijn vrije tijd houd ik me bezig met programmeren, gamen en het uitproberen van nieuwe
+          technologieën. Ik vind het leuk om te begrijpen hoe dingen werken — van hoe een computer
+          kleuren opslaat tot hoe je een spel bouwt in Unity.
+          Deze website is een manier om dat te laten zien.
+        </p>
+      </div>
+
+      <div class="about-section reveal" data-delay="2">
+        <h2>Interesses</h2>
+        <div class="chip-grid">
+          <span class="chip">💻 Programmeren</span>
+          <span class="chip">🎮 Gaming</span>
+          <span class="chip">🎵 Muziek</span>
+          <span class="chip">🎨 Design</span>
+          <span class="chip">🔧 Technologie</span>
+          <span class="chip">🧩 Probleemoplossen</span>
+        </div>
+      </div>
+
+      <div class="about-section reveal" data-delay="1">
+        <h2>Vaardigheden</h2>
+        <div class="skill-grid">
+          <div class="skill-card">
+            <span class="skill-icon">🌐</span>
+            <div class="skill-info">
+              <span class="skill-name">HTML / CSS</span>
+              <span class="skill-level">Gevorderd</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <span class="skill-icon">⚡</span>
+            <div class="skill-info">
+              <span class="skill-name">JavaScript</span>
+              <span class="skill-level">Gemiddeld</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <span class="skill-icon">🎮</span>
+            <div class="skill-info">
+              <span class="skill-name">Unity / C#</span>
+              <span class="skill-level">Gemiddeld</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <span class="skill-icon">🐍</span>
+            <div class="skill-info">
+              <span class="skill-name">Python</span>
+              <span class="skill-level">Beginner</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-section reveal" data-delay="2">
+        <h2>Tijdlijn</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2023</div>
+            <div class="timeline-title">Website gestart</div>
+            <div class="timeline-desc">Begonnen met deze website als schoolproject voor informatica.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2024</div>
+            <div class="timeline-title">Pong in Unity</div>
+            <div class="timeline-desc">Eerste eigen game gebouwd in Unity — een Pong-kloon die draait in de browser via WebGL.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2024 – 2025</div>
+            <div class="timeline-title">Redesign</div>
+            <div class="timeline-desc">Volledige heropmaak van de website: nieuw design-systeem, animaties en nieuwe pagina's.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-section reveal" data-delay="1">
+        <h2>Contact</h2>
+        <div class="contact-row">
+          <a href="mailto:school@stijnboyce.com" class="contact-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" width="15" height="15" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            school@stijnboyce.com
+          </a>
+          <a href="https://github.com/stijnb0000" class="contact-btn" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" aria-hidden="true">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839
+                9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608
+                1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951
+                0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004
+                1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688
+                0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0
+                .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="about-footer">
+      <p>Gebouwd door Stijn &mdash; met een beetje hulp van
+        <a href="https://claude.ai" class="footer-link" target="_blank" rel="noopener">Claude</a>
+      </p>
+    </footer>
 
   </body>
 </html>

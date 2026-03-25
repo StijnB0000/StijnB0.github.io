@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Compressie — Stijn</title>
+    <meta name="description" content="Uitleg over lossless en lossy compressie van bestanden en audio — schoolproject van Stijn Boyce." />
+    <meta name="theme-color" content="#060609" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../ReusableCss/Menu.css" />
     <link rel="stylesheet" href="Css/School.css" />
+    <link rel="stylesheet" href="../ReusableCss/Scroll.css" />
     <script src="../ReusableCss/Nav.js" defer></script>
+    <script src="../ReusableCss/Scroll.js" defer></script>
   </head>
 
   <body>
@@ -37,6 +41,7 @@
           <button class="nav-btn">Extra's</button>
           <div class="nav-dropdown">
             <a href="../Extra/Game.html">Pong Game</a>
+            <a href="../projects.html">Projecten</a>
           </div>
         </div>
       </div>
@@ -59,13 +64,16 @@
       <a href="Kleurenmodellen.html">Kleurenmodellen</a>
       <div class="nav-mobile-section">Extra's</div>
       <a href="../Extra/Game.html">Pong Game</a>
+      <a href="../projects.html">Projecten</a>
     </div>
 
-    <main class="school-content">
-      <h1>Compressie</h1>
-      <p class="lead">Welkom op deze pagina met uitleg over de werking van compressie — erg belangrijk in de computerwereld!</p>
+    <div id="reading-progress"></div>
 
-      <p>
+    <main class="school-content">
+      <h1 class="reveal">Compressie</h1>
+      <p class="lead reveal" data-delay="1">Welkom op deze pagina met uitleg over de werking van compressie — erg belangrijk in de computerwereld!</p>
+
+      <p class="reveal" data-delay="2">
         Compressie bestaat omdat computers niet oneindig opslag hebben.
         Om zoveel mogelijk bestanden op je computer te kunnen zetten moet je ze op een slimme manier
         zo klein mogelijk maken. Je hebt 2 soorten compressie: lossless en lossy.
@@ -76,34 +84,34 @@
         Op Windows-computers wordt compressie vaak gedaan met .zip-bestanden.
       </p>
 
-      <img src="Sources/lossyvslossless.jpeg" alt="Lossy vs lossless compressie" class="centerImage" style="width: min(50%, 600px);" />
+      <img src="Sources/lossyvslossless.jpeg" alt="Lossy vs lossless compressie" class="centerImage reveal" data-delay="3" style="width: min(50%, 600px);" />
 
-      <h2>Voorbeeld</h2>
-      <p>
+      <h2 class="reveal">Voorbeeld</h2>
+      <p class="reveal" data-delay="1">
         Lossy compressie bij afbeeldingen zorgt ervoor dat kleine verschillen in kleur verdwijnen,
         waardoor bijvoorbeeld de tint blauw van het water hetzelfde wordt als de net iets lichtere
         tint blauw van de lucht. Daarnaast worden herhalende tekens verkort — als er in het bestand
         "aaababbb" staat zal hij dit verkorten naar "3aba3b".
       </p>
 
-      <h2>Audio</h2>
-      <p>
+      <h2 class="reveal">Audio</h2>
+      <p class="reveal" data-delay="1">
         Audio-compressie vermindert de bestandsgrootte van geluidsbestanden door overbodige
         of minder hoorbare gegevens te verwijderen.
       </p>
-      <p>
+      <p class="reveal" data-delay="2">
         Bij <strong>lossy compressie</strong> worden onhoorbare frequenties verwijderd om de
         bestandsgrootte erg te verkleinen. Bestanden zoals MP3 en AAC gebruiken deze soort
         compressie. De geluidskwaliteit wordt iets lager, maar het verschil is vaak moeilijk te merken.
       </p>
-      <p>
+      <p class="reveal" data-delay="3">
         Bij <strong>lossless compressie</strong> blijft alle audio-informatie behouden.
         Dit wordt gebruikt in formaten zoals FLAC en ALAC. Hoewel de bestandsgrootte kleiner
         wordt dan bij ongecomprimeerde audio, blijft de kwaliteit perfect behouden.
         Dit wordt vaak gebruikt in studio's waar muziek wordt gemaakt.
       </p>
 
-      <img src="Sources/audiocompressie.jpg" alt="Audio compressie diagram" class="centerImage" style="width: min(50%, 600px);" />
+      <img src="Sources/audiocompressie.jpg" alt="Audio compressie diagram" class="centerImage reveal" data-delay="4" style="width: min(50%, 600px);" />
     </main>
 
     <footer class="school-footer">

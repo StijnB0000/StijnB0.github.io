@@ -1,5 +1,5 @@
 /* =====================================================
-   Homepage — Hero, Cards & Footer
+   Homepage — Hero, Cards, Stats & Footer
    ===================================================== */
 
 @keyframes fadeUp {
@@ -8,8 +8,14 @@
 }
 
 @keyframes pulseOrb {
-  0%, 100% { transform: scale(1)   translateZ(0); opacity: 0.6; }
+  0%, 100% { transform: scale(1)    translateZ(0); opacity: 0.55; }
   50%       { transform: scale(1.08) translateZ(0); opacity: 1;   }
+}
+
+/* Flowing gradient animation on hero title */
+@keyframes gradientFlow {
+  0%, 100% { background-position: 0%   50%; }
+  50%       { background-position: 100% 50%; }
 }
 
 /* ── Hero layout ─────────────────────────────────── */
@@ -20,18 +26,32 @@
   align-items: center;
   justify-content: center;
   padding: 64px 24px 60px;
-  gap: 72px;
+  gap: 64px;
   position: relative;
+  overflow: hidden;
 }
 
-/* Animated glow orb behind hero */
+/* Subtle dot grid — behind everything */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.065) 1px, transparent 1px);
+  background-size: 28px 28px;
+  -webkit-mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 30%, transparent 78%);
+  mask-image:         radial-gradient(ellipse 85% 85% at 50% 50%, black 30%, transparent 78%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Pulsing background orb */
 .hero::after {
   content: '';
   position: absolute;
-  width: 520px;
-  height: 520px;
+  width: 540px;
+  height: 540px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(99,102,241,0.16) 0%, transparent 70%);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -60%);
@@ -55,23 +75,26 @@
   letter-spacing: -0.05em;
   line-height: 1.07;
   margin-bottom: 24px;
-  /* vivid indigo→purple gradient */
   background: linear-gradient(
     135deg,
-    #ffffff 0%,
-    #c7d2fe 40%,
-    #a78bfa 75%,
-    #818cf8 100%
+    #ffffff    0%,
+    #c7d2fe   35%,
+    #a78bfa   65%,
+    #818cf8  100%
   );
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation:
+    fadeUp       0.7s  cubic-bezier(0.22, 1, 0.36, 1) both,
+    gradientFlow 9s    ease                            infinite;
 }
 
 .hero-sub {
   font-size: 1.05rem;
   line-height: 1.78;
-  color: rgba(241, 245, 249, 0.55);
+  color: rgba(241, 245, 249, 0.52);
   margin-bottom: 32px;
   font-weight: 400;
   letter-spacing: -0.01em;
@@ -81,7 +104,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: rgba(241,245,249,0.55);
+  color: rgba(241,245,249,0.52);
   text-decoration: none;
   font-size: 13px;
   font-weight: 500;
@@ -124,31 +147,32 @@
   color: inherit;
   position: relative;
   overflow: hidden;
-  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
-              background 0.25s,
-              border-color 0.25s,
-              box-shadow 0.25s;
+  transition:
+    transform     0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    background    0.25s,
+    border-color  0.25s,
+    box-shadow    0.25s;
 }
 
-/* Gradient glow on hover — the luxe touch */
+/* Glow on hover */
 .card:hover {
   background: rgba(255,255,255,0.055);
   border-color: rgba(165, 180, 252, 0.28);
   transform: translateY(-5px);
   box-shadow:
-    0 0 0 1px rgba(165,180,252,0.12),
+    0 0 0 1px rgba(165,180,252,0.1),
     0 20px 60px rgba(0, 0, 0, 0.5),
-    0 0 48px rgba(99, 102, 241, 0.12);
+    0 0 48px rgba(99, 102, 241, 0.1);
 }
 
-/* Shimmer gradient inside card on hover */
+/* Inner shimmer (::before) */
 .card::before {
   content: '';
   position: absolute;
   inset: 0;
   background: radial-gradient(
     ellipse 80% 70% at 20% 10%,
-    rgba(165, 180, 252, 0.1) 0%,
+    rgba(165, 180, 252, 0.09) 0%,
     transparent 65%
   );
   opacity: 0;
@@ -157,11 +181,31 @@
 
 .card:hover::before { opacity: 1; }
 
-.card-icon {
-  font-size: 1.7rem;
-  line-height: 1;
-  position: relative;
+/* Diagonal shine sweep (::after) */
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.045),
+    transparent
+  );
+  transform: skewX(-18deg);
+  pointer-events: none;
+  transition: none;
 }
+
+.card:hover::after {
+  left: 130%;
+  transition: left 0.55s ease;
+}
+
+.card-icon  { font-size: 1.7rem; line-height: 1; position: relative; }
 
 .card-title {
   font-size: 1rem;
@@ -174,26 +218,42 @@
 .card-desc {
   font-size: 0.84rem;
   line-height: 1.65;
-  color: rgba(241,245,249,0.45);
+  color: rgba(241,245,249,0.43);
   font-weight: 400;
   position: relative;
 }
+
+/* ── Site stats row ──────────────────────────────── */
+.site-stats {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: rgba(241,245,249,0.32);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 0.7s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.stat-dot { opacity: 0.35; }
 
 /* ── Footer ─────────────────────────────────────── */
 .site-footer {
   text-align: center;
   padding: 28px 24px;
   font-size: 12px;
-  color: rgba(241,245,249,0.32);
+  color: rgba(241,245,249,0.28);
   border-top: 1px solid var(--border);
   position: relative;
   z-index: 1;
 }
 
 .footer-link {
-  color: rgba(241,245,249,0.45);
+  color: rgba(241,245,249,0.42);
   text-decoration: underline;
-  text-decoration-color: rgba(241,245,249,0.18);
+  text-decoration-color: rgba(241,245,249,0.15);
   text-underline-offset: 3px;
   transition: color 0.15s;
 }
@@ -201,9 +261,10 @@
 
 /* ── Responsive ─────────────────────────────────── */
 @media (max-width: 640px) {
-  .hero  { padding: 40px 20px 60px; gap: 52px; }
+  .hero  { padding: 40px 20px 60px; gap: 48px; }
+  .hero::after { width: 300px; height: 300px; }
   .cards { grid-template-columns: 1fr; max-width: 400px; }
-  .hero::after { width: 320px; height: 320px; }
+  .site-stats { flex-wrap: wrap; justify-content: center; }
 }
 
 @media (min-width: 641px) and (max-width: 900px) {

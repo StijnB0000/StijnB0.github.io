@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bitmap &amp; Vectorafbeeldingen — Stijn</title>
+    <meta name="description" content="Uitleg over bitmap- en vectorafbeeldingen en geluidsopslag — schoolproject van Stijn Boyce." />
+    <meta name="theme-color" content="#060609" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../ReusableCss/Menu.css" />
     <link rel="stylesheet" href="Css/School.css" />
+    <link rel="stylesheet" href="../ReusableCss/Scroll.css" />
     <script src="../ReusableCss/Nav.js" defer></script>
+    <script src="../ReusableCss/Scroll.js" defer></script>
   </head>
 
   <body>
@@ -37,6 +41,7 @@
           <button class="nav-btn">Extra's</button>
           <div class="nav-dropdown">
             <a href="../Extra/Game.html">Pong Game</a>
+            <a href="../projects.html">Projecten</a>
           </div>
         </div>
       </div>
@@ -59,14 +64,17 @@
       <a href="Kleurenmodellen.html">Kleurenmodellen</a>
       <div class="nav-mobile-section">Extra's</div>
       <a href="../Extra/Game.html">Pong Game</a>
+      <a href="../projects.html">Projecten</a>
     </div>
 
-    <main class="school-content">
-      <h1>Bitmap- &amp; Vectorafbeeldingen</h1>
-      <p class="lead">Welkom op deze pagina met uitleg over de soorten afbeeldingen die we in de computerwereld kennen.</p>
+    <div id="reading-progress"></div>
 
-      <h2>Bitmap Afbeeldingen</h2>
-      <p>
+    <main class="school-content">
+      <h1 class="reveal">Bitmap- &amp; Vectorafbeeldingen</h1>
+      <p class="lead reveal" data-delay="1">Welkom op deze pagina met uitleg over de soorten afbeeldingen die we in de computerwereld kennen.</p>
+
+      <h2 class="reveal" data-delay="2">Bitmap Afbeeldingen</h2>
+      <p class="reveal" data-delay="3">
         Bitmap afbeeldingen zijn opgebouwd uit een rooster van pixels.
         Elke pixel bevat specifieke kleurinformatie, waardoor de afbeelding zijn detail krijgt.
         Bitmapafbeeldingen kunnen complexe kleurverlopen en details weergeven.
@@ -75,8 +83,8 @@
         En doordat de gegevens per individuele pixel zijn opgeslagen neemt het ook veel ruimte in.
       </p>
 
-      <h2>Vector Afbeeldingen</h2>
-      <p>
+      <h2 class="reveal">Vector Afbeeldingen</h2>
+      <p class="reveal" data-delay="1">
         Vectorafbeeldingen zijn opgebouwd uit lijnen, vormen en paden, die worden gedefinieerd
         door wiskundige formules.
         Dit betekent dat ze oneindig kunnen worden geschaald zonder verlies van kwaliteit.
@@ -86,10 +94,10 @@
         of beelden kunt weergeven.
       </p>
 
-      <img src="Sources/vectorvsbitmap.jpg" alt="Vergelijking vector vs bitmap" class="centerImage" style="width: min(70%, 700px);" />
+      <img src="Sources/vectorvsbitmap.jpg" alt="Vergelijking vector vs bitmap" class="centerImage reveal" data-delay="2" style="width: min(70%, 700px);" />
 
-      <h2>Opslag Beeld &amp; Geluid</h2>
-      <p>
+      <h2 class="reveal">Opslag Beeld &amp; Geluid</h2>
+      <p class="reveal" data-delay="1">
         Bij het opslaan van geluid wordt er elke paar milliseconden gekeken naar een waarde
         die de microfoon oppakt — dit heet samplen. Hoe vaker de computer kijkt naar de waarde
         van de microfoon, hoe hoger de kwaliteit van het geluid, maar dit zorgt ook voor grotere
@@ -97,7 +105,7 @@
         in een seconde gedaan.
       </p>
 
-      <img src="Sources/Samplen.png" alt="Samplen diagram" class="centerImage" style="width: min(70%, 700px);" />
+      <img src="Sources/Samplen.png" alt="Samplen diagram" class="centerImage reveal" data-delay="2" style="width: min(70%, 700px);" />
     </main>
 
     <footer class="school-footer">
