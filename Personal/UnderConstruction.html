@@ -7,8 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/ReusableCss/Menu.css" />
-    <script src="/ReusableCss/Nav.js" defer></script>
+    <link rel="stylesheet" href="../ReusableCss/Menu.css" />
+    <script src="../ReusableCss/Nav.js" defer></script>
     <style>
       .uc-content {
         min-height: calc(100vh - var(--nav-h));
@@ -20,25 +20,18 @@
         padding: 40px 24px;
         gap: 16px;
       }
-
-      .uc-emoji {
-        font-size: 3rem;
-        line-height: 1;
-      }
-
+      .uc-emoji { font-size: 3rem; line-height: 1; }
       .uc-content h1 {
         font-size: 2rem;
         font-weight: 700;
         letter-spacing: -0.04em;
       }
-
       .uc-content p {
         font-size: 1rem;
-        color: rgba(241, 245, 249, 0.55);
+        color: rgba(241, 245, 249, 0.5);
         max-width: 380px;
         line-height: 1.7;
       }
-
       .uc-back {
         display: inline-flex;
         align-items: center;
@@ -54,40 +47,35 @@
         background: var(--surface);
         transition: color 0.15s, background 0.15s;
       }
-
-      .uc-back:hover {
-        color: var(--text);
-        background: var(--surface-hover);
-      }
+      .uc-back:hover { color: var(--text); background: var(--surface-hover); }
     </style>
   </head>
 
   <body>
 
-    <!-- ── Navigation ──────────────────────────────── -->
     <nav class="topnav">
-      <a href="/index.html" class="nav-logo">Stijn</a>
+      <a href="../index.html" class="nav-logo">Stijn</a>
       <div class="nav-links">
         <div class="nav-group">
           <button class="nav-btn">Personal</button>
           <div class="nav-dropdown">
-            <a href="/Personal/About_Me.html">About Me</a>
-            <a href="/Personal/Family.html">Familie</a>
+            <a href="About_Me.html">About Me</a>
+            <a href="Family.html">Familie</a>
           </div>
         </div>
         <div class="nav-group">
           <button class="nav-btn">School</button>
           <div class="nav-dropdown">
-            <a href="/School/Binairstelsel.html">Binairstelsel</a>
-            <a href="/School/Bitmap&VectorAfbeeldingen.html">Bitmap &amp; Vector</a>
-            <a href="/School/compressie.html">Compressie</a>
-            <a href="/School/Kleurenmodellen.html">Kleurenmodellen</a>
+            <a href="../School/Binairstelsel.html">Binairstelsel</a>
+            <a href="../School/Bitmap&VectorAfbeeldingen.html">Bitmap &amp; Vector</a>
+            <a href="../School/compressie.html">Compressie</a>
+            <a href="../School/Kleurenmodellen.html">Kleurenmodellen</a>
           </div>
         </div>
         <div class="nav-group">
           <button class="nav-btn">Extra's</button>
           <div class="nav-dropdown">
-            <a href="/Extra/Game.html">Pong Game</a>
+            <a href="../Extra/Game.html">Pong Game</a>
           </div>
         </div>
       </div>
@@ -101,23 +89,22 @@
     </nav>
     <div class="nav-mobile-panel" id="nav-mobile-panel" aria-hidden="true">
       <div class="nav-mobile-section">Personal</div>
-      <a href="/Personal/About_Me.html">About Me</a>
-      <a href="/Personal/Family.html">Familie</a>
+      <a href="About_Me.html">About Me</a>
+      <a href="Family.html">Familie</a>
       <div class="nav-mobile-section">School</div>
-      <a href="/School/Binairstelsel.html">Binairstelsel</a>
-      <a href="/School/Bitmap&VectorAfbeeldingen.html">Bitmap &amp; Vector</a>
-      <a href="/School/compressie.html">Compressie</a>
-      <a href="/School/Kleurenmodellen.html">Kleurenmodellen</a>
+      <a href="../School/Binairstelsel.html">Binairstelsel</a>
+      <a href="../School/Bitmap&VectorAfbeeldingen.html">Bitmap &amp; Vector</a>
+      <a href="../School/compressie.html">Compressie</a>
+      <a href="../School/Kleurenmodellen.html">Kleurenmodellen</a>
       <div class="nav-mobile-section">Extra's</div>
-      <a href="/Extra/Game.html">Pong Game</a>
+      <a href="../Extra/Game.html">Pong Game</a>
     </div>
 
-    <!-- ── Content ─────────────────────────────────── -->
     <main class="uc-content">
       <div class="uc-emoji">🚧</div>
       <h1>Under Construction</h1>
       <p>Deze pagina is nog niet klaar. Kom later terug!</p>
-      <a href="/index.html" class="uc-back">← Terug naar Home</a>
+      <a href="../index.html" class="uc-back">← Terug naar Home</a>
     </main>
 
   </body>
