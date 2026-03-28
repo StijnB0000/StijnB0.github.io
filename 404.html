@@ -6,14 +6,9 @@
     <title>Pagina niet gevonden — Stijn</title>
     <meta name="description" content="Deze pagina bestaat niet." />
     <meta name="theme-color" content="#060609" />
-    <!-- base href: set dynamically so links resolve correctly on both
-         stijnb0000.github.io/StijnB0.github.io/ and www.stijnboyce.com -->
-    <base href="/" id="base-tag" />
-    <script>
-      if (location.hostname === 'stijnb0000.github.io') {
-        document.getElementById('base-tag').href = '/StijnB0.github.io/';
-      }
-    </script>
+    <!-- base href ensures all relative links resolve from the site root,
+         regardless of which URL triggered this 404 page -->
+    <base href="/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
